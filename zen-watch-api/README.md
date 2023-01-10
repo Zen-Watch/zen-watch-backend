@@ -62,6 +62,13 @@ db.metrics.find()
 db.metrics.drop()
 ```
 
+## Skipped for future
+Learning from time wasting mistakes.Failed attempts.
+
+### Heavy weight typescript codebase
+* [Build a REST API with Node.js, Express, TypeScript, MongoDB & Zod](https://www.youtube.com/watch?v=BWUi6BS9T5Y)
+* [Reference github code](https://github.com/TomDoesTech/REST-API-Tutorial-Updated/blob/main/src/models/product.model.ts)
+
 #### Local installation of postgres
 
 * [How to Install Postgres on MacOS](https://www.youtube.com/watch?v=Z-iM7hUdBSg)

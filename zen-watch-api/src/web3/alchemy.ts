@@ -7,6 +7,7 @@ const settings = {
 
 const alchemy = new Alchemy(settings);
 
-export function getLatestBlock() {
-  return alchemy.core.getBlockNumber().then(console.log);
+export async function getLatestBlock() {
+  const block = await alchemy.core.getBlockNumber();
+  return block;
 }
