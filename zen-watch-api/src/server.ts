@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 const app = express()
@@ -15,4 +15,4 @@ app.use(express.json())
 const analyticsRouter = require('./routes/analytics')
 app.use('/analytics', analyticsRouter)
 
-app.listen(3000, ()=> console.log('Server Started!!'))
+app.listen(process.env.SERVER_PORT, ()=> console.log('Server Started!!'))
