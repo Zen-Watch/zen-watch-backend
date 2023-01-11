@@ -8,7 +8,32 @@ Backend REST api server for Zen Watch which fetches data from the databases.
 * [PERN Stack Course - Postgres, Express, React, and Node](https://www.youtube.com/watch?v=ldYcgPKEZC8)
 * [Anson the developer - ExpressJS Tutorial #3 - POST Requests](https://www.youtube.com/watch?v=1cjdlfB11Ss)
 
+### Code Walkthrough
+```
+src -- top level directory
+- server.ts -- Main entry point for the server
+- /routes -- Houses various apis, called by server.ts
+- /handlers -- Invokes external & internal dependencies, called by routes
+- /logic - Data access layer for mongoose models, called by handlers
+- /models - ODM & logical schemas for mongodb documents
+```
+
 ### Deployment
+``` npm install ```
+Installs the dependencies for the the app with node command.
+
+Create a .env file in the root folder & following secrets to the .env file, consult Dheeban
+```
+MONGODB_URL='mongodb://localhost:27017/web3-crunch'
+SERVER_PORT=1337
+ALCHEMY_API_KEY='get-your-alchemy-api-key'
+```
+
+Download the postman collection & run the `/healthz` api:
+```
+https://api.postman.com/collections/2147990-ddfc6a6b-a76f-4f4f-ba39-55cefc1468df?access_key=PMAT-01GPFZ56RH6KJWMR7XW4DRJJKB
+```
+
 ``` npm start ```
 Starts the app with node command.
 
