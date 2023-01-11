@@ -22,9 +22,10 @@ src -- top level directory
 ``` npm install ```
 Installs the dependencies for the the app with node command.
 
-Create a .env file in the root folder & following secrets to the .env file, consult Dheeban
+Create a .env file in the root folder & following secrets to the .env file, consult Dheeban.
+Connect to MongoDB via mongosh and/or GUI.
 ```
-MONGODB_URL='mongodb://localhost:27017/web3-crunch'
+MONGODB_URL='mongodb://localhost:27017/zen-analytics'
 SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 ```

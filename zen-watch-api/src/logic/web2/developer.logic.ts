@@ -1,0 +1,1 @@
+// Internal model, no external API exposed, developer api creation done manually
