@@ -6,17 +6,16 @@ dotenv.config();
 const router = express.Router()
 
 router.get('/healthz', (req, res) => {
-    res.send('hello world!')
+    res.status(200).send('hello world!!');
 })
 
-router.post('/event', (req, res) => {
-    const transaction_hash = req.body.hash
+router.post('/event', (req:Request, res:Response) => {
     const resp_json = {
-        transaction_hash
+        'request': req.body
     }
-    getLatestBlock().then(console.log)
+    getLatestBlock().then(console.log);
       
-    res.status(200).send(resp_json)
+    res.status(200).send(resp_json);
 })
 
 module.exports = router
