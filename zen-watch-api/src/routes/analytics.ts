@@ -1,19 +1,18 @@
 import express, { Request, Response } from 'express';
-import dotenv from 'dotenv';
-import { getLatestBlock } from '../handlers/alchemy.handler';
+import dotenv from 'dotenv'; 
 import { handleZenWatchEvent } from '../handlers/event.handler';
+import { STATUS_OK } from '../utils/constants';
 dotenv.config();
 
 const router = express.Router()
 
 router.get('/healthz', (req, res) => {
-    res.status(200).send('hello world!!');
+    res.status(STATUS_OK).send('hello world!!');
 })
 
 router.post('/event', (req:Request, res:Response) => {
-    //getLatestBlock().then(console.log);
-    const _res = handleZenWatchEvent(req.body) 
-    res.status(200).send(_res);
+    handleZenWatchEvent(req.body)
+    .then(_res => res.status(_res.status).send(_res))
 })
 
 module.exports = router

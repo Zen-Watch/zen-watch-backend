@@ -3,10 +3,13 @@ Backend REST api server for Zen Watch which fetches data from the databases.
 
 ## Installation
 * [Build A REST API With Node.js, Express, & MongoDB - Quick](https://www.youtube.com/watch?v=fgTGADljAeg)
+* [Restful API with NodeJS, Express, Typescript & Mongo / Mongoose - 2020](https://www.youtube.com/watch?v=lNqaQ0wEeAo)
 * [Build and Deploy a MERN Stack Application | Complete MERN Stack Tutorial](https://www.youtube.com/watch?v=2kvA6Ba3fWo)
 * [Build a Rest Api with NodeJS (JavaScript), Express, and PostgreSQL](https://www.youtube.com/watch?v=DihOP19LQdg)
 * [PERN Stack Course - Postgres, Express, React, and Node](https://www.youtube.com/watch?v=ldYcgPKEZC8)
 * [Anson the developer - ExpressJS Tutorial #3 - POST Requests](https://www.youtube.com/watch?v=1cjdlfB11Ss)
+* [Mongoose JS - Official Documentation](https://mongoosejs.com/docs/typescript.html)
+* [Mongoose JS - Indexes](https://mongoosejs.com/docs/guide.html#indexes)
 
 ### Code Walkthrough
 ```
@@ -22,9 +25,10 @@ src -- top level directory
 ``` npm install ```
 Installs the dependencies for the the app with node command.
 
-Create a .env file in the root folder & following secrets to the .env file, consult Dheeban
+Create a .env file in the root folder & following secrets to the .env file, consult Dheeban.
+Connect to MongoDB via mongosh and/or GUI.
 ```
-MONGODB_URL='mongodb://localhost:27017/web3-crunch'
+MONGODB_URL='mongodb://localhost:27017/zen-analytics'
 SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 ```
