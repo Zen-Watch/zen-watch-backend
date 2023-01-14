@@ -3,10 +3,13 @@ Backend REST api server for Zen Watch which fetches data from the databases.
 
 ## Installation
 * [Build A REST API With Node.js, Express, & MongoDB - Quick](https://www.youtube.com/watch?v=fgTGADljAeg)
+* [Restful API with NodeJS, Express, Typescript & Mongo / Mongoose - 2020](https://www.youtube.com/watch?v=lNqaQ0wEeAo)
 * [Build and Deploy a MERN Stack Application | Complete MERN Stack Tutorial](https://www.youtube.com/watch?v=2kvA6Ba3fWo)
 * [Build a Rest Api with NodeJS (JavaScript), Express, and PostgreSQL](https://www.youtube.com/watch?v=DihOP19LQdg)
 * [PERN Stack Course - Postgres, Express, React, and Node](https://www.youtube.com/watch?v=ldYcgPKEZC8)
 * [Anson the developer - ExpressJS Tutorial #3 - POST Requests](https://www.youtube.com/watch?v=1cjdlfB11Ss)
+* [Mongoose JS - Official Documentation](https://mongoosejs.com/docs/typescript.html)
+* [Mongoose JS - Indexes](https://mongoosejs.com/docs/guide.html#indexes)
 
 ### Code Walkthrough
 ```
