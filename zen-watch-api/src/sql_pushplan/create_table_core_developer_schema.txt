@@ -1,0 +1,14 @@
+CREATE TABLE developer (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(500) NOT NULL,
+    api_key VARCHAR(36) NOT NULL,
+    incident_response_email VARCHAR(500) NOT NULL,
+    created_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY(id),
+    INDEX EIDX (email ASC),
+    INDEX AKIDX (api_key ASC),
+    INDEX ICREIDX (incident_response_email ASC),
+    INDEX DCTS (created_ts ASC),
+    INDEX DUTS (updated_ts ASC)
+);

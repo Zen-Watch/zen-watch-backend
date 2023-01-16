@@ -17,10 +17,10 @@ export async function handleZenWatchEvent(event: any) {
                 event_timestamp: valid_event.event_timestamp,
                 event_type: valid_event.event_type,
                 api_key: valid_event.api_key,
-                environment_details: JSON.stringify(valid_event.environment_details),
-                event_properties: JSON.stringify(valid_event.event_properties),
+                environment_details: valid_event.environment_details,
+                event_properties: valid_event.event_properties,
                 wallet_address: valid_event.wallet_address,
-                wallet_properties: JSON.stringify(valid_event.wallet_properties),
+                wallet_properties: valid_event.wallet_properties,
                 status: valid_event.status,
                 backfilled_properties: valid_event.backfilled_properties,
             })
