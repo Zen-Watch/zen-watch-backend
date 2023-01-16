@@ -1,17 +1,16 @@
-import Event from "../../models/web2/event.model";
+import { get_developer_by_api_key } from "./developer.logic";
+import { connect_to_mysql } from "../../db/connection_pool";
 
-export async function saveEvent(params:any) {
-    const event = new Event({
-        event_id: params.event_id,
-        event_timestamp: params.event_timestamp,
-        event_type: params.event_type,
-        api_key: params.api_key,
-        environment_details: params.environment_details,
-        event_properties: params.event_properties,
-        wallet_address: params.wallet_address,
-        wallet_properties: params.wallet_properties,
-        status: params.status,
-        backfilled_properties: params.backfilled_properties,
-    })
-    await event.save()
+export async function saveEvent(event:any) {
+    try{
+        const dev = await get_developer_by_api_key(event.api_key);
+        const pool = await connect_to_mysql();
+        const backfill_json = {}
+        const result:any = await pool.query(
+            `insert into event (id, event_type, dev_id, status, event_json, backfill_json) values (?,?,?,?,?,?)`, 
+            [event.event_id, event.event_type, dev.id, "unprocessed", JSON.stringify(event), JSON.stringify(backfill_json)]
+        );
+    }catch(e){
+        throw e;
+    }
 }

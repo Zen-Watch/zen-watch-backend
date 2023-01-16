@@ -2,8 +2,16 @@ import {v4 as uuidv4} from 'uuid';
 import { UNPROCESSED_ENTITY } from './constants';
 
 
-export function validateZenWatchEvent(event: any) {
-    
+export function validateZenWatchEvent(event: any) {    
+    if (event == '')
+        throw new Error('The event must be a valid JSON');
+
+    try {
+        JSON.stringify(event)
+    } catch(e) {
+        throw new Error('The event must be a valid JSON')
+    }
+
     if (event.environment_details == '')
         throw new Error('environment_details must be a valid JSON');
     
@@ -36,7 +44,5 @@ export function validateZenWatchEvent(event: any) {
 
 export function attachEventMetadata(event: any) {
     event.event_id = uuidv4();
-    event.status = UNPROCESSED_ENTITY;
-    event.backfilled_properties = '';
     return event;
 }
