@@ -1,16 +1,20 @@
-import { get_developer_by_api_key } from "./developer.logic";
 import { connect_to_mysql } from "../../db/connection_pool";
 
-export async function saveEvent(event:any) {
-    try{
-        const dev = await get_developer_by_api_key(event.api_key);
-        const pool = await connect_to_mysql();
-        const backfill_json = {}
-        const result:any = await pool.query(
-            `insert into event (id, event_type, dev_id, status, event_json, backfill_json) values (?,?,?,?,?,?)`, 
-            [event.event_id, event.event_type, dev.id, "unprocessed", JSON.stringify(event), JSON.stringify(backfill_json)]
-        );
-    }catch(e){
+export async function fetchUnprocessedEvents() {
+    const pool = await connect_to_mysql()
+    const result: any = await pool.query(`select * from event where status='unprocessed'`);
+    return result[0];
+}
+
+//populate the visualization & notification tables as required
+export async function processUnprocessedEvents(events: Array<any>) {
+    try {
+        console.log('FOO BAR --', events);
+        console.log('PRINTING FROM processUnprocessedEvents')
+        for (let _event of events) {
+            console.log(_event);
+        }
+    } catch (e) {
         throw e;
     }
 }
