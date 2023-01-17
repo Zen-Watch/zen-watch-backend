@@ -18,7 +18,7 @@ src -- top level directory
 - /routes -- Houses various apis, called by server.ts
 - /handlers -- Invokes external & internal dependencies, called by routes
 - /logic - Data access layer for mongoose models, called by handlers
-- /models - ODM & logical schemas for mysql documents
+- /db - MySQL connection pool & any other necessary core db files
 - /sql_pushplan - contains the mysql schema files to restore the mysql db (table operation type, core & visualization, notification tables are separated by the respective prefixes)
 ```
 
