@@ -1,7 +1,9 @@
 # Zen Watch Background Job
 Background job to process unprocess events to populate visualization & alerting tables
 
-## Installation
+## Debugging
+Look into polygon & other blockchain explorers to get representative inputs about all error conditions. Go deep into understanding blockchain transactions.
+https://polygonscan.com/
 
 
 ### Code Walkthrough

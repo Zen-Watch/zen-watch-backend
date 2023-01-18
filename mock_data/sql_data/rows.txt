@@ -1,0 +1,361 @@
+id	event_type	dev_id	status	event_json	backfill_json	created_ts	updated_ts
+08f18864-3733-4cf0-a71d-4732c1ba54d6	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "08f18864-3733-4cf0-a71d-4732c1ba54d6",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0xacef9cf01759c33d74140304bdca4fd175bae233",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0x0e7e03000e426f0a85f6524ca5c2cea239b576d74eab7a146578de76f74908cf",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 57: 55	2023-01-16 22: 57: 55
+0bf10156-72f1-48c4-9309-9305f64fab5d	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "0bf10156-72f1-48c4-9309-9305f64fab5d",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0xa3df90bf8e8183a74b537b27e3955ba7d8de199c",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0xc5b53a618491b0a4e270e2e71724b8b62d32f1d981f528e0e76039a8cce205af",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 58: 56	2023-01-16 22: 58: 56
+3e4fb73a-68e2-4f64-9842-af97cec5af35	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "3e4fb73a-68e2-4f64-9842-af97cec5af35",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0x829a9da237d30543be24d6ef13e733d547c157b9",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0xed6d9f6a58cde835e82ce3073b95d246ccf8f2622d399bfe4044544033ce98d2",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 55: 30	2023-01-16 22: 55: 30
+488126ad-7de9-467d-8c1f-9e62cb5fb194	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "488126ad-7de9-467d-8c1f-9e62cb5fb194",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0x58c3bf535955aa2a9b79c60f3c4ea65a919083ef",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0x702a56af13ee0c6957b9728455d087ca6aebfc8cb7086ffd4717bedf7bbe2459",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 57: 38	2023-01-16 22: 57: 38
+5ad31d9b-0822-493c-a4d0-f7a1811bcee2	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "5ad31d9b-0822-493c-a4d0-f7a1811bcee2",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0xa91d1cc92b6323ee5ff55c8c0f094ff511fa286a",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0x3af68ac9316ab4c7265f1caece1211db08a59da510d102d81d5cdf3b6fc7eef6",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 57: 20	2023-01-16 22: 57: 20
+6729f4c5-a0a7-4320-9908-a01a12964074	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "6729f4c5-a0a7-4320-9908-a01a12964074",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0xfe6a539da55eb941d20cf6aebe09b33f24a74e26",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0x0aba4ecee88de2db063bb4193bd346b7c8410375cf72f837a8d3b621ddd69f41",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 55: 46	2023-01-16 22: 55: 46
+6fc1de9d-2548-41ff-a699-95ce0e930a61	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "6fc1de9d-2548-41ff-a699-95ce0e930a61",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0x9d05a41ed64b64f0abddbb64ff94718f539c5ff6",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0xb2d755d7ba5adf794647b05ef6a9075d79e5337c9c0f7fe13ff304df6ffa9892",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 56: 29	2023-01-16 22: 56: 29
+7e5eb879-1f15-4a6f-bd75-d6d8f41ab761	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "7e5eb879-1f15-4a6f-bd75-d6d8f41ab761",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0x2a96b50ffe2d9ba35ba6755978a2a2e28be54e8e",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0x7a9e3a6218e76887a9a2a4a02dd4207b0347be96ac713096a80cb709a1089bcf",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 55: 14	2023-01-16 22: 55: 14
+c1aa87d0-d844-4f3b-a87d-c818f11db6aa	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "c1aa87d0-d844-4f3b-a87d-c818f11db6aa",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0x79e3e50af49503167fd9e007cc09fda730c6457f",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0x0acd0afae95e2bea5a30a6ffa1c3b86b6e65c7af3dfbed0c6a84092719a3b043",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 57: 06	2023-01-16 22: 57: 06
+c8b8a5ae-4183-4675-b233-784f8273c3ca	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "c8b8a5ae-4183-4675-b233-784f8273c3ca",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0x426948ea301329288dc18a8de00e049d59bff657",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0xb987c11c23dd079bb8b0ae78f6ad17063e59364e649fc3bdfd9917efabd15fa0",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 56: 47	2023-01-16 22: 56: 47
+d43780f7-c84e-42a4-84bd-486c72a2cde2	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "d43780f7-c84e-42a4-84bd-486c72a2cde2",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0x2a6a449e13660bf194027b55ffcc7e406b635ae2",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0x4afcd4d98753c74b196abaa7d86f6ecca078eef0f367f71aef679d1f14d9cb17",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 58: 13	2023-01-16 22: 58: 13
+f7977abd-f75e-4fce-80bd-7d7b72bd463b	onchain_transaction	1	unprocessed	{
+    "api_key": "92960b61-59de-4663-a3e8-420e25cc94d5",
+    "event_id": "f7977abd-f75e-4fce-80bd-7d7b72bd463b",
+    "event_time": "1673407990",
+    "event_type": "onchain_transaction",
+    "wallet_address": "0x821a9ac548d4f5dd692a9b24705b4f741ace0389",
+    "event_properties": {
+        "chain": "polygon_mainnet",
+        "txn_hash": "0xf83c71b18457f205aef1ddb75b156ee9cf3111ee37ef80fd4eb567dc5c6875ed",
+        "quote_usd": {
+            "gas": "0.05",
+            "maxFeePerGas": "0.01",
+            "maxPriorityFeePerGas": "0.05"
+        },
+        "quote_native": {
+            "gas": "0x55555",
+            "maxFeePerGas": "0x1234",
+            "maxPriorityFeePerGas": "0x1234"
+        }
+    },
+    "wallet_properties": {
+        "user_email": "sgdheeban@gmail.com",
+        "player_rank": 100
+    },
+    "environment_details": {
+        "city": "San Fransisco",
+        "country": "USA",
+        "platform": "iOS"
+    }
+}	{}	2023-01-16 22: 56: 12	2023-01-16 22: 56: 12

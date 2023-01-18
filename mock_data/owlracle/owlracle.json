@@ -1,0 +1,37 @@
+{
+    "timestamp": "2023-01-18T06:22:41.673Z",
+    "lastBlock": 38221005,
+    "avgTime": 2.407035175879397,
+    "avgTx": 85.48,
+    "avgGas": 203300.5504055546,
+    "speeds": [
+      {
+        "acceptance": 0.35,
+        "maxFeePerGas": 43.333886284,
+        "maxPriorityFeePerGas": 32.539137166,
+        "baseFee": 10.794749118,
+        "estimatedFee": 0.00907409702073138
+      },
+      {
+        "acceptance": 0.6,
+        "maxFeePerGas": 45.341426088,
+        "maxPriorityFeePerGas": 33.458614092999994,
+        "baseFee": 11.882811995,
+        "estimatedFee": 0.009494474986259067
+      },
+      {
+        "acceptance": 0.9,
+        "maxFeePerGas": 49,
+        "maxPriorityFeePerGas": 34.663727315,
+        "baseFee": 14.336272685,
+        "estimatedFee": 0.01026057877896834
+      },
+      {
+        "acceptance": 1,
+        "maxFeePerGas": 53.597002656,
+        "maxPriorityFeePerGas": 35.476495575,
+        "baseFee": 18.120507081,
+        "estimatedFee": 0.011223189144254356
+      }
+    ]
+  }

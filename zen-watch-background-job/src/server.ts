@@ -5,7 +5,6 @@ import { handleFetchUnprocessedEvents, handleProcessUnprocessedEvents } from './
 
 dotenv.config();
 
-
 console.log('Processing run started at - ', dayjs().format());
 
 //read unprocessed events

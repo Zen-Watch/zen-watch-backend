@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from 'uuid';
-import { UNPROCESSED_ENTITY } from './constants';
+import { ONCHAIN_TRANSACTION_EVENT_TYPE, UNPROCESSED_ENTITY } from './constants';
 
 
 export function validateZenWatchEvent(event: any) {    
@@ -37,6 +37,11 @@ export function validateZenWatchEvent(event: any) {
         JSON.stringify(event.wallet_properties)
     } catch(e:any) {
         throw new Error('wallet_properties must be a valid JSON')
+    }
+
+    if (event.event_type == ONCHAIN_TRANSACTION_EVENT_TYPE) {
+        if (!event.event_properties || !event.event_properties.chain || !event.event_properties.txn_hash)
+            throw new Error('For onchain_transaction type, chain and txn_hash must be passed in')
     }
 
     return attachEventMetadata(event)
