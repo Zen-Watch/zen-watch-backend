@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from 'uuid';
-import { POLYGON_MAINNET_TRANSACTION_EVENT_TYPE, UNPROCESSED_ENTITY } from './constants';
+import { POLYGON_MAINNET_TRANSACTION_EVENT_TYPE } from './constants';
 
 
 export function validateZenWatchEvent(event: any) {    

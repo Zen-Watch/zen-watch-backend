@@ -1,32 +1,22 @@
 import { connect_to_mysql } from "../db/connection_pool";
+import { PROCESSED_ENTITY, UNPROCESSED_ENTITY } from "../utils/constants";
 
 export async function fetchUnprocessedEvents() {
     const pool = await connect_to_mysql()
-    const result: any = await pool.query(`select * from event where status='unprocessed'`);
+    const result: any = await pool.query(`select * from event where status=?`, [UNPROCESSED_ENTITY]);
     return result[0];
 }
 
-// Ref: https://github.com/sidorares/node-mysql2/discussions/1471
-// https://github.com/sidorares/node-mysql2/blob/07a429d9765dcbb24af4264654e973847236e0de/test/integration/connection/test-transaction-commit.js
-// https://github.com/sidorares/node-mysql2/blob/07a429d9765dcbb24af4264654e973847236e0de/test/integration/connection/test-transaction-rollback.js
+
 export async function saveBackFillJson(event:any, backfill_json_str:string) {
+    // Using simple update, the access pattern can allow for simple update although the code is not race-condition free
+    // Later change to select for update - do things that don't scale
+    // Reference: https://sehannrathnayake.medium.com/how-to-handle-mysql-database-transactions-with-nodejs-b7a2bf1fd203
     try{
         const pool = await connect_to_mysql();
-        const backfill_json = {}
-        await pool.getConnection(async (err, conn) => {
-            try{
-                console.log('TRY CALLED in saveBackFillJson')
-                console.log('TRY FINISHED in saveBackFillJson')
-            }
-            catch(error) {
-                console.log('ERROR CALLED in saveBackFillJson')
-            }
-            finally {
-                console.log('FINALLY CALLED in saveBackFillJson')
-                await conn.release();
-            }
-        });
+        const result:any = await pool.query(`UPDATE event SET backfill_json= ?, status= ? where id = ?`, [backfill_json_str, PROCESSED_ENTITY, event.id]);
     }catch(e){
+        console.log('Error upating bacfill json in saveBackFillJson', e)
         throw e;
     }
 }

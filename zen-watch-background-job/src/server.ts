@@ -17,12 +17,12 @@ handleFetchUnprocessedEvents()
                 process.exit(0); // Terminate with success
             })
             .catch(err => {
-                console.log('PROCESS TERMINATED WITH ERROR IN handleProcessUnprocessedEvents', err);
+                console.log('Process terminated with error in handleProcessUnprocessedEvents', err);
                 process.exit(1); // Terminate with failure
             });
     })
     .catch(err => {
-        console.log('PROCESS TERMINATED WITH ERROR IN handleFetchUnprocessedEvents', err);
+        console.log('Process terminated with error in handleFetchUnprocessedEvents', err);
         process.exit(1);
     });
 

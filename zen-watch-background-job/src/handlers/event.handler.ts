@@ -25,7 +25,7 @@ export async function processEvent(event: any) {
     if (event.event_type === POLYGON_MAINNET_TRANSACTION_EVENT_TYPE) {
         const backfill_json = await construct_evm_backfill_json(event);
         const backfill_json_str = JSON.stringify(backfill_json);
-        saveBackFillJson(event, backfill_json_str);
+        await saveBackFillJson(event, backfill_json_str);
         // potentially extract additional virtual column indexes out of json in mysql (4096 columns possible)
         // Add PM2 to manage the process
     }

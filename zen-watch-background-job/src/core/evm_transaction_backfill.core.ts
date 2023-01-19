@@ -4,6 +4,7 @@ import { getExchangeRate } from "../handlers/cryptocompare.handler";
 import { getChainFromEventName } from "../utils/util_methods";
 
 export async function construct_evm_backfill_json(event: any) {
+    console.log('Processing transaction', event.event_json.event_properties.txn_hash)
     // backfill transaction data
     const backfill_json: any = {}
     const chain = getChainFromEventName(event.event_type);
@@ -15,11 +16,10 @@ export async function construct_evm_backfill_json(event: any) {
     if (receipt === null || txn_response === null) {
         // If transaction has been stuck for > 1min, notify developer
         //TODO - Implement later
-        console.log('RECEIPT NULL - ', event.event_json.event_properties.txn_hash);
+        console.log('Skipping for no-receipt', event.event_json.event_properties.txn_hash)
     }
     else {
         // Get rest of the transaction details
-        console.log('PROCESSING TXN - ', event.event_json.event_properties.txn_hash);
         // Get the block timestamp
         const block = await getBlockByHash(chain, receipt.blockHash)
 

@@ -3,6 +3,7 @@ export const POLYGON_MAINNET_TRANSACTION_EVENT_TYPE = 'polygon_mainnet_transacti
 
 // Supported states
 export const UNPROCESSED_ENTITY = 'unprocessed';
+export const PROCESSED_ENTITY = 'processed';
 
 // Supported networks
 export const POLYGON_MAINNET = "polygon_mainnet";
