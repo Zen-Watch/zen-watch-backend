@@ -65,8 +65,9 @@ Learn more about deployment.
 https://www.youtube.com/watch?v=2kvA6Ba3fWo
 
 Using PM2 for production.
-https://pm2.keymetrics.io/docs/usage/quick-start/
-https://stackoverflow.com/questions/50689644/node-dotenv-wont-work-with-pm2
+* https://pm2.keymetrics.io/docs/usage/quick-start/
+* https://stackoverflow.com/questions/50689644/node-dotenv-wont-work-with-pm2
+* [Using PM2 in 2020 for NodeJS](https://www.youtube.com/watch?v=ebdKIU6SDHI)
 
 Install Ngnix on the production server
 ```apt install nginx ```
@@ -79,6 +80,7 @@ Install Ngnix on the production server
 * [How to work with JSON / INDEXES in mysql](https://www.digitalocean.com/community/tutorials/working-with-json-in-mysql)
 * [JSON mysql pros-cons](https://stackoverflow.com/questions/33660866/native-json-support-in-mysql-5-7-what-are-the-pros-and-cons-of-json-data-type)
 * [Using Transaction in MySQL2](https://sehannrathnayake.medium.com/how-to-handle-mysql-database-transactions-with-nodejs-b7a2bf1fd203)
+*[Scheduling with node-cron in nodejs](https://www.youtube.com/watch?v=KxPENgraciY)
 
 #### Commands to run local mysql
 ``` brew services start mysql ```
