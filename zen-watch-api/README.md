@@ -35,6 +35,7 @@ MYSQL_PASSWORD='your-local-mysql-password'
 MYSQL_DATABASE='zen_watch'
 SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
+CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
 ```
 
 Download the postman collection & run the `/healthz` api:

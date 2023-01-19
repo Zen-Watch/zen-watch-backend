@@ -13,6 +13,7 @@ src -- top level directory
 - /handlers -- Invokes external & internal dependencies, called by routes
 - /logic - Data access layer for mongoose models, called by handlers
 - /db - MySQL connection pool & any other necessary core db files
+- /core - Contains core business logic files common to all modules, chains etc
 ```
 
 ### Deployment
@@ -28,6 +29,7 @@ MYSQL_PASSWORD='your-local-mysql-password'
 MYSQL_DATABASE='zen_watch'
 SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
+CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
 ```
 
 ``` npm start ```

@@ -1,4 +1,4 @@
-export const ONCHAIN_TRANSACTION_EVENT_TYPE = 'onchain_transaction';
+export const POLYGON_MAINNET_TRANSACTION_EVENT_TYPE = 'polygon_mainnet_transaction';
 export const UNPROCESSED_ENTITY = 'unprocessed';
 
 export const STATUS_OK=200;
