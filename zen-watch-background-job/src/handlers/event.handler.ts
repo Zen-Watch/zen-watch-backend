@@ -1,8 +1,5 @@
-import { appendFileSync } from "fs";
 import { fetchUnprocessedEvents, saveBackFillJson } from "../logic/event.logic";
-import { BILLION, POLYGON_MAINNET, POLYGON_MAINNET_TRANSACTION_EVENT_TYPE, USD } from "../utils/constants";
-import { getBlockByHash, getTransactionByHash, getTransactionReceiptByHash } from "./alchemy.handler";
-import { getExchangeRate } from "./cryptocompare.handler";
+import { POLYGON_MAINNET_TRANSACTION_EVENT_TYPE } from "../utils/constants";
 import { construct_evm_backfill_json } from "../core/evm_transaction_backfill.core";
 
 export async function handleFetchUnprocessedEvents() {
