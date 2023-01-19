@@ -78,6 +78,7 @@ Install Ngnix on the production server
 * [MySQL data types](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
 * [How to work with JSON / INDEXES in mysql](https://www.digitalocean.com/community/tutorials/working-with-json-in-mysql)
 * [JSON mysql pros-cons](https://stackoverflow.com/questions/33660866/native-json-support-in-mysql-5-7-what-are-the-pros-and-cons-of-json-data-type)
+* [Using Transaction in MySQL2](https://github.com/sidorares/node-mysql2/discussions/1471)
 
 #### Commands to run local mysql
 ``` brew services start mysql ```

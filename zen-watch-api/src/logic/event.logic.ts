@@ -1,5 +1,5 @@
 import { get_developer_by_api_key } from "./developer.logic";
-import { connect_to_mysql } from "../../db/connection_pool";
+import { connect_to_mysql } from "../db/connection_pool";
 
 export async function saveEvent(event:any) {
     try{

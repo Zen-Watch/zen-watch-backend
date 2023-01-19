@@ -1,4 +1,4 @@
-import { saveEvent } from '../logic/web2/event.logic';
+import { saveEvent } from '../logic/event.logic';
 import { INTERNAL_SERVER_ERROR, POLYGON_MAINNET_TRANSACTION_EVENT_TYPE, STATUS_NOT_FOUND, STATUS_OK, STATUS_UNPROCESSABLE_ENTITY } from '../utils/constants';
 import { validateZenWatchEvent } from '../utils/validation.utils';
 

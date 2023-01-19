@@ -1,4 +1,4 @@
-import { connect_to_mysql } from "../../db/connection_pool";
+import { connect_to_mysql } from "../db/connection_pool";
 
 export async function get_developer_by_api_key(api_key: string) {
     const pool = await connect_to_mysql()
