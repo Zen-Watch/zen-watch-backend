@@ -1,5 +1,5 @@
-# Zen Watch Background Job
-Background job to process unprocess events to populate visualization & alerting tables
+# Zen Watch Event EVM Transaction Background Job
+Background job to process unprocess events to populate visualization & alerting tables. Handles logic related to evm transactions.
 
 ## Debugging
 Look into polygon & other blockchain explorers to get representative inputs about all error conditions. Go deep into understanding blockchain transactions.
@@ -15,6 +15,10 @@ src -- top level directory
 - /db - MySQL connection pool & any other necessary core db files
 - /core - Contains core business logic files common to all modules, chains etc
 ```
+
+### Working with JSON MysQL
+https://medium.com/1mgofficial/mysql-json-support-virtual-columns-and-indexing-json-31df4cc1aa31
+
 
 ### Deployment
 ``` npm install ```

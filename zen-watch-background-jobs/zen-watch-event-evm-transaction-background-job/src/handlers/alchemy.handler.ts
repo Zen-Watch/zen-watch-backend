@@ -1,29 +1,34 @@
 import { Network, Alchemy } from 'alchemy-sdk';
 import dotenv from 'dotenv';
-import { POLYGON_MAINNET } from '../utils/constants';
+import { ETHEREUM_MAINNET, POLYGON_MAINNET } from '../utils/constants';
 dotenv.config();
 
 
-const settings = {
+// Instantiate different alchemy clients for different chains
+const polygon_mainnet_alchemy_client = new Alchemy({
   apiKey: process.env.ALCHEMY_API_KEY,
   network: Network.MATIC_MAINNET,
-};
+});
 
-// Instantiate different alchemy clients for different chains
-const alchemy_polygon_mainnet = new Alchemy(settings);
+const ethereum_mainnet_alchemy_client = new Alchemy({
+  apiKey: process.env.ALCHEMY_API_KEY,
+  network: Network.ETH_MAINNET,
+});
 
 
 function getPolygonClientForChain(chain: string) {
   switch(chain) {
     case POLYGON_MAINNET:
-      return alchemy_polygon_mainnet;
+      return polygon_mainnet_alchemy_client;
+    case ETHEREUM_MAINNET:
+        return ethereum_mainnet_alchemy_client;
     default:
-      return alchemy_polygon_mainnet;
+      return polygon_mainnet_alchemy_client;
   }
 }
 
 export async function getLatestBlock() {
-  const block = await alchemy_polygon_mainnet.core.getBlockNumber();
+  const block = await polygon_mainnet_alchemy_client.core.getBlockNumber();
   return block;
 }
 

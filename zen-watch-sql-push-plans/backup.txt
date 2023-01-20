@@ -1,4 +1,4 @@
-CREATE TABLE event (
+CREATE TABLE evm_transaction_event (
     id VARCHAR(36) NOT NULL,
     event_type VARCHAR(500) NOT NULL,
     dev_id INT NOT NULL,

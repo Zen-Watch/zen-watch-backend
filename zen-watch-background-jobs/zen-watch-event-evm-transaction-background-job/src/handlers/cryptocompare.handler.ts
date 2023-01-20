@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { MATIC, POLYGON_MAINNET } from '../utils/constants';
+import { ETH, ETHEREUM_MAINNET, MATIC, POLYGON_MAINNET } from '../utils/constants';
 dotenv.config();
 
 
@@ -7,6 +7,8 @@ function getNativeCurrencyForChain(chain: string) {
     switch (chain) {
         case POLYGON_MAINNET:
             return MATIC;
+        case ETHEREUM_MAINNET:
+            return ETH;
         default:
             return MATIC;
     }
