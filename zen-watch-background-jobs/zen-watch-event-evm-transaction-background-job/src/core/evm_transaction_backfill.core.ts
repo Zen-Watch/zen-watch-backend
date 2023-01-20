@@ -86,7 +86,12 @@ export async function construct_evm_backfill_json(event: any) {
         backfill_json['used_gas_ratio'] = backfill_json['gasUsed'] / backfill_json['gasLimit']
 
         // TODO: Decode transaction data, try to get data from etherscan/dappradar/coingecko/coinmarketcap
-        backfill_json['data'] = txn_response.data    
+        backfill_json['data'] = txn_response.data
+
+        backfill_json['is_sc_call'] = false
+        if (backfill_json['data'] !== undefined && backfill_json['data'] !== null && backfill_json['data'] !== "0x0" && backfill_json['data'].length > 3)
+            backfill_json['is_sc_call'] = true
+
     }
     return backfill_json
 }

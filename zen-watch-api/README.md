@@ -19,7 +19,6 @@ src -- top level directory
 - /handlers -- Invokes external & internal dependencies, called by routes
 - /logic - Data access layer for mongoose models, called by handlers
 - /db - MySQL connection pool & any other necessary core db files
-- /sql_pushplan - contains the mysql schema files to restore the mysql db (table operation type, core & visualization, notification tables are separated by the respective prefixes)
 ```
 
 ### Deployment
@@ -81,6 +80,18 @@ Install Ngnix on the production server
 * [JSON mysql pros-cons](https://stackoverflow.com/questions/33660866/native-json-support-in-mysql-5-7-what-are-the-pros-and-cons-of-json-data-type)
 * [Using Transaction in MySQL2](https://sehannrathnayake.medium.com/how-to-handle-mysql-database-transactions-with-nodejs-b7a2bf1fd203)
 *[Scheduling with node-cron in nodejs](https://www.youtube.com/watch?v=KxPENgraciY)
+
+#### JSON MYSQL
+* https://vladmihalcea.com/index-json-columns-mysql
+* https://dev.mysql.com/blog-archive/indexing-json-documents-via-virtual-columns/
+* [Virtual Columns with JSON Data Types](https://www.youtube.com/watch?v=sDK5YMBpiy4)
+* [JSON in MySQL](https://www.youtube.com/watch?v=mL7xnMZNYXM)
+* [Virtual Columns in MySQL](https://www.youtube.com/watch?v=uiI_tZyQDZo)
+* [JSON + SQL](https://www.youtube.com/watch?v=PlYlYERtTWc)
+* https://medium.com/1mgofficial/mysql-json-support-virtual-columns-and-indexing-json-31df4cc1aa31
+* https://stackoverflow.com/questions/38389075/how-to-create-index-on-json-column-in-mysql
+* https://subscription.packtpub.com/book/big-data-and-business-intelligence/9781788395809/13/ch13lvl1sec122/indexing-for-json-using-generated-columns
+* https://medium.com/@michalisantoniou6/massive-performance-gains-on-json-column-queries-using-mysql-virtual-columns-and-indexes-in-laravel-dc7d289a41b3
 
 #### Commands to run local mysql
 ``` brew services start mysql ```
