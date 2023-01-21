@@ -72,6 +72,9 @@ Install Ngnix on the production server
 ```apt install nginx ```
 
 ### Install & work with MYSQL
+
+TODO: Checkout Prisma ORM: https://www.prisma.io/
+
 * [Install mysql with Brew](https://flaviocopes.com/mysql-how-to-install/)
 * [NodeJS, Express JS with MySQL](https://www.youtube.com/watch?v=Hej48pi_lOc)
 * [MySQL Cheatsheet](https://devhints.io/mysql)
