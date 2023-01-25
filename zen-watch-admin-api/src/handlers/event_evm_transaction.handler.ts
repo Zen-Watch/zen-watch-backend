@@ -1,22 +1,22 @@
-import { saveEVMTransactionEvent } from '../logic/event_evm_transaction.logic';
-import { ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE, INTERNAL_SERVER_ERROR, POLYGON_MAINNET_TRANSACTION_EVENT_TYPE, STATUS_NOT_FOUND, STATUS_OK, STATUS_UNPROCESSABLE_ENTITY } from '../utils/constants';
-import { validateZenWatchEvent } from '../utils/validation.utils';
+import { get_developer_by_email } from "../logic/developer.logic";
+import {
+  get_evm_transaction_details,
+  get_metrics_for_evm_transactions,
+} from "../logic/event_evm_transaction.logic";
+import { STATUS_OK } from "../utils/constants";
 
-export async function handleZenWatchEvent(event: any) {
-    let valid_event;
-    try {
-        valid_event = validateZenWatchEvent(event)
-    }
-    catch (e: any) {
-        return { status: STATUS_UNPROCESSABLE_ENTITY, message: e.message };
-    }
-    if (valid_event.event_type === POLYGON_MAINNET_TRANSACTION_EVENT_TYPE || valid_event.event_type === ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE) {
-        try {
-            await saveEVMTransactionEvent(valid_event)
-            return { status: STATUS_OK, message: 'OK' };
-        } catch (e: any) {
-            return { status: INTERNAL_SERVER_ERROR, message: e.message };
-        }
-    }
-    else return { status: STATUS_NOT_FOUND, message: 'Unsupported Operation' }
+export async function fetch_event_evm_transaction_insights(email: string, lookback_period: number) {
+  const dev = await get_developer_by_email(email);
+  const successful_txn_metrics = await get_metrics_for_evm_transactions(dev.id, 1, lookback_period);
+  const error_txn_metrics = await get_metrics_for_evm_transactions(dev.id, 0, lookback_period);
+  const result = {
+    successful_txn_metrics,
+    error_txn_metrics,
+  };
+  return { status: STATUS_OK, message: JSON.stringify(result) };
+}
+
+export async function fetch_event_evm_transaction_details(txn_hashes: string[]) {
+  const result = await get_evm_transaction_details(txn_hashes);
+  return { status: STATUS_OK, message: JSON.stringify(result) };
 }

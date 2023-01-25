@@ -1,16 +1,22 @@
-import { get_developer_by_api_key } from "./developer.logic";
 import { connect_to_mysql } from "../db/connection_pool";
 import { UNPROCESSED_ENTITY } from "../utils/constants";
+import { get_developer_by_email } from "./developer.logic";
 
-export async function saveEVMTransactionEvent(event:any) {
+export async function get_metrics_for_evm_transactions(dev_id:number, status:number, lookback_period: number) {
     try{
-        const dev = await get_developer_by_api_key(event.api_key);
         const pool = await connect_to_mysql();
-        const backfill_json = {}
-        const result:any = await pool.query(
-            `insert into event_evm_transaction (id, event_type, dev_id, status, event_json, backfill_json) values (?,?,?,?,?,?)`, 
-            [event.event_id, event.event_type, dev.id, UNPROCESSED_ENTITY, JSON.stringify(event), JSON.stringify(backfill_json)]
-        );
+        const result:any = await pool.query(`select * from event_evm_transaction where dev_id=? order by block_timestamp asc`, [dev_id]);
+        return result[0];
+    }catch(e){
+        throw e;
+    }
+}
+
+export async function get_evm_transaction_details(txn_hashes: string[]) {
+    try{
+        const pool = await connect_to_mysql();
+        const result:any = await pool.query(`select event_json, backfill_json from event_evm_transaction where txn_hash in [?]`, [txn_hashes]);
+        return result[0];
     }catch(e){
         throw e;
     }

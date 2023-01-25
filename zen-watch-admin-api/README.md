@@ -1,5 +1,5 @@
-# Zen Watch API
-Backend REST api server for Zen Watch which fetches data from the databases.
+# Zen Watch Admin API
+Backend REST admin api server for Zen Watch Admin dashboard.
 
 ## Installation
 * [Build A REST API With Node.js, Express, & MongoDB - Quick](https://www.youtube.com/watch?v=fgTGADljAeg)
