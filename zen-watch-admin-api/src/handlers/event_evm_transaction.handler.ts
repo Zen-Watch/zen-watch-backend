@@ -3,20 +3,31 @@ import {
   get_evm_transaction_details,
   get_metrics_for_evm_transactions,
 } from "../logic/event_evm_transaction.logic";
-import { STATUS_OK } from "../utils/constants";
+import { INTERNAL_SERVER_ERROR, STATUS_OK } from "../utils/constants";
+import { get_evm_chain_event_names } from "../utils/util.methods";
 
-export async function fetch_event_evm_transaction_insights(email: string, lookback_period: number) {
-  const dev = await get_developer_by_email(email);
-  const successful_txn_metrics = await get_metrics_for_evm_transactions(dev.id, 1, lookback_period);
-  const error_txn_metrics = await get_metrics_for_evm_transactions(dev.id, 0, lookback_period);
-  const result = {
-    successful_txn_metrics,
-    error_txn_metrics,
-  };
-  return { status: STATUS_OK, message: JSON.stringify(result) };
+export async function fetch_event_evm_transaction_insights(email: string, chains: string[], lookback_period: number) {
+  try {
+    const dev = await get_developer_by_email(email);
+    const chain_events = get_evm_chain_event_names(chains);
+    const successful_txn_metrics = await get_metrics_for_evm_transactions(dev.id, 1, chain_events, lookback_period);
+    const error_txn_metrics = await get_metrics_for_evm_transactions(dev.id, 0, chain_events, lookback_period);
+    const result = {
+      successful_txn_metrics,
+      error_txn_metrics,
+    };
+    return { status: STATUS_OK, message: result };
+  } catch (e: any) {
+    return { status: INTERNAL_SERVER_ERROR, message: e.message };
+  }
 }
 
-export async function fetch_event_evm_transaction_details(txn_hashes: string[]) {
-  const result = await get_evm_transaction_details(txn_hashes);
-  return { status: STATUS_OK, message: JSON.stringify(result) };
+export async function fetch_event_evm_transaction_details(email: string, txn_hashes: string[]) {
+  try {
+    const dev = await get_developer_by_email(email);
+    const result = await get_evm_transaction_details(dev.id, txn_hashes);
+    return { status: STATUS_OK, message: result };
+  } catch (e: any) {
+    return { status: INTERNAL_SERVER_ERROR, message: e.message };
+  }
 }

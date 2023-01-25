@@ -83,6 +83,9 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * [JSON mysql pros-cons](https://stackoverflow.com/questions/33660866/native-json-support-in-mysql-5-7-what-are-the-pros-and-cons-of-json-data-type)
 * [Using Transaction in MySQL2](https://sehannrathnayake.medium.com/how-to-handle-mysql-database-transactions-with-nodejs-b7a2bf1fd203)
 *[Scheduling with node-cron in nodejs](https://www.youtube.com/watch?v=KxPENgraciY)
+* [MySQL date timestamp tricks](https://www.w3schools.com/sql/func_mysql_date_sub.asp)
+* [MySQL cheatsheet](https://devhints.io/mysql) - [here too](https://popsql.com/learn-sql/mysql/how-to-query-date-and-time-in-mysql)
+* [MySQL from unix time](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_from-unixtime)
 
 #### JSON MYSQL
 * https://vladmihalcea.com/index-json-columns-mysql

@@ -1,5 +1,12 @@
+// evm transaction events
 export const POLYGON_MAINNET_TRANSACTION_EVENT_TYPE = 'polygon_mainnet_transaction';
 export const ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE = 'ethereum_mainnet_transaction';
+
+export const UNSUPPORTED_EVENT_TYPE = 'unsupported_event_type';
+
+// chains
+export const POLYGON_MAINNET = 'polygon_mainnet';
+export const ETHEREUM_MAINNET = 'ethereum_mainnet';
 
 export const UNPROCESSED_ENTITY = 0;
 export const PROCESSED_ENTITY = 1;

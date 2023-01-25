@@ -19,18 +19,18 @@ router.post('/allow_signup', (req:Request, res:Response) => {
     .then(_res => res.status(_res.status).send(_res))
 })
 
-// Fetch evm transaction that matches the given criteria
+// Fetch evm transaction insights that matches the given criteria
 // Sort by ascending timestamps
-router.post('/fetch/evm_transactions/gas_costs', (req:Request, res:Response) => {
-    const {email, lookback_period} = req.body
-    fetch_event_evm_transaction_insights(email, lookback_period)
+router.post('/fetch/evm_transactions/insights', (req:Request, res:Response) => {
+    const {email, chains, lookback_period} = req.body
+    fetch_event_evm_transaction_insights(email, chains, lookback_period)
     .then(_res => res.status(_res.status).send(_res))
 })
 
 // Fetch event_json, backfill_json details for a transaction_hash
-router.post('/fetch/evm_transactions/gas_costs', (req:Request, res:Response) => {
-    const {txn_hashes} = req.body
-    fetch_event_evm_transaction_details(txn_hashes)
+router.post('/fetch/evm_transactions/details', (req:Request, res:Response) => {
+    const {email, txn_hashes} = req.body
+    fetch_event_evm_transaction_details(email, txn_hashes)
     .then(_res => res.status(_res.status).send(_res))
 })
 
