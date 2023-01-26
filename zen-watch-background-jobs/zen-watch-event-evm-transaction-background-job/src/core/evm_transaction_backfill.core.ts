@@ -27,10 +27,8 @@ export async function construct_evm_backfill_json(event: any) {
         // Get the USD exchange rate at the time of block creation     
         const block_timestamp = block.timestamp
 
-        const exchange_currency = setAppExchangeCurrency(event.app_exchange_currency)
+        const exchange_currency = setAppExchangeCurrency(event.event_json.event_properties.app_exchange_currency)
         const exchange_rate_resp = await getExchangeRate(chain, exchange_currency, block_timestamp);
-
-        console.log('txn-hash', event.event_json.event_properties.txn_hash);
 
         backfill_json['txn_hash'] = event.event_json.event_properties.txn_hash
 
@@ -86,7 +84,7 @@ export async function construct_evm_backfill_json(event: any) {
 
         // If a txn sends value, and not a smart contract call, which only sends data
         backfill_json['txn_value'] = Number(txn_response.value) / (BILLION * BILLION) // In Native Token units - MATIC, ETH, not Wei
-        backfill_json['txn_value_fiat'] = backfill_json['value'] * backfill_json['exchange_rate'] // Native to Fiat, ex. MATIC-USD
+        backfill_json['txn_value_fiat'] = backfill_json['txn_value'] * backfill_json['exchange_rate'] // Native to Fiat, ex. MATIC-USD
 
         // Final used gas cost at the time of transaction
         backfill_json['final_txn_fee'] = (backfill_json['gasUsed'] * backfill_json['effectiveGasPrice']) / BILLION // In Native Token units - MATIC, ETH, not Gwei
@@ -97,24 +95,37 @@ export async function construct_evm_backfill_json(event: any) {
 
         // =================== Above is what you see with Etherscan, Below is app-specific inference exclusive to Zen.Watch ===========================
 
-        // Allows additional tag which is indexed to pass any worthy metadata about the txn in the event_properties (Ex. quote_Id, or app_txn_type / metadata)
-        if (event.app_txn_tag)
-            backfill_json['app_txn_tag'] = event.app_txn_tag
-
         // All these are represented in Native & Exchange currency and not in Gwei (ETH, MATIC, USD)
         // Assumption here is Dapps can have 2 model of charging users: charge incl txn_cost and a mark up or a separate flat fee
         // The model is flexible to have both types of fee per txn, althought expectation is the majority with would a single charge incl txn cost & markup 
         // Final Profit/Loss is summed up with both types of charges per transaction (as available), which can later be aggregated
         // With this we can calculate if the app is profitable, what's the month-over-month or week-over-week profitability & you can calculate your burn rate
         // This can help Dapps project financials at scale to help with the business reporting & for fund raising
+
+        // Defaults
+        backfill_json['app_txn_tag'] = ""
+        
+        backfill_json['app_charge_incl_txn_cost'] = 0.0
+        backfill_json['app_charge_incl_txn_cost_fiat'] = 0.0
+        
+        backfill_json['app_profit_loss_from_charge_incl_txn_cost'] = 0.0
+        backfill_json['app_profit_loss_from_charge_incl_txn_cost_fiat'] = 0.0
+        
+        backfill_json['app_charge_excl_txn_cost'] = 0.0
+        backfill_json['app_charge_excl_txn_cost_fiat'] = 0.0
+        
         backfill_json['app_total_profit_loss'] = 0.0
         backfill_json['app_total_profit_loss_fiat'] = 0.0
+
+        // Allows additional tag which is indexed to pass any worthy metadata about the txn in the event_properties (Ex. quote_Id, or app_txn_type / metadata)
+        if (event.event_json.event_properties.app_txn_tag)
+            backfill_json['app_txn_tag'] = event.event_json.event_properties.app_txn_tag
         
         // Only if marked-up app_charge_incl_txn_cost is set, refer to the profit/loss due to app markup over the actual txn cost
-        if (event.app_charge_incl_txn_cost) {
-            backfill_json['app_charge_incl_txn_cost'] = event.app_charge_incl_txn_cost
-            if (event.app_charge_incl_txn_cost_fiat)
-                backfill_json['app_charge_incl_txn_cost_fiat'] = event.app_charge_incl_txn_cost_fiat // Use fiat value if sent, else infer with exchange_rate at the time of transaction
+        if (event.event_json.event_properties.app_charge_incl_txn_cost) {
+            backfill_json['app_charge_incl_txn_cost'] = event.event_json.event_properties.app_charge_incl_txn_cost
+            if (event.event_json.event_properties.app_charge_incl_txn_cost_fiat)
+                backfill_json['app_charge_incl_txn_cost_fiat'] = event.event_json.event_properties.app_charge_incl_txn_cost_fiat // Use fiat value if sent, else infer with exchange_rate at the time of transaction
             else
                 backfill_json['app_charge_incl_txn_cost_fiat'] =   backfill_json['app_charge_incl_txn_cost'] *  backfill_json['exchange_rate'] // best approximation
             
@@ -129,10 +140,10 @@ export async function construct_evm_backfill_json(event: any) {
 
         // If app charges a fee excluding txn cost, then its passed through for aggregation, without txn level profit-loss calculation
         // This can later be summed up with the above profit/loss or scaled up with the number of transactions
-        if (event.app_charge_excl_txn_cost) {
-            backfill_json['app_charge_excl_txn_cost'] = event.app_charge_excl_txn_cost
-            if (event.app_charge_excl_txn_cost_fiat)
-                backfill_json['app_charge_excl_txn_cost_fiat'] = event.app_charge_excl_txn_cost_fiat
+        if (event.event_json.event_properties.app_charge_excl_txn_cost) {
+            backfill_json['app_charge_excl_txn_cost'] = event.event_json.event_properties.app_charge_excl_txn_cost
+            if (event.event_json.event_properties.app_charge_excl_txn_cost_fiat)
+                backfill_json['app_charge_excl_txn_cost_fiat'] = event.event_json.event_properties.app_charge_excl_txn_cost_fiat
             else
                 backfill_json['app_charge_excl_txn_cost_fiat'] = backfill_json['app_charge_excl_txn_cost'] * backfill_json['exchange_rate'] // best approximation
             
