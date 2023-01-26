@@ -11,6 +11,10 @@ export const ETHEREUM_MAINNET = 'ethereum_mainnet';
 export const UNPROCESSED_ENTITY = 0;
 export const PROCESSED_ENTITY = 1;
 
+// blockchain txn_status
+export const TXN_STATUS_ERROR = 0;
+export const TXN_STATUS_SUCCESS = 1;
+
 export const STATUS_OK=200;
 export const STATUS_NOT_FOUND=404;
 export const STATUS_UNPROCESSABLE_ENTITY=422;

@@ -32,7 +32,7 @@ function run_task() {
 setInterval(()=> {
     console.log('SetInterval Next loop for EVM transaction job started at -', dayjs().format());
     run_task();
-}, 60000);
+}, 30000);
 
 
 
