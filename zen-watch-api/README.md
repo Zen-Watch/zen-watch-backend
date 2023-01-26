@@ -98,6 +98,7 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * https://stackoverflow.com/questions/38389075/how-to-create-index-on-json-column-in-mysql
 * https://subscription.packtpub.com/book/big-data-and-business-intelligence/9781788395809/13/ch13lvl1sec122/indexing-for-json-using-generated-columns
 * https://medium.com/@michalisantoniou6/massive-performance-gains-on-json-column-queries-using-mysql-virtual-columns-and-indexes-in-laravel-dc7d289a41b3
+* [Remove Quote String MySQL JSON](https://dba.stackexchange.com/questions/143576/how-to-remove-string-quotes-in-mysql-5-7-for-function-json-extract)
 
 #### Commands to run local mysql
 ``` brew services start mysql ```

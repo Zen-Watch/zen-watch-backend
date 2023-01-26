@@ -13,7 +13,11 @@ export const ETHEREUM_MAINNET = "ethereum_mainnet";
 // Supported currencies
 export const MATIC = "MATIC";
 export const ETH = "ETH";
+
+
+// Supported exchange currencies
 export const USD = "USD";
+export const INR = "INR";
 
 // Numeric units
 export const BILLION = 1000000000;
