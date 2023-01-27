@@ -8,6 +8,7 @@ const app = express();
 
 const options: cors.CorsOptions = {
   origin: '*',
+  methods: ['GET', 'POST']
 };
 
 // Then pass these options to cors:

@@ -11,7 +11,8 @@ const app = express()
 const allowedOrigins = [process.env.ALLOWED_ORIGIN!];
 
 const options: cors.CorsOptions = {
-  origin: allowedOrigins
+  origin: allowedOrigins,
+  methods: ['GET', 'POST']
 };
 
 // Then pass these options to cors:
