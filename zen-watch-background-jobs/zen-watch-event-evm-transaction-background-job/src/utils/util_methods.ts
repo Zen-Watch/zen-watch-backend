@@ -14,7 +14,7 @@ export function getChainFromEventName(event_name: string) {
 export function setAppExchangeCurrency(app_exchange_currency: string) {
     if (app_exchange_currency === undefined || app_exchange_currency === null)
         return USD;
-    switch (app_exchange_currency) {
+    switch (app_exchange_currency.toUpperCase()) {
         case USD:
             return USD;
         case INR:
