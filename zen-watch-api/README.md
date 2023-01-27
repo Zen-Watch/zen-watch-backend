@@ -112,6 +112,16 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * https://www.compose.com/articles/mysql-for-json-generated-columns-and-indexing/
 * https://vladmihalcea.com/index-json-columns-mysql
 
+#### Cors Error
+* [What is CORS and How to solve CORS error in Node.js (Express.js)](https://www.youtube.com/watch?v=OX-9oOcPDfE)
+* [Learn CORS In 6 Minutes-Web Dev Simplified](https://www.youtube.com/watch?v=PNtFSVU-YTI)
+* [Express (NodeJS) - How to enable CORS](https://www.youtube.com/watch?v=zDqwbiCyur8)
+* [NodeJS - How to use CORS with Express](https://www.youtube.com/watch?v=XHNn0ToXovA)
+* https://www.twilio.com/blog/add-cors-support-express-typescript-api
+
+#### Specific issues
+* https://stackoverflow.com/questions/49817290/how-to-tell-typescript-that-process-is-not-undefined
+
 #### Commands to run local mongdb
 
 Start/Stop Mongod process
