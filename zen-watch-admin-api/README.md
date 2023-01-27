@@ -1,5 +1,5 @@
-# Zen Watch API
-Backend REST api server for Zen Watch which fetches data from the databases.
+# Zen Watch Admin API
+Backend REST admin api server for Zen Watch Admin dashboard.
 
 ## Installation
 * [Build A REST API With Node.js, Express, & MongoDB - Quick](https://www.youtube.com/watch?v=fgTGADljAeg)
@@ -71,46 +71,11 @@ Using PM2 for production.
 Install Ngnix on the production server
 ```apt install nginx ```
 
-### Install & work with MYSQL
-
-TODO: Checkout Prisma ORM: https://www.prisma.io/
-
-* [Install mysql with Brew](https://flaviocopes.com/mysql-how-to-install/)
-* [NodeJS, Express JS with MySQL](https://www.youtube.com/watch?v=Hej48pi_lOc)
-* [MySQL Cheatsheet](https://devhints.io/mysql)
-* [MySQL data types](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
-* [How to work with JSON / INDEXES in mysql](https://www.digitalocean.com/community/tutorials/working-with-json-in-mysql)
-* [JSON mysql pros-cons](https://stackoverflow.com/questions/33660866/native-json-support-in-mysql-5-7-what-are-the-pros-and-cons-of-json-data-type)
-* [Using Transaction in MySQL2](https://sehannrathnayake.medium.com/how-to-handle-mysql-database-transactions-with-nodejs-b7a2bf1fd203)
-*[Scheduling with node-cron in nodejs](https://www.youtube.com/watch?v=KxPENgraciY)
-* [MySQL date timestamp tricks](https://www.w3schools.com/sql/func_mysql_date_sub.asp)
-* [MySQL cheatsheet](https://devhints.io/mysql) - [here too](https://popsql.com/learn-sql/mysql/how-to-query-date-and-time-in-mysql)
-* [MySQL from unix time](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_from-unixtime)
-
-#### JSON MYSQL
-* https://vladmihalcea.com/index-json-columns-mysql
-* https://dev.mysql.com/blog-archive/indexing-json-documents-via-virtual-columns/
-* [Virtual Columns with JSON Data Types](https://www.youtube.com/watch?v=sDK5YMBpiy4)
-* [JSON in MySQL](https://www.youtube.com/watch?v=mL7xnMZNYXM)
-* [Virtual Columns in MySQL](https://www.youtube.com/watch?v=uiI_tZyQDZo)
-* [JSON + SQL](https://www.youtube.com/watch?v=PlYlYERtTWc)
-* https://medium.com/1mgofficial/mysql-json-support-virtual-columns-and-indexing-json-31df4cc1aa31
-* https://stackoverflow.com/questions/38389075/how-to-create-index-on-json-column-in-mysql
-* https://subscription.packtpub.com/book/big-data-and-business-intelligence/9781788395809/13/ch13lvl1sec122/indexing-for-json-using-generated-columns
-* https://medium.com/@michalisantoniou6/massive-performance-gains-on-json-column-queries-using-mysql-virtual-columns-and-indexes-in-laravel-dc7d289a41b3
-* [Remove Quote String MySQL JSON](https://dba.stackexchange.com/questions/143576/how-to-remove-string-quotes-in-mysql-5-7-for-function-json-extract)
-
 #### Commands to run local mysql
 ``` brew services start mysql ```
 ``` brew services stop mysql ```
 ``` mysql -u root -p ```
 ``` SHOW INDEXES FROM table_name ```
-
-#### Indexing JSON on MySQL
-* https://planetscale.com/blog/indexing-json-in-mysql
-* https://stackoverflow.com/questions/38389075/how-to-create-index-on-json-column-in-mysql
-* https://www.compose.com/articles/mysql-for-json-generated-columns-and-indexing/
-* https://vladmihalcea.com/index-json-columns-mysql
 
 #### Commands to run local mongdb
 

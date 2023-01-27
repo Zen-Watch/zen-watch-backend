@@ -1,0 +1,9 @@
+ethereum-usd, 0x5600f070e34145620ac97186380215cb5ecec07ebfe7ed35653d8fdc43ae2a35, vanilla, from: 0x340dc2e57d64e4f8a7010eb347fd1ca1b18bf935
+
+ethereum-usd, 0xaf898897e3c5063db1375caa5176ebebc6e452e7610e5dff0e9cfa2f8f77c2a3, app configs, from: 0x690b9a9e9aa1c9db991c7721a92d351db4fac990
+
+polygon-usd, 0xe09bf6e8a4850270c9e4aaf5ed3d3875d3368b829754f354037e41c98b45d183, app_configs, from: 0xd546305479784cd237e8df568227b0581fff2316
+
+polygon-inr, 0x5cb1dd3dd112596b727b49a9a49b32e1bd60e3bdf2d6f462d533a701f5a1629a, app_configs, from: 0x5ff6b57d4aab4d365a52e1de049ca304eb1ee97b
+
+ethereum-inr-fail, 0xd115bf54bd6e66c3759eb57e7d52743b05397b854022cfbe49af9c9ddb7987f3, app_configs, from: 0x160e0941d06c2d914a73ff7de6099ea2f99aadea
