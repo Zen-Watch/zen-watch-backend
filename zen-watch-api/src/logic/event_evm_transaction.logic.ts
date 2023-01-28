@@ -7,7 +7,7 @@ export async function saveEVMTransactionEvent(event:any) {
         const dev = await get_developer_by_api_key(event.api_key);
         const pool = await connect_to_mysql();
         const backfill_json = {}
-        const result:any = await pool.query(
+        const result:any = await pool!.query(
             `insert into event_evm_transaction (id, event_type, dev_id, event_status, event_json, backfill_json) values (?,?,?,?,?,?)`, 
             [event.event_id, event.event_type, dev.id, UNPROCESSED_ENTITY, JSON.stringify(event), JSON.stringify(backfill_json)]
         );
