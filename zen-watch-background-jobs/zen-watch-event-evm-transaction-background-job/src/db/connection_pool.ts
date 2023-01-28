@@ -10,7 +10,6 @@ export async function connect_to_mysql() {
 
     // If the pool was already created, return it instead of creating a new one.
     if(typeof pool !== 'undefined') {
-        console.log('EXISTING_MYSQL_CONNECTION_POOL_RETURNED');
         return pool;
     }
 
@@ -20,6 +19,5 @@ export async function connect_to_mysql() {
         password: process.env.MYSQL_PASSWORD,
         database: process.env.MYSQL_DATABASE,
     }).promise();
-    console.log('NEW_MYSQL_CONNECTION_POOL_CREATED');
     return pool;
 }
