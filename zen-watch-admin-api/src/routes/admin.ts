@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv'; 
 import { STATUS_OK } from '../utils/constants';
 import { allow_developer_signup } from '../handlers/developer.handler';
-import { fetch_event_evm_transaction_insights, fetch_event_evm_transaction_details } from '../handlers/event_evm_transaction.handler';
+import { fetch_event_evm_transaction_gas_cost_insights, fetch_event_evm_transaction_details } from '../handlers/event_evm_transaction.handler';
 dotenv.config();
 
 const router = express.Router()
@@ -21,9 +21,9 @@ router.post('/allow_signup', (req:Request, res:Response) => {
 
 // Fetch evm transaction insights that matches the given criteria
 // Sort by ascending timestamps
-router.post('/fetch/evm_transactions/insights', (req:Request, res:Response) => {
-    const {email, chains, lookback_period} = req.body
-    fetch_event_evm_transaction_insights(email, chains, lookback_period)
+router.post('/fetch/evm_transactions/gas_cost/insights', (req:Request, res:Response) => {
+    const {email, chains, lookback_period, exchange_currency} = req.body
+    fetch_event_evm_transaction_gas_cost_insights(email, chains, lookback_period, exchange_currency)
     .then(_res => res.status(_res.status).send(_res))
 })
 

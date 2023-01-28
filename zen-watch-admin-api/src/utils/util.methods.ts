@@ -1,9 +1,11 @@
 import {
   ETHEREUM_MAINNET,
   ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE,
+  INR,
   POLYGON_MAINNET,
   POLYGON_MAINNET_TRANSACTION_EVENT_TYPE,
   UNSUPPORTED_EVENT_TYPE,
+  USD,
 } from "./constants";
 
 export function get_evm_chain_event_name(chain: string) {
@@ -20,4 +22,17 @@ export function get_evm_chain_event_names(chains: string[]) {
   for (let chain of chains)
     res.push(get_evm_chain_event_name(chain));
   return res;
+}
+
+export function getAppExchangeCurrency(app_exchange_currency: string) {
+  if (app_exchange_currency === undefined || app_exchange_currency === null)
+      return USD;
+  switch (app_exchange_currency.toUpperCase()) {
+      case USD:
+          return USD;
+      case INR:
+          return INR;
+      default:
+          return USD;
+  }
 }
