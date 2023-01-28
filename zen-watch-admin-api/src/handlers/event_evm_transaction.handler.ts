@@ -18,6 +18,7 @@ export async function fetch_event_evm_transaction_insights(email: string, chains
     };
     return { status: STATUS_OK, message: result };
   } catch (e: any) {
+    console.log(e)
     return { status: INTERNAL_SERVER_ERROR, message: e.message };
   }
 }
@@ -28,6 +29,7 @@ export async function fetch_event_evm_transaction_details(email: string, txn_has
     const result = await get_evm_transaction_details(dev.id, txn_hashes);
     return { status: STATUS_OK, message: result };
   } catch (e: any) {
+    console.log(e)
     return { status: INTERNAL_SERVER_ERROR, message: e.message };
   }
 }
