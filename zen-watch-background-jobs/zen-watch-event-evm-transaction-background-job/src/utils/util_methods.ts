@@ -1,4 +1,4 @@
-import { POLYGON_MAINNET_TRANSACTION_EVENT_TYPE, POLYGON_MAINNET, ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE, ETHEREUM_MAINNET, USD, INR } from "./constants";
+import { POLYGON_MAINNET_TRANSACTION_EVENT_TYPE, POLYGON_MAINNET, ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE, ETHEREUM_MAINNET, USD, INR, SUPPORTED_EVM_TRANSACTION_EVENTS } from "./constants";
 
 export function getChainFromEventName(event_name: string) {
     switch (event_name) {
@@ -22,4 +22,8 @@ export function setAppExchangeCurrency(app_exchange_currency: string) {
         default:
             return USD;
     }
+}
+
+export function isOnchainTransactionEventType(event_type: any) {
+    return SUPPORTED_EVM_TRANSACTION_EVENTS.includes(event_type)
 }

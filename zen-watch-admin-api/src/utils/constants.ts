@@ -2,6 +2,12 @@
 export const POLYGON_MAINNET_TRANSACTION_EVENT_TYPE = 'polygon_mainnet_transaction';
 export const ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE = 'ethereum_mainnet_transaction';
 
+// Supported Evm Transaction events
+export const SUPPORTED_EVM_TRANSACTION_EVENTS = [
+    ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE,
+    POLYGON_MAINNET_TRANSACTION_EVENT_TYPE,
+];
+
 export const UNSUPPORTED_EVENT_TYPE = 'unsupported_event_type';
 
 // chains

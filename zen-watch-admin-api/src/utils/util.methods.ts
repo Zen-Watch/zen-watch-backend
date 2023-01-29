@@ -4,6 +4,7 @@ import {
   INR,
   POLYGON_MAINNET,
   POLYGON_MAINNET_TRANSACTION_EVENT_TYPE,
+  SUPPORTED_EVM_TRANSACTION_EVENTS,
   UNSUPPORTED_EVENT_TYPE,
   USD,
 } from "./constants";
@@ -35,4 +36,8 @@ export function getAppExchangeCurrency(app_exchange_currency: string) {
       default:
           return USD;
   }
+}
+
+export function isOnchainTransactionEventType(event_type: any) {
+  return SUPPORTED_EVM_TRANSACTION_EVENTS.includes(event_type)
 }
