@@ -21,11 +21,12 @@ export async function get_developer_by_api_key_from_cache(api_key: string) {
     if ( value === undefined ){
         console.log('CACHE MISS')!
         const dev = await get_developer_by_api_key(api_key);
+        console.log(dev)
         if (dev === undefined) 
             throw new Error('Invalid API Key');
         _cache.set(api_key, dev);
         console.log('SUCCESSFULLY SET THE CACHE')!
     }
-    console.log('Returning from cache', _cache[api_key]);
-    return _cache[api_key];
+    console.log('Returning from cache', _cache.get(api_key));
+    return _cache.get(api_key);
 }
