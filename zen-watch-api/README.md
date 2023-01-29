@@ -154,6 +154,7 @@ db.metrics.drop()
 
 ## Error Resolutions
 * [Solution for EADDRINUSE error while running concurrently](https://stackoverflow.com/questions/61181302/nodemon-error-listen-eaddrinuse-address-already-in-use-5000) 
+* [Find & kill a port in Mac](https://codinhood.com/nano/macos/find-kill-proccess-port-macos)
 
 
 ## Skipped for future

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node build/server.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon --delay 1500ms -q build/server.js\""
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon --delay 1000ms -q build/server.js\""
   },
   "keywords": [],
   "author": "",
