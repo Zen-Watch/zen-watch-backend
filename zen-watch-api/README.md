@@ -124,6 +124,9 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * https://stackoverflow.com/questions/49817290/how-to-tell-typescript-that-process-is-not-undefined
 * [Too Many MySQL connections - Check Hack.md](https://stackoverflow.com/questions/65813552/too-many-connections-nodejs-mysql2-promise)
 
+#### Caching
+* [Node Cache](https://www.youtube.com/watch?v=ipIGWZwxC7w)
+
 #### Commands to run local mongdb
 
 Start/Stop Mongod process
