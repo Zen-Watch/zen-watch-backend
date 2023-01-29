@@ -1,4 +1,5 @@
 import { get_developer_by_api_key, get_developer_by_email } from "../logic/developer.logic";
+import { INVALID_API_KEY, INVALID_DEVELOPER_EMAIL } from "../utils/constants";
 
 const NodeCache = require( "node-cache" );
 
@@ -32,7 +33,7 @@ export async function get_developer_by_api_key_from_cache(api_key: string) {
     if ( value === undefined ){
         const dev = await get_developer_by_api_key(api_key);
         if (dev === undefined) 
-            throw new Error('Invalid API Key');
+            throw new Error(INVALID_API_KEY);
         _cache.set(api_key, dev);
     }
     return _cache.get(api_key);
@@ -44,7 +45,7 @@ export async function get_developer_by_email_from_cache(email: string) {
     if ( value === undefined ){
         const dev = await get_developer_by_email(email);
         if (dev === undefined) 
-            throw new Error('Invalid Developer Email');
+            throw new Error(INVALID_DEVELOPER_EMAIL);
         _cache.set(email, dev);
     }
     return _cache.get(email);

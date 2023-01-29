@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv'; 
 import { handleZenWatchEvent } from '../handlers/event_evm_transaction.handler';
 import { STATUS_OK } from '../utils/constants';

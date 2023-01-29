@@ -1,4 +1,5 @@
 import { get_developer_by_api_key } from "../logic/developer.logic";
+import { INVALID_API_KEY } from "../utils/constants";
 
 const NodeCache = require( "node-cache" );
 
@@ -22,7 +23,7 @@ export async function get_developer_by_api_key_from_cache(api_key: string) {
     if ( value === undefined ){
         const dev = await get_developer_by_api_key(api_key);
         if (dev === undefined) 
-            throw new Error('Invalid API Key');
+            throw new Error(INVALID_API_KEY);
         _cache.set(api_key, dev);
     }
     return _cache.get(api_key);

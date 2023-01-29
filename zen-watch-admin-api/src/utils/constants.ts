@@ -15,7 +15,9 @@ export const PROCESSED_ENTITY = 1;
 export const TXN_STATUS_ERROR = 0;
 export const TXN_STATUS_SUCCESS = 1;
 
+// HTTP status codes
 export const STATUS_OK=200;
+export const UNAUTHORIZED_ACCESS=401;
 export const STATUS_NOT_FOUND=404;
 export const STATUS_UNPROCESSABLE_ENTITY=422;
 export const INTERNAL_SERVER_ERROR=500;
@@ -23,3 +25,7 @@ export const INTERNAL_SERVER_ERROR=500;
 // Supported exchange currencies
 export const USD = "USD";
 export const INR = "INR";
+
+// error message
+export const INVALID_API_KEY = 'Invalid API Key';
+export const INVALID_DEVELOPER_EMAIL = 'Invalid Developer Email';
