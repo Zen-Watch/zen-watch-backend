@@ -1,5 +1,6 @@
 import { saveEVMTransactionEvent } from '../logic/event_evm_transaction.logic';
-import { ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE, INTERNAL_SERVER_ERROR, POLYGON_MAINNET_TRANSACTION_EVENT_TYPE, STATUS_NOT_FOUND, STATUS_OK, STATUS_UNPROCESSABLE_ENTITY } from '../utils/constants';
+import { INTERNAL_SERVER_ERROR, STATUS_NOT_FOUND, STATUS_OK, STATUS_UNPROCESSABLE_ENTITY } from '../utils/constants';
+import { isOnchainTransactionEventType } from '../utils/util_methods';
 import { validateZenWatchEvent } from '../utils/validation.utils';
 
 export async function handleZenWatchEvent(api_key: string, event: any) {
@@ -10,7 +11,7 @@ export async function handleZenWatchEvent(api_key: string, event: any) {
     catch (e: any) {
         return { status: STATUS_UNPROCESSABLE_ENTITY, message: e.message };
     }
-    if (valid_event.event_type === POLYGON_MAINNET_TRANSACTION_EVENT_TYPE || valid_event.event_type === ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE) {
+    if (isOnchainTransactionEventType(valid_event.event_type)) {
         try {
             await saveEVMTransactionEvent(api_key, valid_event)
             return { status: STATUS_OK, message: 'OK' };

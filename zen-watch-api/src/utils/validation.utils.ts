@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE, POLYGON_MAINNET_TRANSACTION_EVENT_TYPE } from './constants';
-
+import { isOnchainTransactionEventType } from './util_methods';
 
 export function validateZenWatchEvent(event: any) {
     if (event == '')
@@ -39,7 +38,7 @@ export function validateZenWatchEvent(event: any) {
         throw new Error('wallet_properties must be a valid JSON')
     }
 
-    if (event.event_type == POLYGON_MAINNET_TRANSACTION_EVENT_TYPE || event.event_type == ETHEREUM_MAINNET_TRANSACTION_EVENT_TYPE) {
+    if (isOnchainTransactionEventType(event.event_type)) {
         if (!event.event_properties || !event.event_properties.txn_hash)
             throw new Error('For transaction type, txn_hash must be passed in')
     }
