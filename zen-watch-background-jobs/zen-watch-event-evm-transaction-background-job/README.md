@@ -14,6 +14,7 @@ src -- top level directory
 - /logic - Data access layer for mongoose models, called by handlers
 - /db - MySQL connection pool & any other necessary core db files
 - /core - Contains core business logic files common to all modules, chains etc
+- /cache - Contains cache files
 ```
 
 ### Working with JSON MysQL

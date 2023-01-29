@@ -19,6 +19,7 @@ src -- top level directory
 - /handlers -- Invokes external & internal dependencies, called by routes
 - /logic - Data access layer for mongoose models, called by handlers
 - /db - MySQL connection pool & any other necessary core db files
+- /cache - Contains cache files
 ```
 
 ### Deployment
@@ -122,6 +123,9 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 #### Specific issues
 * https://stackoverflow.com/questions/49817290/how-to-tell-typescript-that-process-is-not-undefined
 * [Too Many MySQL connections - Check Hack.md](https://stackoverflow.com/questions/65813552/too-many-connections-nodejs-mysql2-promise)
+
+#### Caching
+* [Node Cache](https://www.youtube.com/watch?v=ipIGWZwxC7w)
 
 #### Commands to run local mongdb
 
