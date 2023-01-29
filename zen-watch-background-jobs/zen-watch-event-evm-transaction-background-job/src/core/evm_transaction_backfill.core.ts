@@ -157,6 +157,22 @@ export async function construct_evm_backfill_json(event: any) {
         backfill_json['is_sc_call'] = false
         if (backfill_json['data'] !== undefined && backfill_json['data'] !== null && backfill_json['data'] !== "0x0" && backfill_json['data'].length > 3)
             backfill_json['is_sc_call'] = true
+        
+        // Adding virtual columns for environment details
+        backfill_json['environment_details_country'] = ""
+        backfill_json['environment_details_platform'] = ""
+        backfill_json['environment_details_city'] = ""
+
+        if (event.event_json.environment_details){
+            if (event.event_json.environment_details.country)
+                backfill_json['environment_details_country'] = event.event_json.environment_details.country
+            
+            if (event.event_json.environment_details.platform)
+                backfill_json['environment_details_platform'] = event.event_json.environment_details.platform
+            
+            if (event.event_json.environment_details.city)
+                backfill_json['environment_details_city'] = event.event_json.environment_details.city
+        }
 
     }
     return backfill_json
