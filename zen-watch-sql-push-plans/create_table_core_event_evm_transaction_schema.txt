@@ -34,6 +34,9 @@ CREATE TABLE event_evm_transaction (
     app_total_profit_loss DOUBLE GENERATED ALWAYS AS (backfill_json->"$.app_total_profit_loss"),
     app_total_profit_loss_fiat DOUBLE GENERATED ALWAYS AS (backfill_json->"$.app_total_profit_loss_fiat"),
     is_smart_contract_call BOOLEAN GENERATED ALWAYS AS (backfill_json->"$.is_sc_call"),
+    country VARCHAR(500) GENERATED ALWAYS AS (backfill_json->>"$.environment_details_country"),
+    platform VARCHAR(500) GENERATED ALWAYS AS (backfill_json->>"$.environment_details_platform"),
+    city VARCHAR(500) GENERATED ALWAYS AS (backfill_json->>"$.environment_details_city"),
     created_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
@@ -52,5 +55,7 @@ CREATE TABLE event_evm_transaction (
     INDEX EEVMT_ATT (app_txn_tag ASC),
     INDEX EEVMT_BN (blockNumber ASC),
     INDEX EEVMT_BH (blockHash ASC),
+    INDEX EEVMT_CTY (country ASC),
+    INDEX EEVMT_PLT (platform ASC),
     CONSTRAINT EAK_FK FOREIGN KEY(dev_id) REFERENCES developer(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
