@@ -15,6 +15,9 @@ export const PROCESSED_ENTITY = 1;
 export const TXN_STATUS_ERROR = 0;
 export const TXN_STATUS_SUCCESS = 1;
 
+// HTTP headers
+export const X_API_KEY_HEADER = 'x-api-key';
+
 // HTTP status codes
 export const STATUS_OK=200;
 export const UNAUTHORIZED_ACCESS=401;
@@ -29,3 +32,5 @@ export const INR = "INR";
 // error message
 export const INVALID_API_KEY = 'Invalid API Key';
 export const INVALID_DEVELOPER_EMAIL = 'Invalid Developer Email';
+
+

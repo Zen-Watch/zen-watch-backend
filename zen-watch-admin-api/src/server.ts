@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { connect_to_mysql } from './db/connection_pool';
-import { INVALID_API_KEY, UNAUTHORIZED_ACCESS } from './utils/constants';
+import { INVALID_API_KEY, UNAUTHORIZED_ACCESS, X_API_KEY_HEADER } from './utils/constants';
 
 dotenv.config();
 const app = express()
@@ -25,7 +25,7 @@ app.use(express.json())
 // Only allow zen.watch dev_api_key for admin api
 function authenticate_dev_api_key(req: Request, res: Response, next: NextFunction) {
   try {
-    const api_key = req.header('x-api-key')!
+    const api_key = req.header(X_API_KEY_HEADER)!
     if (api_key === process.env.ALLOWED_DEV_API_KEY)
       next()
     else
