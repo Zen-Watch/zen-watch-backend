@@ -19,6 +19,7 @@ src -- top level directory
 - /handlers -- Invokes external & internal dependencies, called by routes
 - /logic - Data access layer for mongoose models, called by handlers
 - /db - MySQL connection pool & any other necessary core db files
+- /cache - Contains cache files
 ```
 
 ### Deployment
