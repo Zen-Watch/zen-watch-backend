@@ -2,9 +2,9 @@ import { connect_to_mysql } from "../db/connection_pool";
 import { UNPROCESSED_ENTITY } from "../utils/constants";
 import { get_developer_by_api_key_from_cache } from "../cache/developer.cache";
 
-export async function saveEVMTransactionEvent(event:any) {
+export async function saveEVMTransactionEvent(api_key:string, event:any) {
     try{
-        const dev = await get_developer_by_api_key_from_cache(event.api_key);
+        const dev = await get_developer_by_api_key_from_cache(api_key);
         const pool = await connect_to_mysql();
         const backfill_json = {}
         const result:any = await pool!.query(
