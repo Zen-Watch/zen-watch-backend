@@ -10,6 +10,8 @@ Backend REST api server for Zen Watch which fetches data from the databases.
 * [Anson the developer - ExpressJS Tutorial #3 - POST Requests](https://www.youtube.com/watch?v=1cjdlfB11Ss)
 * [Mongoose JS - Official Documentation](https://mongoosejs.com/docs/typescript.html)
 * [Mongoose JS - Indexes](https://mongoosejs.com/docs/guide.html#indexes)
+* [API Key in Header or Body](https://stackoverflow.com/questions/53515942/authorization-request-header-vs-post-request-body-for-credentials)
+* [Access Http Headers NodeJS](https://stackoverflow.com/questions/13147693/how-to-extract-request-http-headers-from-a-request-using-nodejs-connect) - [Good resource](https://flaviocopes.com/express-headers/)
 
 ### Code Walkthrough
 ```
@@ -53,6 +55,12 @@ Starts the app with nodemon command, for live reload during development.
 This is same as npm start, except NODE_ENV is set to prod, to use production setting.
 https://stackoverflow.com/questions/25112510/how-to-set-environment-variables-from-within-package-json
 
+
+### Find and kill a process
+```
+sudo lsof -i :<PortNumber>
+kill -9 <PID>
+```
 
 ### Infrastructure
 Mongo DB: https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/

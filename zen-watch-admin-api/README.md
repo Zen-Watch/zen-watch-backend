@@ -55,6 +55,12 @@ This is same as npm start, except NODE_ENV is set to prod, to use production set
 https://stackoverflow.com/questions/25112510/how-to-set-environment-variables-from-within-package-json
 
 
+### Find and kill a process
+```
+sudo lsof -i :<PortNumber>
+kill -9 <PID>
+```
+
 ### Infrastructure
 Mongo DB: https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 For production, MongoDB is provisioned through Digital Ocean
