@@ -119,8 +119,9 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * [API Key in Header or Body](https://stackoverflow.com/questions/53515942/authorization-request-header-vs-post-request-body-for-credentials)
 * [Access Http Headers NodeJS](https://stackoverflow.com/questions/13147693/how-to-extract-request-http-headers-from-a-request-using-nodejs-connect) - [Good resource](https://flaviocopes.com/express-headers/)
 
-#### Caching
+#### Caching & Logging
 * [Node Cache](https://www.youtube.com/watch?v=ipIGWZwxC7w)
+* [Logging in NodeJS production](https://www.youtube.com/watch?v=2UTER21MCdk)
 
 ## Error Resolutions
 * [Solution for EADDRINUSE error while running concurrently](https://stackoverflow.com/questions/61181302/nodemon-error-listen-eaddrinuse-address-already-in-use-5000) 
