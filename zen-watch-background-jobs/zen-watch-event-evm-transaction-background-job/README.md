@@ -11,7 +11,7 @@ https://polygonscan.com/
 src -- top level directory
 - server.ts -- Main entry point for the server
 - /handlers -- Invokes external & internal dependencies, called by routes
-- /logic - Data access layer for mongoose models, called by handlers
+- /logic - Data access layer for sql models, called by handlers
 - /db - MySQL connection pool & any other necessary core db files
 - /core - Contains core business logic files common to all modules, chains etc
 - /cache - Contains cache files
@@ -26,7 +26,7 @@ https://medium.com/1mgofficial/mysql-json-support-virtual-columns-and-indexing-j
 Installs the dependencies for the the app with node command.
 
 Create a .env file in the root folder & following secrets to the .env file, consult Dheeban.
-Connect to MongoDB via mongosh and/or GUI.
+Connect to MySQL via client.
 ```
 MYSQL_HOST='127.0.0.1'
 MYSQL_USER='your-local-mysql-user'
@@ -45,9 +45,6 @@ Starts the app in PM2 mode with the node command.
 
 
 ### Infrastructure
-Mongo DB: https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
-For production, MongoDB is provisioned through Digital Ocean
-
 For creating droplets and adding SSH access
 https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/
 
