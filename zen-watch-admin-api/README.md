@@ -56,8 +56,30 @@ kill -9 <PID>
 For creating droplets and adding SSH access
 https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/
 
-Learn more about deployment.
-https://www.youtube.com/watch?v=2kvA6Ba3fWo
+#### Learn more about Digital Ocean deployment.
+* [Build and Deploy a MERN Stack Application | Complete MERN Stack Tutorial](https://www.youtube.com/watch?v=2kvA6Ba3fWo)
+* [Using Nginx to Host Multiple Websites on One Server](https://www.youtube.com/watch?v=b6YKx72XXQM)
+* [Part 1: Latest DigitalOcean Crash Course for beginner (Node JS, Nginx, MySql etc)](https://www.youtube.com/watch?v=qp3YlqYu-ig)
+* [Part 2: Deploy Node.js App To DigitalOcean Server | DigitalOcean Crash Course](https://www.youtube.com/watch?v=akEfQt9oGmc)
+
+#### Dockerizing Node JS
+* [Build a REST API with Node JS and Express JS | With Chanakya 1](https://www.youtube.com/watch?v=S8bbbcskNkM)
+* [Containerize a Node JS and Express API with Docker | With Chanakya](https://www.youtube.com/watch?v=waKaGikF_Ig)
+* [Deploying a Containerized(Docker) Node JS REST API to Digital Ocean | With Chanakya](https://www.youtube.com/watch?v=RSI3v5YzPbc)
+* [Getting started with Docker and Kubernetes for Web Developers on Digital Ocean](https://www.youtube.com/watch?v=YrM0UPsnY1Q)
+* [Deploying a MERN Application (with Docker, Atlas, and Digital Ocean!)](https://www.youtube.com/watch?v=DftsReyhz2Q)
+* [Why Use Docker](https://www.youtube.com/watch?v=SYozbyvsP8A)
+* [What Is Docker? | What Is Docker And How It Works? | Docker Tutorial For Beginners | Simplilearn](https://www.youtube.com/watch?v=rOTqprHv1YE)
+* [Docker with Nodejs in 5 mins // Docker Tutorial](https://www.youtube.com/watch?v=hXhI2ZLDgQM)
+* [GOOD - Learn Docker in 7 Easy Steps - Full Beginner's Tutorial](https://www.youtube.com/watch?v=gAkwW2tuIqE)
+* [How to build docker image for nodejs apps](https://www.youtube.com/watch?v=DQJNtDm5qy0)
+* [How To Build a Node.JS Application with Docker | Getting Started with Docker Using Node.js](https://www.youtube.com/watch?v=PsWeSg38XFY)
+* [Install Docker on DigitalOcean Droplet (2022)](https://www.youtube.com/watch?v=dSfDK1KIiVs)
+* [Building a Local Dev Environment with Docker](https://www.youtube.com/watch?v=FiaLKwdv9TI)
+* [How to dockerize NodeJS and MongoDB application using docker-compose](https://www.youtube.com/watch?v=vm3YfOHf_Cc)
+* [Docker Compose Tutorial](https://www.youtube.com/watch?v=HG6yIjZapSA)
+* [Docker Tutorial for BeginnersDocker Tutorial for Beginners](https://www.youtube.com/watch?v=pTFZFxd4hOI)
+* [Docker Deepdive Playlist](https://www.youtube.com/watch?v=syzwLwE3Xq4&list=PLj-2elZxVPZ8k8z6a2q6-J79Y-9BUQllW)
 
 Using PM2 for production.
 * https://pm2.keymetrics.io/docs/usage/quick-start/
