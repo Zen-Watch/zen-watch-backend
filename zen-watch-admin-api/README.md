@@ -12,10 +12,7 @@ src -- top level directory
 - /cache - Contains cache files
 ```
 
-### Deployment
-``` npm install ```
-Installs the dependencies for the the app with node command.
-
+### Create Environment Variables
 Create a .env file in the root folder & following secrets to the .env file, consult Dheeban.
 Connect to MySQL via client.
 ```
@@ -30,6 +27,10 @@ ALLOWED_ORIGIN='http://localhost:3000 or the remote server'
 ALLOWED_DEV_API_KEY='zen-watch-api-key'
 ```
 
+### Deployment
+``` npm install ```
+Installs the dependencies for the the app with node command.
+
 Download the postman collection & run the `/healthz` api:
 ```
 https://api.postman.com/collections/2147990-ddfc6a6b-a76f-4f4f-ba39-55cefc1468df?access_key=PMAT-01GPFZ56RH6KJWMR7XW4DRJJKB
@@ -41,10 +42,31 @@ Starts the app with node command.
 ``` num run dev ```
 Starts the app with nodemon command, for live reload during development.
 
-``` npm run prod ```
-This is same as npm start, except NODE_ENV is set to prod, to use production setting.
-https://stackoverflow.com/questions/25112510/how-to-set-environment-variables-from-within-package-json
+### Start the processes with PM2 in production
+```
+For api-server, run from the root folder: 
+npm run build
+pm2 start app.config.json
 
+For admin-api-server, run from the root folder:
+npm run build
+pm2 start app.config.json
+
+For admin-dashboard, run from the root (make sure to start the admin-api-server before this):
+npm run build
+pm2 start app.config.json
+
+For each background job, run from the root folder:
+npm run build
+pm2 start app.config.json
+```
+
+### To list, stop or delete the PM2 process
+```
+pm2 stop <process-name>
+pm2 delete <process-name>
+pm2 ls
+```
 
 ### Find and kill a process
 ```
@@ -90,12 +112,14 @@ https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/
 * [Docker Tutorial for BeginnersDocker Tutorial for Beginners](https://www.youtube.com/watch?v=pTFZFxd4hOI)
 * [Docker Deepdive Playlist](https://www.youtube.com/watch?v=syzwLwE3Xq4&list=PLj-2elZxVPZ8k8z6a2q6-J79Y-9BUQllW)
 
-Using PM2 for production.
+#### Using PM2 for production
 * https://pm2.keymetrics.io/docs/usage/quick-start/
 * https://stackoverflow.com/questions/50689644/node-dotenv-wont-work-with-pm2
 * [Using PM2 in 2020 for NodeJS](https://www.youtube.com/watch?v=ebdKIU6SDHI)
+* [Using PM2 with start command](https://stackoverflow.com/questions/31579509/can-pm2-run-an-npm-start-script)
+* [How to Build React for Production Using PM2](https://javascript.plainenglish.io/how-do-you-build-reactjs-for-production-pm2-816001d1d736)
 
-Install Ngnix on the production server
+#### Install Ngnix on the production server
 ```apt install nginx ```
 
 #### Commands to run local mysql

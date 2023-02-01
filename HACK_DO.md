@@ -63,6 +63,11 @@ https://pm2.keymetrics.io/docs/usage/quick-start/
 npm install pm2@latest -g
 ```
 
+# Install serve on the box to render React as static pages
+```
+npm install -g serve
+```
+
 # Instal NGINX
 ```
 apt install nginx
@@ -80,15 +85,30 @@ Close the default file, restart nginx service
 sudo service nginx restart
 ```
 
-# Start the process with PM2
+# Start the processes with PM2 in production
 ```
-npm run build
-
 For api-server, run from the root folder: 
-pm2 start npm --name "api-server" -- start
+npm run build
+pm2 start app.config.json
 
 For admin-api-server, run from the root folder:
-pm2 start npm --name "admin-api-server" -- start
+npm run build
+pm2 start app.config.json
+
+For admin-dashboard, run from the root (make sure to start the admin-api-server before this):
+npm run build
+pm2 start app.config.json
+
+For each background job, run from the root folder:
+npm run build
+pm2 start app.config.json
+```
+
+# To list, stop or delete the PM2 process
+```
+pm2 stop <process-name>
+pm2 delete <process-name>
+pm2 ls
 ```
 
 # Checking Environment

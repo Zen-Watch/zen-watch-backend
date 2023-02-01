@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "api-server",
+            "script": "npm",
+            "args" : "start"
+        }
+    ]
+}
