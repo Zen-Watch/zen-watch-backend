@@ -52,6 +52,11 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * https://www.compose.com/articles/mysql-for-json-generated-columns-and-indexing/
 * https://vladmihalcea.com/index-json-columns-mysql
 
+#### Uninstall MYSQL from Mac
+* https://stackoverflow.com/questions/52161511/how-to-uninstall-mysql-5-6-when-installed-by-brew-on-macos
+* https://coderwall.com/p/os6woq/uninstall-all-those-broken-versions-of-mysql-and-re-install-it-with-brew-on-mac-mavericks
+* https://macpaw.com/how-to/uninstall-mysql-on-mac
+
 #### Learn more about Digital Ocean deployment.
 * [CODEDAMN-Build and Deploy a MERN Stack Application | Complete MERN Stack Tutorial](https://www.youtube.com/watch?v=2kvA6Ba3fWo)
 * [CODEDAMN-Full DigitalOcean Crash Course - Get started with cloud computing today](https://www.youtube.com/watch?v=9ZUHSW1tTiU)
@@ -139,6 +144,26 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * [Securing Your Droplet](https://www.youtube.com/watch?v=L8e_eAm4fFM)
 * [Top Tips For Securing Your Digital Ocean Droplet](https://www.youtube.com/watch?v=nZ-KsSnrfJs)
 * [Top 10 Security Practices for Protecting Your Infrastructure](https://www.youtube.com/watch?v=tOsG28gmQrA)
+
+##### How to verify MD5 & GPG signatures
+* https://osxdaily.com/2012/07/27/app-cant-be-opened-because-it-is-from-an-unidentified-developer/
+* https://www.garron.me/en/bits/how-to-md5sum-mac-os-x.html
+* https://sunknudsen.com/privacy-guides/how-to-verify-pgp-digital-signatures-using-gnupg-on-macos
+* [How to verify PGP digital signatures using GnuPG on macOS](https://www.youtube.com/watch?v=WnNfunEJdQY)
+* [GPG Signature masterclass from Oracle OSS](https://dev.mysql.com/doc/refman/8.0/en/checking-gpg-signature.html)
+
+```
+TL;DR
+1. Verify MD5 signature against the download page
+md5 mysql-8.0.30-macos12-x86_64.dmg
+
+2. Download & import the developer's public key into your gpg key ring for verification (downloaded as an .asc file)
+gpg --import mysql_pubkey.asc
+
+3. Download & veriify the GPG signature of the executable 
+brew install gnupg (if not already)
+gpg --verify mysql-standard-8.0.32-linux-i686.tar.gz.asc
+```
 
 
 
