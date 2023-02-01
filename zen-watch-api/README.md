@@ -11,6 +11,9 @@ src -- top level directory
 - /db - MySQL connection pool & any other necessary core db files
 - /cache - Contains cache files
 ```
+### Node Versions
+Local Environment node version - v18.11.0
+API & Admin Server 1 node version - v19.5.0
 
 ### Deployment
 ``` npm install ```
@@ -100,11 +103,65 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 ``` mysql -u root -p ```
 ``` SHOW INDEXES FROM table_name ```
 
+### Command to connect to remote MySQL
+```
+* Add your local dynamic ip to digital ocean trusted source, if your ip changed
+* Connect over terminal with public ip from your local, and private ip from admin/api servers
+mysql -u doadmin -h mysql-server-1-do-user-13444801-0.b.db.ondigitalocean.com -P 25060 -D zen_watch -p
+* You can add the details to sqlace as well, no ca-cert required
+
+
+```
+
 #### Indexing JSON on MySQL
 * https://planetscale.com/blog/indexing-json-in-mysql
 * https://stackoverflow.com/questions/38389075/how-to-create-index-on-json-column-in-mysql
 * https://www.compose.com/articles/mysql-for-json-generated-columns-and-indexing/
 * https://vladmihalcea.com/index-json-columns-mysql
+
+#### Learn more about Digital Ocean deployment.
+* [CODEDAMN-Build and Deploy a MERN Stack Application | Complete MERN Stack Tutorial](https://www.youtube.com/watch?v=2kvA6Ba3fWo)
+* [CODEDAMN-Full DigitalOcean Crash Course - Get started with cloud computing today](https://www.youtube.com/watch?v=9ZUHSW1tTiU)
+* [CODEDAMN-DigitalOcean Playlist](https://www.youtube.com/playlist?list=PLYxzS__5yYQk7h6aoN5_rvvvC8WUMxAaB)
+* [Using Nginx to Host Multiple Websites on One Server](https://www.youtube.com/watch?v=b6YKx72XXQM)
+* [Part 1: Latest DigitalOcean Crash Course for beginner (Node JS, Nginx, MySql etc)](https://www.youtube.com/watch?v=qp3YlqYu-ig)
+* [Part 2: Deploy Node.js App To DigitalOcean Server | DigitalOcean Crash Course](https://www.youtube.com/watch?v=akEfQt9oGmc)
+
+#### Digital Ocean Security & Other Best Practices
+* https://docs.digitalocean.com/products/networking/vpc/concepts/best-practices/
+* https://docs.digitalocean.com/products/databases/mysql/how-to/secure/
+* https://docs.digitalocean.com/products/networking/vpc/how-to/add-resources/
+* https://docs.digitalocean.com/products/databases/mysql/how-to/schedule-updates/
+
+#### Dockerizing Node JS
+* [Build a REST API with Node JS and Express JS | With Chanakya 1](https://www.youtube.com/watch?v=S8bbbcskNkM)
+* [Containerize a Node JS and Express API with Docker | With Chanakya](https://www.youtube.com/watch?v=waKaGikF_Ig)
+* [Deploying a Containerized(Docker) Node JS REST API to Digital Ocean | With Chanakya](https://www.youtube.com/watch?v=RSI3v5YzPbc)
+* [Getting started with Docker and Kubernetes for Web Developers on Digital Ocean](https://www.youtube.com/watch?v=YrM0UPsnY1Q)
+* [Deploying a MERN Application (with Docker, Atlas, and Digital Ocean!)](https://www.youtube.com/watch?v=DftsReyhz2Q)
+* [Why Use Docker](https://www.youtube.com/watch?v=SYozbyvsP8A)
+* [What Is Docker? | What Is Docker And How It Works? | Docker Tutorial For Beginners | Simplilearn](https://www.youtube.com/watch?v=rOTqprHv1YE)
+* [Docker with Nodejs in 5 mins // Docker Tutorial](https://www.youtube.com/watch?v=hXhI2ZLDgQM)
+* [GOOD - Learn Docker in 7 Easy Steps - Full Beginner's Tutorial](https://www.youtube.com/watch?v=gAkwW2tuIqE)
+* [How to build docker image for nodejs apps](https://www.youtube.com/watch?v=DQJNtDm5qy0)
+* [How To Build a Node.JS Application with Docker | Getting Started with Docker Using Node.js](https://www.youtube.com/watch?v=PsWeSg38XFY)
+* [Install Docker on DigitalOcean Droplet (2022)](https://www.youtube.com/watch?v=dSfDK1KIiVs)
+* [Building a Local Dev Environment with Docker](https://www.youtube.com/watch?v=FiaLKwdv9TI)
+* [How to dockerize NodeJS and MongoDB application using docker-compose](https://www.youtube.com/watch?v=vm3YfOHf_Cc)
+* [Docker Compose Tutorial](https://www.youtube.com/watch?v=HG6yIjZapSA)
+* [Docker Tutorial for BeginnersDocker Tutorial for Beginners](https://www.youtube.com/watch?v=pTFZFxd4hOI)
+* [Docker Deepdive Playlist](https://www.youtube.com/watch?v=syzwLwE3Xq4&list=PLj-2elZxVPZ8k8z6a2q6-J79Y-9BUQllW)
+
+
+#### MySQL Backup/Archives on Digital Ocean
+* [Managed Databases for MySQL by DigitalOcean](https://www.youtube.com/watch?v=NIW5NQxpOjg)
+* https://www.digitalocean.com/community/questions/how-to-get-long-term-backups-for-digitalocean-s-managed-databases-mysql
+* https://www.digitalocean.com/community/tutorials/how-to-back-up-a-mysql-database-to-spaces-using-lvm-snapshots
+* https://www.digitalocean.com/community/questions/how-to-get-long-term-backups-for-digitalocean-s-managed-databases-mysql
+* https://simplebackups.com/blog/how-to-backup-mysql-to-digitalocean-spaces/
+* https://snapshooter.com/learn/backup-mysql-to-digitalocean-spaces
+* https://stackoverflow.com/questions/65595461/how-to-export-mysql-database-from-digital-ocean-managed-database
+* https://www.digitalocean.com/blog/digitalocean-acquires-snapshooter
 
 #### Cors Error
 * [What is CORS and How to solve CORS error in Node.js (Express.js)](https://www.youtube.com/watch?v=OX-9oOcPDfE)

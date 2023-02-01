@@ -63,6 +63,13 @@ https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/
 * [Using Nginx to Host Multiple Websites on One Server](https://www.youtube.com/watch?v=b6YKx72XXQM)
 * [Part 1: Latest DigitalOcean Crash Course for beginner (Node JS, Nginx, MySql etc)](https://www.youtube.com/watch?v=qp3YlqYu-ig)
 * [Part 2: Deploy Node.js App To DigitalOcean Server | DigitalOcean Crash Course](https://www.youtube.com/watch?v=akEfQt9oGmc)
+* https://docs.digitalocean.com/products/networking/vpc/concepts/best-practices/
+
+#### Digital Ocean Security Best Practices
+* https://docs.digitalocean.com/products/networking/vpc/concepts/best-practices/
+* https://docs.digitalocean.com/products/databases/mysql/how-to/secure/
+* https://docs.digitalocean.com/products/networking/vpc/how-to/add-resources/
+* https://docs.digitalocean.com/products/databases/mysql/how-to/schedule-updates/
 
 #### Dockerizing Node JS
 * [Build a REST API with Node JS and Express JS | With Chanakya 1](https://www.youtube.com/watch?v=S8bbbcskNkM)
@@ -95,7 +102,17 @@ Install Ngnix on the production server
 ``` brew services start mysql ```
 ``` brew services stop mysql ```
 ``` mysql -u root -p ```
-``` SHOW INDEXES FROM table_name ```
+``` SHOW INDEXES FROM table_name ``
+
+#### MySQL Backup/Archives on Digital Ocean
+* [Managed Databases for MySQL by DigitalOcean](https://www.youtube.com/watch?v=NIW5NQxpOjg)
+* https://www.digitalocean.com/community/questions/how-to-get-long-term-backups-for-digitalocean-s-managed-databases-mysql
+* https://www.digitalocean.com/community/tutorials/how-to-back-up-a-mysql-database-to-spaces-using-lvm-snapshots
+* https://www.digitalocean.com/community/questions/how-to-get-long-term-backups-for-digitalocean-s-managed-databases-mysql
+* https://simplebackups.com/blog/how-to-backup-mysql-to-digitalocean-spaces/
+* https://snapshooter.com/learn/backup-mysql-to-digitalocean-spaces
+* https://stackoverflow.com/questions/65595461/how-to-export-mysql-database-from-digital-ocean-managed-database
+* https://www.digitalocean.com/blog/digitalocean-acquires-snapshooter`
 
 ## Error Resolutions
 * [Solution for EADDRINUSE error while running concurrently](https://stackoverflow.com/questions/61181302/nodemon-error-listen-eaddrinuse-address-already-in-use-5000) 
