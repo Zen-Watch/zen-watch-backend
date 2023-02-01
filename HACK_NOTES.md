@@ -135,6 +135,8 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * [Firewall - DigitalOcean Tutorials](https://www.youtube.com/watch?v=gwu313WjquM)
 * [TCP/UDP rules in Firewall - DigitalOcean Tutorials](https://www.youtube.com/watch?v=Zi-KqDEiBn8)
 * [Securing Your Droplet](https://www.youtube.com/watch?v=L8e_eAm4fFM)
+* [Top Tips For Securing Your Digital Ocean Droplet](https://www.youtube.com/watch?v=nZ-KsSnrfJs)
+* [Top 10 Security Practices for Protecting Your Infrastructure](https://www.youtube.com/watch?v=tOsG28gmQrA)
 
 
 
