@@ -56,7 +56,12 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * https://coderwall.com/p/os6woq/uninstall-all-those-broken-versions-of-mysql-and-re-install-it-with-brew-on-mac-mavericks
 * https://macpaw.com/how-to/uninstall-mysql-on-mac
 ```
-While installing from v8.0.30.dmg to match the Digital Ocean production managed MySQL DB, I manually added the following entry to .zshrc, to bring mysql in the path for command line access.
+While installing from v8.0.30.dmg to match the Digital Ocean production managed MySQL DB, I manually added the following entry to .zshrc, to bring mysql in the path for command line access. Remove if it conflicts later. And always use single quotes (') in the SQL files.
+
+vim ~/.zshrc
+export PATH=$PATH:/usr/local/mysql/bin  (remove this if there is a future conflict)
+source ~/.zshrc
+
 ```
 
 #### Z Shell On Mac
