@@ -64,6 +64,7 @@ Using PM2 for production.
 * https://pm2.keymetrics.io/docs/usage/quick-start/
 * https://stackoverflow.com/questions/50689644/node-dotenv-wont-work-with-pm2
 * [Using PM2 in 2020 for NodeJS](https://www.youtube.com/watch?v=ebdKIU6SDHI)
+* [Using PM2 with start command](https://stackoverflow.com/questions/31579509/can-pm2-run-an-npm-start-script)
 
 Install Ngnix on the production server
 ```apt install nginx ```

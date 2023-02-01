@@ -78,7 +78,17 @@ proxy_pass http://localhost:1337;
 
 Close the default file, restart nginx service
 sudo service nginx restart
+```
 
+# Start the process with PM2
+```
+npm run build
+
+For api-server, run from the root folder: 
+pm2 start npm --name "api-server" -- start
+
+For admin-api-server, run from the root folder:
+pm2 start npm --name "admin-api-server" -- start
 ```
 
 # Checking Environment
