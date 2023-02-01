@@ -20,6 +20,7 @@ https://www.youtube.com/watch?v=2kvA6Ba3fWo
 TODO: Checkout Prisma ORM: https://www.prisma.io/
 
 * [Install mysql with Brew](https://flaviocopes.com/mysql-how-to-install/)
+* [Install mysql specific version](https://medium.com/macoclock/setup-mysql-in-a-specific-version-on-macos-35d8ad89c699)
 * [NodeJS, Express JS with MySQL](https://www.youtube.com/watch?v=Hej48pi_lOc)
 * [MySQL Cheatsheet](https://devhints.io/mysql)
 * [MySQL data types](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
