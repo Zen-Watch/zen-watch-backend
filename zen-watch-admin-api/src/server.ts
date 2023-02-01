@@ -32,7 +32,7 @@ function authenticate_zen_watch_api_key(req: Request, res: Response, next: NextF
   try {
     const host = req.get('host');
     const origin = req.get('origin');
-    console.log('HOST', 'ORIGIN', host, origin);
+    console.log('HOST', 'ORIGIN', 'HEADERS', host, origin, req.headers);
     const api_key = req.header(X_API_KEY_HEADER)!
     if (api_key === process.env.ALLOWED_DEV_API_KEY)
       next()
