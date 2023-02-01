@@ -110,6 +110,32 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * [Node Cache](https://www.youtube.com/watch?v=ipIGWZwxC7w)
 * [Logging in NodeJS production](https://www.youtube.com/watch?v=2UTER21MCdk)
 
-## Error Resolutions
+#### Error Resolutions
 * [Solution for EADDRINUSE error while running concurrently](https://stackoverflow.com/questions/61181302/nodemon-error-listen-eaddrinuse-address-already-in-use-5000) 
 * [Find & kill a port in Mac](https://codinhood.com/nano/macos/find-kill-proccess-port-macos)
+
+##### Load Balancer in Digital Ocean
+* [Introducing LB in Digital Ocean](https://www.youtube.com/watch?v=RbpWNw6H1HQ)
+* [Create a DigitalOcean Load Balancer](https://www.youtube.com/watch?v=FzvGWCmwXjQ)
+* [Learn to Load Balance Your High Traffic Sites](https://www.youtube.com/watch?v=gFs2B2LPzzI)
+* [Securing Your Site with a DigitalOcean Load Balancer and SSL Termination](https://www.youtube.com/watch?v=JZzlE9IUhHM)
+* [DigitalOcean Load Balancer Guides](https://docs.digitalocean.com/products/networking/load-balancers/how-to/create/)
+
+##### Google Subdomains
+* [How to Create a Subdomain in Google Domains (simple example)](https://www.youtube.com/watch?v=YfAcvLuFMZI)
+* [Assign Domain to a DigitalOcean ip address](https://www.youtube.com/watch?v=wYDDYahCg60)
+* [How to update nameservers with Google Domains](https://www.youtube.com/watch?v=o7UjkCpoF8I)
+* [Name Servers Explained](https://www.youtube.com/watch?v=PrGDMTd_WzU)
+* [Nameservers in DNS - What are...](https://www.youtube.com/watch?v=KY7I18OCMwY)
+* [What is a Name Server?](https://www.youtube.com/watch?v=2WdF1zT01HY)
+
+##### DigitalOcean Droplet Limits & Firewalls
+* [Droplet limit](https://docs.digitalocean.com/products/droplets/details/limits/)
+* [How do I increase my droplet limit](https://www.digitalocean.com/community/questions/how-do-i-increase-my-droplet-limit)
+* [Firewall - DigitalOcean Tutorials](https://www.youtube.com/watch?v=gwu313WjquM)
+* [TCP/UDP rules in Firewall - DigitalOcean Tutorials](https://www.youtube.com/watch?v=Zi-KqDEiBn8)
+* [Securing Your Droplet](https://www.youtube.com/watch?v=L8e_eAm4fFM)
+
+
+
+
