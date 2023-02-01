@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { connect_to_mysql } from "./db/connection_pool";
 import { get_developer_by_api_key_from_cache } from './cache/developer.cache';
-import { INVALID_API_KEY, UNAUTHORIZED_ACCESS, X_API_KEY_HEADER } from './utils/constants';
+import { INVALID_API_KEY, STATUS_OK, UNAUTHORIZED_ACCESS, X_API_KEY_HEADER } from './utils/constants';
 
 dotenv.config();
 const app = express();
@@ -17,6 +17,11 @@ const options: cors.CorsOptions = {
 app.use(cors(options));
 
 app.use(express.json());
+
+// Unprotected endpoint for LB health check
+app.get('/lb/healthz', (req, res) => {
+  res.status(STATUS_OK).send('ok!!');
+})
 
 // Developer api_key authentication middleware
 function authenticate_dev_api_key(req: Request, res: Response, next: NextFunction) {
