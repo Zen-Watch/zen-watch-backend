@@ -18,7 +18,6 @@ https://www.youtube.com/watch?v=2kvA6Ba3fWo
 ### Install & work with MYSQL
 
 TODO: Checkout Prisma ORM: https://www.prisma.io/
-
 * [Install mysql with Brew](https://flaviocopes.com/mysql-how-to-install/)
 * [Install mysql specific version](https://medium.com/macoclock/setup-mysql-in-a-specific-version-on-macos-35d8ad89c699)
 * [Unintall mysql](https://gist.github.com/vitorbritto/0555879fe4414d18569d)
@@ -56,6 +55,13 @@ TODO: Checkout Prisma ORM: https://www.prisma.io/
 * https://stackoverflow.com/questions/52161511/how-to-uninstall-mysql-5-6-when-installed-by-brew-on-macos
 * https://coderwall.com/p/os6woq/uninstall-all-those-broken-versions-of-mysql-and-re-install-it-with-brew-on-mac-mavericks
 * https://macpaw.com/how-to/uninstall-mysql-on-mac
+```
+While installing from v8.0.30.dmg to match the Digital Ocean production managed MySQL DB, I manually added the following entry to .zshrc, to bring mysql in the path for command line access.
+```
+
+#### Z Shell On Mac
+* [Various ZConfig in Mac](https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout)
+* [Add to Path ZSH Mac](https://stackoverflow.com/questions/11530090/adding-a-new-entry-to-the-path-variable-in-zsh)
 
 #### Learn more about Digital Ocean deployment.
 * [CODEDAMN-Build and Deploy a MERN Stack Application | Complete MERN Stack Tutorial](https://www.youtube.com/watch?v=2kvA6Ba3fWo)
