@@ -12,8 +12,11 @@ https://www.youtube.com/watch?v=2kvA6Ba3fWo
 * [Using PM2 with start command](https://stackoverflow.com/questions/31579509/can-pm2-run-an-npm-start-script)
 * [How to Build React for Production Using PM2](https://javascript.plainenglish.io/how-do-you-build-reactjs-for-production-pm2-816001d1d736)
 
-#### Install Ngnix on the production server
+#### Install, uninstall Ngnix on the production server
+NOTE: NGNIX NOT USED ANYMORE, AS LB SOVLES THIS PURPOSE
 ```apt install nginx ```
+* [Start, stop, Restart Nginx](https://linuxize.com/post/start-stop-restart-nginx/)
+* [Uninstall nginx](https://linuxconfig.org/how-to-remove-nginx-from-ubuntu)
 
 ### Install & work with MYSQL
 
