@@ -26,8 +26,6 @@ app.get('/lb/healthz', (req, res) => {
 // Only allow zen.watch dev_api_key for admin api
 function authenticate_zen_watch_api_key(req: Request, res: Response, next: NextFunction) {
   try {
-    const host = req.get('host');
-    const origin = req.get('origin');
     const api_key = req.header(X_API_KEY_HEADER)!
     if (api_key === process.env.ALLOWED_DEV_API_KEY)
       next()
