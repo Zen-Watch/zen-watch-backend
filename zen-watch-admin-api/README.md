@@ -23,7 +23,6 @@ MYSQL_DATABASE='zen_watch'
 SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
-ALLOWED_ORIGIN='http://localhost:3000 or the remote server'
 ALLOWED_DEV_API_KEY='zen-watch-api-key'
 ```
 

@@ -7,10 +7,6 @@ import { INVALID_API_KEY, STATUS_OK, UNAUTHORIZED_ACCESS, X_API_KEY_HEADER } fro
 dotenv.config();
 const app = express()
 
-// Add a list of allowed origins.
-// If you have more origins you would like to add, you can add them to the array below.
-const allowedOrigins = [process.env.ALLOWED_ORIGIN!];
-
 const options: cors.CorsOptions = {
   origin: '*',
   methods: ['GET', 'POST']
