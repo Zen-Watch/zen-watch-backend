@@ -19,3 +19,5 @@ sudo service nginx restart
 sudo service nginx stop
 ```
 
+# Allowed origins is deprecated in admin server
+https://github.com/sgdheeban/zen-watch-backend/commit/a642346b4550656b3a5c3ad43ce844d9f5d10aa8
