@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { isOnchainTransactionEventType } from './util_methods';
+import { isOnchainTransactionEventType, getRandomShardNumber } from './util_methods';
 
 export function validateZenWatchEvent(event: any) {
     if (event == '')
@@ -48,5 +48,6 @@ export function validateZenWatchEvent(event: any) {
 
 export function attachEventMetadata(event: any) {
     event.event_id = uuidv4();
+    event.api_worker_shard_id = getRandomShardNumber();
     return event;
 }
