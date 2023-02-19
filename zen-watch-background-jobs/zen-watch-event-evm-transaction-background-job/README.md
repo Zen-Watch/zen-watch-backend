@@ -30,11 +30,16 @@ MYSQL_DATABASE='zen_watch'
 SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
+API_WORKER_ID=0
 ```
+NOTE: API_WORKER_ID is a range from [0,N), where N is the total number of shards, configured in the system. Each worker, picks the shard that they are asigned, i.e., API_WORKER_ID, picks shard 0. Currently, we have only on shard, but this allows for horizontal scalability in the background job processing.
 
 ### Deployment
 ``` npm install ```
 Installs the dependencies for the the app with node command.
+
+``` npm run build ```
+Builds the code for the the app with node command.
 
 ``` npm start ```
 Starts the app in a standalone mode with the node command.

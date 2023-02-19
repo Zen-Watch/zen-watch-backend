@@ -29,6 +29,7 @@ MYSQL_DATABASE='zen_watch'
 SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
+API_WORKER_SHARDS=1
 ```
 
 ### Local Testing in Postman
