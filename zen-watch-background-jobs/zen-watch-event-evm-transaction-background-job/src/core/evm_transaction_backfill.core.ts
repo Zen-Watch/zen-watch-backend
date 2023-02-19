@@ -27,13 +27,13 @@ export async function construct_evm_backfill_json(event: any) {
         // Get the USD exchange rate at the time of block creation     
         const block_timestamp = block.timestamp
 
-        const exchange_currency = setAppExchangeCurrency(event.event_json.event_properties.app_exchange_currency)
-        const exchange_rate_resp = await getExchangeRate(chain, exchange_currency, block_timestamp);
-
         backfill_json['txn_hash'] = event.event_json.event_properties.txn_hash
 
-        backfill_json['exchange_currency'] = exchange_rate_resp[0]
-        backfill_json['exchange_rate'] = exchange_rate_resp[1]
+        const exchange_currency = setAppExchangeCurrency(event.event_json.event_properties.app_exchange_currency)
+        backfill_json['exchange_currency'] = exchange_currency
+
+        const exchange_rate = await getExchangeRate(chain, exchange_currency, block_timestamp, event.event_json.event_properties.app_exchange_rate);
+        backfill_json['exchange_rate'] = exchange_rate
 
         backfill_json['gasUsed'] = Number(receipt.gasUsed)
         backfill_json['effectiveGasPrice'] = Number(receipt.effectiveGasPrice) / BILLION
