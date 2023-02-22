@@ -34,7 +34,7 @@ async function getFromWebhookWithAPIKeybasedAuthentication(url, apiKey) {
 
   return response.json();
 }
-// return getFromWebhookWithAPIKeybasedAuthentication;
+//return getFromWebhookWithAPIKeybasedAuthentication;
 
 async function postToWebhook(url, payload) {
   const response = await fetch(url, {
@@ -49,3 +49,4 @@ async function getFromWebhook(url) {
   const response = await fetch(url);
   return response.json();
 }
+//return getFromWebhook;

@@ -1,6 +1,6 @@
 CREATE TABLE ifttt_trigger_definition (
   id INT NOT NULL AUTO_INCREMENT,
-  trigger_worker_shard_id INT NOT NULL,
+  ifttt_trigger_worker_shard_id INT NOT NULL,
   dev_id INT NOT NULL,
   categ_id INT NOT NULL,
   is_public TINYINT(1) DEFAULT 0,
@@ -15,7 +15,7 @@ CREATE TABLE ifttt_trigger_definition (
   created_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY(id),
-  INDEX ITD_TWSI (trigger_worker_shard_id ASC),
+  INDEX ITD_ITWSI (ifttt_trigger_worker_shard_id ASC),
   INDEX ITDIP (is_public),
   INDEX ITDITS (is_trusted_source),
   INDEX ITDICI (is_compute_intensive),

@@ -5,6 +5,8 @@ import { authenticate_dev_email } from './admin.middlewares';
 import { create_ifttt_category } from '../handlers/ifttt_category.handler';
 import { create_ifttt_trigger_definition } from '../handlers/ifttt_trigger_definition.handler';
 import { create_ifttt_action_definition } from '../handlers/ifttt_action_definition.handler';
+import { create_ifttt_instance } from '../handlers/ifttt_instance.handler';
+import { create_ifttt_run_history } from '../handlers/ifttt_run_history.handler';
 dotenv.config();
 
 const router = express.Router()
@@ -36,20 +38,14 @@ router.post('/create/action_definition', authenticate_dev_email, (req: Request, 
 
 // Fetch ifttt definitions that matches the given criteria
 router.post('/create/ifttt_instance', authenticate_dev_email, (req: Request, res: Response) => {
-    const { email } = req.body
-    const _res = {
-        email,
-    };
-    res.status(200).send(req.body)
+    create_ifttt_instance(req.body)
+        .then(_res => res.status(_res.status).send(_res))
 })
 
 // Fetch ifttt run history that matches the given criteria
 router.post('/create/ifttt_run_history', authenticate_dev_email, (req: Request, res: Response) => {
-    const { email } = req.body
-    const _res = {
-        email,
-    };
-    res.status(200).send(req.body)
+    create_ifttt_run_history(req.body)
+        .then(_res => res.status(_res.status).send(_res))
 })
 
 // ------------------------------- Read APIs -----------------------------------------------

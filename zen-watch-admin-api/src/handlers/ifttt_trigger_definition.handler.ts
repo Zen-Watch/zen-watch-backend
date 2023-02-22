@@ -8,8 +8,8 @@ dotenv.config();
 export async function create_ifttt_trigger_definition(payload: any) {
     try {
         const dev = await get_developer_by_email_from_cache(payload.email);
-        const shard_id = getRandomShardNumber(Number(process.env.TRIGGER_WORKER_SHARDS));
-        payload.trigger_worker_shard_id = shard_id;
+        const shard_id = getRandomShardNumber(Number(process.env.IFTTT_TRIGGER_WORKER_SHARDS));
+        payload.ifttt_trigger_worker_shard_id = shard_id;
         payload.dev_id = dev.id;
         const row_created = await create_ifttt_trigger_definition_logic(payload);
         console.log('row_created', row_created);
