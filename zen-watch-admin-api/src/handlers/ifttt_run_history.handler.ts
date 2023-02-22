@@ -15,7 +15,7 @@ export async function create_ifttt_run_history(payload: any) {
         console.log('row_created', row_created);
         return { status: STATUS_OK, message: 'IFTTT run history created' }
     } catch(error) {
-        return { status: STATUS_NOT_FOUND, message: 'Error during ifttt run history creation. Please contact support@zen.watch' }
+        return { status: STATUS_NOT_FOUND, message: 'Error during ifttt run history creation. Please contact support@zen.watch', error }
     }
 }
     
