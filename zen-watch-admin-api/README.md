@@ -24,6 +24,8 @@ SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
 ALLOWED_DEV_API_KEY='zen-watch-api-key'
+TRIGGER_WORKER_SHARDS=1
+ACTION_WORKER_SHARDS=1
 ```
 
 ### Local Testing in Postman
