@@ -7,7 +7,6 @@ CREATE TABLE ifttt_action_definition (
   action_description VARCHAR(5000) NOT NULL,
   action_signature TEXT NOT NULL,
   action_code TEXT NOT NULL,
-  action_metadata JSON,
   action_expected_output TEXT NOT NULL,
   action_expected_output_description TEXT NOT NULL,
   created_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
