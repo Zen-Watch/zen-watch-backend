@@ -1,3 +1,9 @@
+### Escape string online
+https://www.freeformatter.com/json-escape.html#before-output
+
+### Web3
+https://consensys.net/blog/developers/guide-to-events-and-logs-in-ethereum-smart-contracts/
+
 ### Infrastructure
 For creating droplets and adding SSH access
 https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/

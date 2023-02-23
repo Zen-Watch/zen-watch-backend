@@ -3,9 +3,6 @@
 // const alchemyApiKey = "your_alchemy_api_key";
 
 
-// https://www.freeformatter.com/json-escape.html#before-output
-
-
 function erc20_inbound_transfer(alchemy_web3: any, incomingContract: string, incomingAddress: string, zen_watch: any) {
     const abi = [
         { 'anonymous': false, 'inputs': [{ 'indexed': true, 'name': 'from', 'type': 'address' }, { 'indexed': true, 'name': 'to', 'type': 'address' }, { 'indexed': false, 'name': 'value', 'type': 'uint256' }], 'name': 'Transfer', 'type': 'event' }
@@ -25,3 +22,24 @@ function erc20_inbound_transfer(alchemy_web3: any, incomingContract: string, inc
     
     return eventEmitter;
 }
+
+// {
+//     event: "successful_deposit",   
+//     data: {
+//         blockNum: '0xbb933a',
+//         hash: '0xcfb197f62ec5c7f0e71a11ec0c4a0e394a3aa41db5386e85526f86c84b3f2796',
+//         from: '0x0000000000000000000000000000000000000000',
+//         to: '0xaba7161a7fb69c88e16ed9f455ce62b791ee4d03',
+//         value: null,
+//         erc721TokenId: '0x0000000000000000000000000000000000000000000000000000000000000000',
+//         erc1155Metadata: null,
+//         tokenId: '0x0000000000000000000000000000000000000000000000000000000000000000',
+//         asset: 'BAYC',
+//         category: 'erc721',
+//         rawContract: {
+//           value: null,
+//           address: '0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d',
+//           decimal: null
+//         }
+//       }
+// }
