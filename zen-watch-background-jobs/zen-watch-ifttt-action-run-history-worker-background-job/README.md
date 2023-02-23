@@ -1,5 +1,5 @@
-# Zen Watch Event EVM Transaction Background Job
-Background job to process unprocess events to populate visualization & alerting tables. Handles logic related to evm transactions.
+# Zen Watch IFTTT Instance Worker Background Job
+Background job to process ifttt instances, which are switched on & remove those which are switched off. Handles the logic to turn event emitters on/off in-memory for pull based triggers and makes API calls for pull based triggers. 
 
 ## Debugging
 Look into polygon & other blockchain explorers to get representative inputs about all error conditions. Go deep into understanding blockchain transactions.

@@ -1,7 +1,7 @@
 {
-  "name": "zen-watch-background-job",
+  "name": "zen-watch-ifttt-instance-worker-background-job",
   "version": "1.0.0",
-  "description": "Backend API for zen-watch web3 analytics",
+  "description": "Backend API for zen-watch web3 ifttt instance worker background job",
   "main": "server.js",
   "scripts": {
     "build": "npx tsc",

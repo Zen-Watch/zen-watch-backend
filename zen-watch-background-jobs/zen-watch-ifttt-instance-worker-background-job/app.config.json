@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "event-evm-transaction-background-job",
+            "name": "event-ifttt-instance-worker-background-job",
             "script": "npm",
             "args" : "start"
         }
