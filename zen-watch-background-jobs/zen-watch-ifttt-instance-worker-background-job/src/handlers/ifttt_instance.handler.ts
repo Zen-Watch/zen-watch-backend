@@ -1,4 +1,5 @@
-import { processIFTTTInstanceTriggerBasedOnPullMechanism, processIFTTTInstanceTriggerBasedOnPushMechanism } from "../core/ifttt_iinstance.core";
+import { handleIFTTTInstanceTriggerBasedOnPullMechanism } from "../core/ifttt_instance_pull_mechanism.core";
+import { handleIFTTTInstanceTriggerBasedOnPushMechanism } from "../core/ifttt_instance_push_mechanism.core";
 import { fetchAllIFTTTInstances } from "../logic/ifttt_instance.logic";
 
 export async function handleFetchAllIFTTTInstances() {
@@ -22,4 +23,14 @@ export async function processIFTTTInstance(_instance: any) {
         await processIFTTTInstanceTriggerBasedOnPushMechanism(_instance);
     else
         await processIFTTTInstanceTriggerBasedOnPullMechanism(_instance);
+}
+
+// process the ifttt instance based on the pull trigger mechanism
+export async function processIFTTTInstanceTriggerBasedOnPullMechanism(_instance: any) {
+    await handleIFTTTInstanceTriggerBasedOnPullMechanism(_instance);
+}
+
+// process the ifttt instance based on the push trigger mechanism
+export async function processIFTTTInstanceTriggerBasedOnPushMechanism(_instance: any) {
+    await handleIFTTTInstanceTriggerBasedOnPushMechanism(_instance);
 }

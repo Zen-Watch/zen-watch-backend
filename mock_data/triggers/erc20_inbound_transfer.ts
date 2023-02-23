@@ -3,6 +3,24 @@
 // const alchemyApiKey = "your_alchemy_api_key";
 
 
+`
+async function watchERCTokenDeposit(targetAddress, contractAddress, ethers, provider, zenwatch) {
+    const contract = new ethers.Contract(contractAddress, [
+        'event Transfer(address indexed from, address indexed to, uint256 value)',
+    ], provider);
+
+    const listener = (from, to, amount, event) => {
+        if (to.toUpperCase() === targetAddress.toUpperCase()) {
+            const eventData = event.args;
+            zenwatch.handleTrigger(eventData);
+        }
+    };
+
+    contract.on('Transfer', listener);
+    return contract;
+}`
+
+
 function erc20_inbound_transfer(alchemy_web3: any, incomingContract: string, incomingAddress: string, zen_watch: any) {
     const abi = [
         { 'anonymous': false, 'inputs': [{ 'indexed': true, 'name': 'from', 'type': 'address' }, { 'indexed': true, 'name': 'to', 'type': 'address' }, { 'indexed': false, 'name': 'value', 'type': 'uint256' }], 'name': 'Transfer', 'type': 'event' }
