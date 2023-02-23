@@ -1,0 +1,21 @@
+CREATE TABLE ifttt_action_run_history (
+  id INT NOT NULL AUTO_INCREMENT,
+  ifttt_action_run_history_worker_shard_id INT NOT NULL,
+  dev_id INT NOT NULL,
+  ifttt_instance_id INT NOT NULL,
+  ifttt_trigger_run_history_id INT NOT NULL,
+  action_run_status INT NOT NULL,
+  action_run_info JSON NOT NULL,
+  action_run_input JSON,
+  action_run_output JSON,
+  created_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY(id),
+  INDEX IARH_IARHWSI (ifttt_action_run_history_worker_shard_id ASC),
+  INDEX IARHARS (action_run_status ASC),
+  INDEX IARHCTS (created_ts ASC),
+  INDEX IARHUTS (updated_ts ASC),
+  CONSTRAINT IARHD_FK FOREIGN KEY(dev_id) REFERENCES developer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT IARHIID_FK FOREIGN KEY(ifttt_instance_id) REFERENCES ifttt_instance(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT IARHITRH_FK FOREIGN KEY(ifttt_trigger_run_history_id) REFERENCES ifttt_trigger_run_history(id) ON DELETE RESTRICT ON UPDATE CASCADE
+);

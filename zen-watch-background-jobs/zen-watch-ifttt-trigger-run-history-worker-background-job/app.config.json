@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "event-evm-transaction-background-job",
+            "script": "npm",
+            "args" : "start"
+        }
+    ]
+}

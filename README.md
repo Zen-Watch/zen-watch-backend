@@ -1,6 +1,8 @@
 # zen-watch-backend
 Backend code for Zen Watch, an [event based analytics system](https://www.youtube.com/watch?v=hMWyE3HBwW4) for web3.
 
+Build the best in class IFTTT system for web3! That's focus & execution!
+
 ## Code Structure
 
 * zen-watch-api - contains the event processing apis
