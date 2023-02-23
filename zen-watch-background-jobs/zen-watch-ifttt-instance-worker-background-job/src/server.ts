@@ -30,7 +30,7 @@ function run_task() {
 setInterval(()=> {
     console.log('SetInterval Next loop for IFTTT instance worker background job started at -', dayjs().format());
     run_task();
-}, 30000);
+}, 3000); //30000
 
 
 

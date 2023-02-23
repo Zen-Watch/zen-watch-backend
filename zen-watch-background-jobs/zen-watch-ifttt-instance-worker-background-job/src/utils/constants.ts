@@ -1,5 +1,7 @@
+import { ethers } from "ethers";
+
 // the map of event listeners
-export const ifttt_instance_event_listener_map = new Map<string, any>();
+export const ifttt_instance_event_listener_map = new Map<string, ethers.Contract>();
 
 // target_resource_name
 export const POLYGON_MAINNET = "polygon_mainnet";
