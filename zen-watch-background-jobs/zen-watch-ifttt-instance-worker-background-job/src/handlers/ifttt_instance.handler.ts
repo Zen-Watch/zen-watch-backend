@@ -1,6 +1,8 @@
 import { handleIFTTTInstanceTriggerBasedOnPullMechanism } from "../core/ifttt_instance_pull_mechanism.core";
-import { handleIFTTTInstanceTriggerBasedOnPushMechanism } from "../core/ifttt_instance_push_mechanism.core";
+import { handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism } from "../core/ifttt_instance_onchain_push_mechanism.core";
 import { fetchAllIFTTTInstances } from "../logic/ifttt_instance.logic";
+import { ONCHAIN_PUSH_TRIGGERS } from "../utils/constants";
+import { handleIFTTTInstanceTriggerBasedOnOffchainPushMechanism } from "../core/ifttt_instance_offchain_push_mechanism.core";
 
 export async function handleFetchAllIFTTTInstances() {
     return await fetchAllIFTTTInstances();
@@ -32,5 +34,9 @@ export async function processIFTTTInstanceTriggerBasedOnPullMechanism(_instance:
 
 // process the ifttt instance based on the push trigger mechanism
 export async function processIFTTTInstanceTriggerBasedOnPushMechanism(_instance: any) {
-    await handleIFTTTInstanceTriggerBasedOnPushMechanism(_instance);
+
+    if (_instance.target_resource_name in ONCHAIN_PUSH_TRIGGERS)
+        await handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism(_instance);
+    else    
+        await handleIFTTTInstanceTriggerBasedOnOffchainPushMechanism(_instance);
 }
