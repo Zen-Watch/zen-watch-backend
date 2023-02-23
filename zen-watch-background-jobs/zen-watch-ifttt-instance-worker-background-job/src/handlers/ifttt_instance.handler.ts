@@ -34,8 +34,8 @@ export async function processIFTTTInstanceTriggerBasedOnPullMechanism(_instance:
 
 // process the ifttt instance based on the push trigger mechanism
 export async function processIFTTTInstanceTriggerBasedOnPushMechanism(_instance: any) {
-
-    if (_instance.target_resource_name in ONCHAIN_PUSH_TRIGGERS)
+    console.log('Starting', _instance.trigger_target_resource_name, ONCHAIN_PUSH_TRIGGERS);
+    if (ONCHAIN_PUSH_TRIGGERS.includes(_instance.trigger_target_resource_name.toLowerCase()))
         await handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism(_instance);
     else    
         await handleIFTTTInstanceTriggerBasedOnOffchainPushMechanism(_instance);

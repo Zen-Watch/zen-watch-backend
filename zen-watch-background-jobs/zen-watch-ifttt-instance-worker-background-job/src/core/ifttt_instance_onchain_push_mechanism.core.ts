@@ -32,6 +32,7 @@ function loadDynamicFunction(provider: ethers.providers.JsonRpcProvider, zenwatc
 
 // process the ifttt instance based on the trigger mechanism
 export async function handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism(_instance: any) {
+    console.log('Entering on-chain push mechanism for IFTTT instance - ');
     if (ifttt_instance_event_listener_map.has(_instance.id.toString())) {
         console.log('IFTTT instance with push mechanism already processed - '); 
         return 
