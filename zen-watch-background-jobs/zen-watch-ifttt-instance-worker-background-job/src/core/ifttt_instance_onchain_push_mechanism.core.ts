@@ -63,8 +63,9 @@ export async function handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism(_ins
             // turn off onchain listener
             console.log('Turning off IFTTT instance with push mechanism - ', _instance.id.toString());
             const contract = ifttt_instance_event_listener_map.get(_instance.id.toString());
-            console.log('Retrieved contract Contract - ', contract);
-            turnOffOnchainListener(contract!);
+            console.log('resolve promise', contract!.then((c: ethers.Contract) => {
+                turnOffOnchainListener(c);
+            }));
             // remove from map
             ifttt_instance_event_listener_map.delete(_instance.id.toString());
             console.log('IFTTT instance id deleted / turned off - ', _instance.id.toString(), ifttt_instance_event_listener_map);
