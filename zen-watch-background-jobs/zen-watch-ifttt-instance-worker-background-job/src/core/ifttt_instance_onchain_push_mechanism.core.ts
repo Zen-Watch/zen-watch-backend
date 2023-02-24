@@ -1,30 +1,13 @@
 import { ethers } from 'ethers';
-import { ifttt_instance_event_listener_map } from '../utils/constants';
+import { ZenWatchHandler, ifttt_instance_event_listener_map } from '../utils/constants';
 import { fetchIFTTTTriggerDefinition } from '../logic/ifttt_trigger_definition.logic';
 import dotenv from 'dotenv';
 import { getAlchemyProvider } from '../utils/util_methods';
 dotenv.config();
 
-type ZenWatchHandlers = {
-    handleTrigger: (eventData: any) => void;
-    handleError: (error: any) => void;
-};
-
-// the injected handler from zen_watch
-const zenwatch: ZenWatchHandlers = {
-    handleTrigger: (eventData: any) => {
-        const info = {
-            from: eventData.from,
-            to: eventData.to,
-            value: Number(eventData.value),
-        }
-        console.log('Triggered with data - ', info);
-    },
-    handleError: (error: any) => console.error('Error:', error),
-};
 
 // load the onchain listener
-function loadDynamicFunction(provider: ethers.providers.JsonRpcProvider, zenwatch: ZenWatchHandlers, dynamicFunctionCode: any) {
+function loadDynamicFunction(provider: ethers.providers.JsonRpcProvider, zenwatch: ZenWatchHandler, dynamicFunctionCode: any) {
     const dynamicFunction = eval(`(${dynamicFunctionCode})`);
     return (params: any) => {
         return dynamicFunction(params.targetAddress, params.contractAddress, ethers, provider, zenwatch);
@@ -52,6 +35,7 @@ export async function handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism(_ins
             const trigger_info = await fetchIFTTTTriggerDefinition(_instance.trigger_info.trigger_id);
             // print trigger info
             const provider = getAlchemyProvider(trigger_info.target_resource_name);
+            const zenwatch = new ZenWatchHandler(_instance, trigger_info);
             const _dynamicFunction = loadDynamicFunction(provider, zenwatch, decodeURIComponent(trigger_info.trigger_code));
             const contract = _dynamicFunction(_instance.trigger_info.params);
             console.log('Created contract - ', contract);

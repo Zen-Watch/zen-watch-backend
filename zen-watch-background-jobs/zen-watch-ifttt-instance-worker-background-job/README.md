@@ -31,6 +31,7 @@ SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
 IFTTT_INSTANCE_WORKER_ID=0
+IFTTT_TRIGGERR_RUN_HISTORY_WORKER_SHARDS=1
 ```
 NOTE: API_WORKER_ID is a range from [0,N), where N is the total number of shards, configured in the system. Each worker, picks the shard that they are asigned, i.e., API_WORKER_ID, picks shard 0. Currently, we have only on shard, but this allows for horizontal scalability in the background job processing.
 
