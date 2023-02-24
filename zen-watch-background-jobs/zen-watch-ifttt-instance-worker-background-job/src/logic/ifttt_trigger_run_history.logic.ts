@@ -2,8 +2,8 @@ import { connect_to_mysql } from "../db/connection_pool";
 import { TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED } from "../utils/constants";
 import { getRandomShardNumber } from "../utils/util_methods";
 
-export async function saveTriggerPayload(instance:any, trigger_info:any, payload:any) {
-    console.log('Saving trigger payload - ', instance, trigger_info, payload);
+export async function saveIFTTTTriggerRunHistoryPayload(instance:any, payload:any) {
+    console.log('Saving trigger run history payload saved - ');
     const pool = await connect_to_mysql()
 
     const ifttt_trigger_run_history_worker_shard_id = getRandomShardNumber(Number(process.env.IFTTT_TRIGGERR_RUN_HISTORY_WORKER_SHARDS));

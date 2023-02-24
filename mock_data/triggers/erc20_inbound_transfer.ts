@@ -14,7 +14,7 @@ async function watchERCTokenDeposit(targetAddress, contractAddress, ethers, prov
             let info = {
                 from: from,
                 to: to,
-                value: ethers.utils.formatUnits(amount, 6)
+                value: ethers.utils.formatUnits(amount, 6),
                 data: event
             }
             zenwatch.handleTrigger(info);

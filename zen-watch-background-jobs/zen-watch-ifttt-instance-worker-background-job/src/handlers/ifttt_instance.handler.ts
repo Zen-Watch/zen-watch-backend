@@ -1,7 +1,7 @@
 import { handleIFTTTInstanceTriggerBasedOnPullMechanism } from "../core/ifttt_instance_pull_mechanism.core";
 import { handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism } from "../core/ifttt_instance_onchain_push_mechanism.core";
 import { fetchAllIFTTTInstances } from "../logic/ifttt_instance.logic";
-import { ONCHAIN_PUSH_TRIGGERS } from "../utils/constants";
+import { DynamicFunctionLoadingError, ONCHAIN_PUSH_TRIGGERS } from "../utils/constants";
 import { handleIFTTTInstanceTriggerBasedOnOffchainPushMechanism } from "../core/ifttt_instance_offchain_push_mechanism.core";
 
 export async function handleFetchAllIFTTTInstances() {
@@ -15,7 +15,12 @@ export async function handleProcessIFTTTInstance(ifttt_instances: any) {
             await processIFTTTInstance(_instance);
         }
     } catch (e) {
-        throw e;
+        if (e instanceof DynamicFunctionLoadingError) {
+            console.error('DynamicFunctionLoadingError caught, logged and moved on', e.message);
+        } else {
+            // All other errors are surfaced to the caller
+            throw e;
+        }
     }
 }
 
@@ -37,6 +42,6 @@ export async function processIFTTTInstanceTriggerBasedOnPushMechanism(_instance:
     console.log('Starting', _instance.trigger_target_resource_name, ONCHAIN_PUSH_TRIGGERS);
     if (ONCHAIN_PUSH_TRIGGERS.includes(_instance.trigger_target_resource_name.toLowerCase()))
         await handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism(_instance);
-    else    
+    else
         await handleIFTTTInstanceTriggerBasedOnOffchainPushMechanism(_instance);
 }

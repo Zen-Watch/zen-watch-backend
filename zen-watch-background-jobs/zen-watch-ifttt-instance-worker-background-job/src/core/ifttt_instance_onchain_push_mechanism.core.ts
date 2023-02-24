@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { ZenWatchHandler, ifttt_instance_event_listener_map } from '../utils/constants';
+import { DynamicFunctionLoadingError, ZenWatchHandler, ifttt_instance_event_listener_map } from '../utils/constants';
 import { fetchIFTTTTriggerDefinition } from '../logic/ifttt_trigger_definition.logic';
 import dotenv from 'dotenv';
 import { getAlchemyProvider } from '../utils/util_methods';
@@ -26,20 +26,25 @@ export async function handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism(_ins
     if (_instance.ifttt_instance_is_on) {
         // regular flow, if already on map, skip, else add to mapp and process 
         if (ifttt_instance_event_listener_map.has(_instance.id.toString())) {
-            console.log('Skip IFTTT instance with push mechanism already processed - ', _instance.id.toString());
+            //console.log('Skip IFTTT instance with push mechanism already processed - ', _instance.id.toString());
             return
         }
         else {
             // New instance, add to map and process
             console.log('Turning on IFTTT instance with push mechanism - ', _instance.id.toString());
             const trigger_info = await fetchIFTTTTriggerDefinition(_instance.trigger_info.trigger_id);
-            // print trigger info
             const provider = getAlchemyProvider(trigger_info.target_resource_name);
-            const zenwatch = new ZenWatchHandler(_instance, trigger_info);
-            const _dynamicFunction = loadDynamicFunction(provider, zenwatch, decodeURIComponent(trigger_info.trigger_code));
-            const contract = _dynamicFunction(_instance.trigger_info.params);
-            console.log('Created contract - ', contract);
-            ifttt_instance_event_listener_map.set(_instance.id.toString(), contract as ethers.Contract);
+            try {
+                // Raising a Dynamic Function Loading Error as there is could error in user written dynamic code, which should not bring the system down
+                const zenwatch = new ZenWatchHandler(_instance, trigger_info);
+                const _dynamicFunction = loadDynamicFunction(provider, zenwatch, decodeURIComponent(trigger_info.trigger_code));
+                const contract = _dynamicFunction(_instance.trigger_info.params);
+                //console.log('Created contract - ', contract);
+                ifttt_instance_event_listener_map.set(_instance.id.toString(), contract as ethers.Contract);
+            } catch (e) {
+                console.log('DynamicFunctionLoadingError in loading dynamic function in handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism - ', _instance.id.toString(), e);
+                throw new DynamicFunctionLoadingError(`DynamicFunctionLoadingError in loading dynamic function in handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism - ${_instance.id.toString()} - ${e}`);
+            }
         }
     } else {
         // the triggger has been turned off, but still is being processed, turn off the listener and remove from the map 
