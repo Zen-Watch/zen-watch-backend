@@ -14,6 +14,13 @@ router.get('/healthz', (req, res) => {
     res.status(STATUS_OK).send('hello world, ifttt!!');
 })
 
+// ------------------------------- Echo Bot API for IFTTT testing ----------------------------
+
+// Echo Bot API for IFTTT testing, echos back the request body
+router.post('/test/echo', authenticate_dev_email, (req: Request, res: Response) => {
+    res.status(STATUS_OK).send(req.body);
+})
+
 // ------------------------------- Create APIs -----------------------------------------------
 
 // Fetch ifttt categories that matches the given criteria
