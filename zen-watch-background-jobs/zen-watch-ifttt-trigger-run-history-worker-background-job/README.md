@@ -1,5 +1,5 @@
-# Zen Watch IFTTT Instance Worker Background Job
-Background job to process ifttt instances, which are switched on & remove those which are switched off. Handles the logic to turn event emitters on/off in-memory for pull based triggers and makes API calls for pull based triggers. 
+# Zen Watch IFTTT Trigger Run History Worker Background Job
+Background job to process ifttt trigger runs and pass the action to action history.
 
 ## Debugging
 Look into polygon & other blockchain explorers to get representative inputs about all error conditions. Go deep into understanding blockchain transactions.
@@ -31,7 +31,7 @@ SERVER_PORT=1337
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
 IFTTT_TRIGGER_RUN_HISTORY_WORKER_ID=0
-IFTTT_TRIGGER_RUN_HISTORY_WORKER_SHARDS=1
+IFTTT_ACTION_RUN_HISTORY_WORKER_SHARDS=1
 ```
 NOTE: API_WORKER_ID is a range from [0,N), where N is the total number of shards, configured in the system. Each worker, picks the shard that they are asigned, i.e., API_WORKER_ID, picks shard 0. Currently, we have only on shard, but this allows for horizontal scalability in the background job processing.
 
