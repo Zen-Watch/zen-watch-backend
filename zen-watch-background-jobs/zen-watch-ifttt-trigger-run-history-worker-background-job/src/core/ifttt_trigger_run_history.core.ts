@@ -2,7 +2,7 @@ import { fetch_ifttt_action_definition_by_id } from "../logic/ifttt_action_defin
 import { create_new_action_events_in_a_transaction } from "../logic/ifttt_action_run_history.logic";
 import { fetch_actions_info_from_ifttt_instance_by_id } from "../logic/ifttt_instance.logic";
 import { update_ifttt_trigger_run_history_status } from "../logic/ifttt_trigger_run_history.logic";
-import { IFTTT_ACTION_RUN_HISTORY_WORKER_STATUS_UNPROCESSED, TRIGGER_RUN_HISTORY_WORKER_STATUS_FAILURE, TRIGGER_RUN_HISTORY_WORKER_STATUS_SUCCESS } from "../utils/constants";
+import { IFTTT_ACTION_RUN_HISTORY_WORKER_STATUS_UNPROCESSED, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_FAILURE, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_SUCCESS } from "../utils/constants";
 import { get_random_shard_number } from "../utils/util_methods";
 
 export async function create_ifttt_action_run_history_events(ifttt_trigger_run_history_event: any) {
@@ -11,10 +11,10 @@ export async function create_ifttt_action_run_history_events(ifttt_trigger_run_h
     console.log("is_transaction_success: ", is_transaction_success);
     if (is_transaction_success) {
         // update the trigger run history status to success
-        await update_ifttt_trigger_run_history_status(ifttt_trigger_run_history_event.id, TRIGGER_RUN_HISTORY_WORKER_STATUS_SUCCESS);
+        await update_ifttt_trigger_run_history_status(ifttt_trigger_run_history_event.id, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_SUCCESS);
     } else {
         // update the trigger run history status to failure
-        await update_ifttt_trigger_run_history_status(ifttt_trigger_run_history_event.id, TRIGGER_RUN_HISTORY_WORKER_STATUS_FAILURE);
+        await update_ifttt_trigger_run_history_status(ifttt_trigger_run_history_event.id, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_FAILURE);
     }
 }
 

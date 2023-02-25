@@ -1,5 +1,5 @@
 import { connect_to_mysql } from "../db/connection_pool";
-import { TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED } from "../utils/constants";
+import { IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED } from "../utils/constants";
 import { get_random_shard_number } from "../utils/util_methods";
 import dotenv from 'dotenv';
 dotenv.config();
@@ -15,7 +15,7 @@ export async function save_ifttt_trigger_run_history_payload(instance:any, paylo
     const is_trigger_push_mechanism = instance.is_trigger_push_mechanism;
     const trigger_target_resource_name = instance.trigger_target_resource_name;
     const ifttt_instance_id = instance.id;
-    const trigger_run_status = TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED;
+    const trigger_run_status = IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED;
     const trigger_run_info = JSON.stringify(instance.trigger_info)
     const trigger_run_output = JSON.stringify(payload)
 
