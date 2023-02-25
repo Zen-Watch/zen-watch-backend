@@ -18,12 +18,12 @@ function run_task() {
                     //process.exit(0); // Terminate with success
                 })
                 .catch(err => {
-                    console.log('Process terminated with error in handleFetchUnprocessedEVMTransactionEvents', err);
+                    console.log('Process terminated with error in handle_process_unprocessed_evm_transaction_events', err);
                     //process.exit(1); // Terminate with failure
                 });
         })
         .catch(err => {
-            console.log('Process terminated with error in handleFetchUnprocessedEVMTransactionEvents', err);
+            console.log('Process terminated with error in handle_fetch_unprocessed_evm_transaction_events', err);
             //process.exit(1);
         });
 }

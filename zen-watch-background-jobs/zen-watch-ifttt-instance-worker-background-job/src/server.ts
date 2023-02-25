@@ -16,12 +16,12 @@ function run_task() {
                     //process.exit(0); // Terminate with success
                 })
                 .catch(err => {
-                    console.log('Process terminated with error in handleProcessIFTTTInstance', err);
+                    console.log('Process terminated with error in handle_process_ifttt_instance', err);
                     //process.exit(1); // Terminate with failure
                 });
         })
         .catch(err => {
-            console.log('Process terminated with error in handleFetchAllIFTTTInstances', err);
+            console.log('Process terminated with error in handle_fetch_all_ifttt_instances', err);
             //process.exit(1);
         });
 }

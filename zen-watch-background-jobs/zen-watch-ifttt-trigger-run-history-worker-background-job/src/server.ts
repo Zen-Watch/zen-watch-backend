@@ -18,12 +18,12 @@ function run_task() {
                     //process.exit(0); // Terminate with success
                 })
                 .catch(err => {
-                    console.log('Process terminated with error in handleProcessIFTTTTriggerRunHistoryEvents', err);
+                    console.log('Process terminated with error in handle_process_ifttt_trigger_run_history_events', err);
                     //process.exit(1); // Terminate with failure
                 });
         })
         .catch(err => {
-            console.log('Process terminated with error in handleFetchUnprocessedIFTTTTriggerRunHistoryEvents', err);
+            console.log('Process terminated with error in handle_fetch_unprocessed_ifttt_trigger_run_history_events', err);
             //process.exit(1);
         });
 }
