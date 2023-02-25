@@ -3,6 +3,9 @@ Backend code for Zen Watch, an [event based analytics system](https://www.youtub
 
 Build the best in class IFTTT system for web3! That's focus & execution!
 
+### Coding Stype
+- Use underscore for names and all lowcaps, instead of camel_case. Ex, `camel_case` instead of `CamelCase`.
+
 ## Code Structure
 
 * zen-watch-api - contains the event processing apis
