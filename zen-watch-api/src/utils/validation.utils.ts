@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
-import { isOnchainTransactionEventType, getRandomShardNumber } from './util_methods';
+import { is_onchain_transaction_event_type, get_random_shard_number } from './util_methods';
 
-export function validateZenWatchEvent(event: any) {
+export function validate_zen_watch_event(event: any) {
     if (event == '')
         throw new Error('The event must be a valid JSON');
 
@@ -38,16 +38,16 @@ export function validateZenWatchEvent(event: any) {
         throw new Error('wallet_properties must be a valid JSON')
     }
 
-    if (isOnchainTransactionEventType(event.event_type)) {
+    if (is_onchain_transaction_event_type(event.event_type)) {
         if (!event.event_properties || !event.event_properties.txn_hash)
             throw new Error('For transaction type, txn_hash must be passed in')
     }
 
-    return attachEventMetadata(event)
+    return attach_event_metadata(event)
 }
 
-export function attachEventMetadata(event: any) {
+export function attach_event_metadata(event: any) {
     event.event_id = uuidv4();
-    event.api_worker_shard_id = getRandomShardNumber();
+    event.api_worker_shard_id = get_random_shard_number();
     return event;
 }

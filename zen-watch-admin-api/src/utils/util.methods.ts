@@ -25,7 +25,7 @@ export function get_evm_chain_event_names(chains: string[]) {
   return res;
 }
 
-export function getAppExchangeCurrency(app_exchange_currency: string) {
+export function get_app_exchange_currency(app_exchange_currency: string) {
   if (app_exchange_currency === undefined || app_exchange_currency === null)
       return USD;
   switch (app_exchange_currency.toUpperCase()) {
@@ -38,17 +38,17 @@ export function getAppExchangeCurrency(app_exchange_currency: string) {
   }
 }
 
-export function isOnchainTransactionEventType(event_type: any) {
+export function is_onchain_transaction_event_type(event_type: any) {
   return SUPPORTED_EVM_TRANSACTION_EVENTS.includes(event_type)
 }
 
 // write a function that takes a number and returns a random number between 0 and the number
-export function _getRandomNumber(max: number) {
+export function _get_random_number(max: number) {
   return Math.floor(Math.random() * max);
 }
 
 // write a function that to get a random shard number
-export function getRandomShardNumber(no_of_shards: number) {
+export function get_random_shard_number(no_of_shards: number) {
   const worker_shards = Number(no_of_shards);
-  return _getRandomNumber(worker_shards);
+  return _get_random_number(worker_shards);
 }

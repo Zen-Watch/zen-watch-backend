@@ -3,14 +3,14 @@ import { PROCESSED_ENTITY, SUPPORTED_EVM_TRANSACTION_EVENTS, UNPROCESSED_ENTITY 
 import dotenv from 'dotenv';
 dotenv.config();
 
-export async function fetchUnprocessedEVMTransactionEvents() {
+export async function fetch_unprocessed_evm_transaction_events() {
     const pool = await connect_to_mysql()
     const api_worker_id = Number(process.env.API_WORKER_ID);
     const result: any = await pool!.query(`select * from event_evm_transaction where event_status=? and api_worker_shard_id=? and event_type in (?)`, [UNPROCESSED_ENTITY, api_worker_id, SUPPORTED_EVM_TRANSACTION_EVENTS]);
     return result[0];
 }
 
-export async function saveBackFillJson(event:any, backfill_json_str:string) {
+export async function save_backfill_json(event:any, backfill_json_str:string) {
     // Using simple update, the access pattern can allow for simple update although the code is not race-condition free
     // Later change to select for update - do things that don't scale
     // Reference: https://sehannrathnayake.medium.com/how-to-handle-mysql-database-transactions-with-nodejs-b7a2bf1fd203

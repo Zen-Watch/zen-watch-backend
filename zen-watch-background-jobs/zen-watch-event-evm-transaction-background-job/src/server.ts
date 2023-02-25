@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import dayjs from 'dayjs'
 
-import { handleFetchUnprocessedEVMTransactionEvents, handleProcessUnprocessedEVMTransactionEvents } from './handlers/event_evm_transaction.handler';
+import { handle_fetch_unprocessed_evm_transaction_events, handle_process_unprocessed_evm_transaction_events } from './handlers/event_evm_transaction.handler';
 
 dotenv.config();
 
@@ -9,10 +9,10 @@ console.log('Processing of EVM transaction job run started at - ', dayjs().forma
 
 function run_task() {
     //read unprocessed events
-    handleFetchUnprocessedEVMTransactionEvents()
+    handle_fetch_unprocessed_evm_transaction_events()
         .then(unprocessed_events => {
             //act based on event type
-            handleProcessUnprocessedEVMTransactionEvents(unprocessed_events)
+            handle_process_unprocessed_evm_transaction_events(unprocessed_events)
                 .then(() => {
                     console.log(`Processing of EVM transaction job run finished at -  `, dayjs().format());
                     //process.exit(0); // Terminate with success

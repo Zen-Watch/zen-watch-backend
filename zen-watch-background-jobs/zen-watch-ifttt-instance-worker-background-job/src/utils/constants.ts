@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { saveIFTTTTriggerRunHistoryPayload } from "../logic/ifttt_trigger_run_history.logic";
+import { save_ifttt_trigger_run_history_payload } from "../logic/ifttt_trigger_run_history.logic";
 
 // the map of event listeners
 export const ifttt_instance_event_listener_map = new Map<string, ethers.Contract>();
@@ -35,7 +35,7 @@ export class ZenWatchHandler {
 
     handleTrigger = (payload: any) => {
         this.payload = payload;
-        saveIFTTTTriggerRunHistoryPayload(this.instance, this.payload).then((res: any) => {
+        save_ifttt_trigger_run_history_payload(this.instance, this.payload).then((res: any) => {
             console.log('Trigger run history payload saved - ', res);
         }).catch((err: any) => {
             console.error('Error saving trigger run history payload - ', err);
@@ -47,6 +47,7 @@ export class ZenWatchHandler {
     }
 }
 
+// Custom Error class
 export class DynamicFunctionLoadingError extends Error {
     constructor(message: any) {
         super(message);

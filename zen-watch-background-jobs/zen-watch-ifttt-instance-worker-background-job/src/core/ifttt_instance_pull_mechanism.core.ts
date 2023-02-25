@@ -1,5 +1,4 @@
-// process the ifttt instance based on the trigger mechanism
-export async function handleIFTTTInstanceTriggerBasedOnPullMechanism(_instance: any) {
+export async function handle_ifttt_instance_trigger_pull_mechanism(_instance: any) {
     console.log('Processing IFTTT instance with pull mechanism - ', _instance);
 }
 

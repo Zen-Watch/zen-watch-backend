@@ -1,16 +1,16 @@
 import dotenv from 'dotenv';
 import dayjs from 'dayjs'
-import { handleFetchAllIFTTTInstances, handleProcessIFTTTInstance } from './handlers/ifttt_instance.handler';
+import { handle_fetch_all_ifttt_instances, handle_process_ifttt_instance } from './handlers/ifttt_instance.handler';
 dotenv.config();
 
 console.log('Processing of IFTTT instance worker background job run started at - ', dayjs().format());
 
 function run_task() {
     // read all ifttt instances
-    handleFetchAllIFTTTInstances()
+    handle_fetch_all_ifttt_instances()
         .then(ifttt_instances => {
             // act based on event ifttt instance & active status
-            handleProcessIFTTTInstance(ifttt_instances)
+            handle_process_ifttt_instance(ifttt_instances)
                 .then(() => {
                     console.log(`Processing of IFTTT instance worker background job run finished at -  `, dayjs().format());
                     //process.exit(0); // Terminate with success

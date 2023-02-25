@@ -1,17 +1,17 @@
 import { BILLION, USD } from "../utils/constants";
-import { getBlockByHash, getTransactionByHash, getTransactionReceiptByHash } from "../handlers/alchemy.handler";
-import { getExchangeRate } from "../handlers/cryptocompare.handler";
-import { getChainFromEventName, setAppExchangeCurrency } from "../utils/util_methods";
+import { get_block_by_hash, get_transaction_by_hash, get_transaction_receipt_by_hash } from "../handlers/alchemy.handler";
+import { get_exchange_rate } from "../handlers/cryptocompare.handler";
+import { get_chain_from_event_name, set_app_exchange_currency } from "../utils/util_methods";
 
 // Specific to EVM accounting model
 export async function construct_evm_backfill_json(event: any) {
     console.log('Processing transaction', event.event_json.event_properties.txn_hash)
     // backfill transaction data
     const backfill_json: any = {}
-    const chain = getChainFromEventName(event.event_type);
+    const chain = get_chain_from_event_name(event.event_type);
     // fetch transaction receipt from alchemy
-    const receipt = await getTransactionReceiptByHash(chain, event.event_json.event_properties.txn_hash)
-    const txn_response = await getTransactionByHash(chain, event.event_json.event_properties.txn_hash)
+    const receipt = await get_transaction_receipt_by_hash(chain, event.event_json.event_properties.txn_hash)
+    const txn_response = await get_transaction_by_hash(chain, event.event_json.event_properties.txn_hash)
 
     // if nil or pending, skip - try in next round (this would be optimized further)
     if (receipt === null || txn_response === null) {
@@ -22,17 +22,17 @@ export async function construct_evm_backfill_json(event: any) {
     else {
         // Get rest of the transaction details
         // Get the block timestamp
-        const block = await getBlockByHash(chain, receipt.blockHash)
+        const block = await get_block_by_hash(chain, receipt.blockHash)
 
         // Get the USD exchange rate at the time of block creation     
         const block_timestamp = block.timestamp
 
         backfill_json['txn_hash'] = event.event_json.event_properties.txn_hash
 
-        const exchange_currency = setAppExchangeCurrency(event.event_json.event_properties.app_exchange_currency)
+        const exchange_currency = set_app_exchange_currency(event.event_json.event_properties.app_exchange_currency)
         backfill_json['exchange_currency'] = exchange_currency
 
-        const exchange_rate = await getExchangeRate(chain, exchange_currency, block_timestamp, event.event_json.event_properties.app_exchange_rate);
+        const exchange_rate = await get_exchange_rate(chain, exchange_currency, block_timestamp, event.event_json.event_properties.app_exchange_rate);
         backfill_json['exchange_rate'] = exchange_rate
 
         backfill_json['gasUsed'] = Number(receipt.gasUsed)

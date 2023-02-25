@@ -3,7 +3,7 @@ import { create_new_action_events_in_a_transaction } from "../logic/ifttt_action
 import { fetch_actions_info_from_ifttt_instance_by_id } from "../logic/ifttt_instance.logic";
 import { update_ifttt_trigger_run_history_status } from "../logic/ifttt_trigger_run_history.logic";
 import { IFTTT_ACTION_RUN_HISTORY_WORKER_STATUS_UNPROCESSED, TRIGGER_RUN_HISTORY_WORKER_STATUS_FAILURE, TRIGGER_RUN_HISTORY_WORKER_STATUS_SUCCESS } from "../utils/constants";
-import { getRandomShardNumber } from "../utils/util_methods";
+import { get_random_shard_number } from "../utils/util_methods";
 
 export async function create_ifttt_action_run_history_events(ifttt_trigger_run_history_event: any) {
     const new_actions = await prepare_new_actions_package(ifttt_trigger_run_history_event);
@@ -32,7 +32,7 @@ async function prepare_new_actions_package(ifttt_trigger_run_history_event: any)
 
         // prepare the new_action object and add it to the output array
         const new_action = {
-            ifttt_action_run_history_worker_shard_id: getRandomShardNumber(Number(process.env.IFTTT_ACTION_RUN_HISTORY_WORKER_SHARDS)),
+            ifttt_action_run_history_worker_shard_id: get_random_shard_number(Number(process.env.IFTTT_ACTION_RUN_HISTORY_WORKER_SHARDS)),
             dev_id: ifttt_trigger_run_history_event.dev_id,
             ifttt_instance_id: ifttt_trigger_run_history_event.ifttt_instance_id,
             ifttt_trigger_run_history_id: ifttt_trigger_run_history_event.id,
