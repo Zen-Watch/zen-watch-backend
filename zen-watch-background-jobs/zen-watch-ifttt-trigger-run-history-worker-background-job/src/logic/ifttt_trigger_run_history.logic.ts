@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import { TRIGGER_RUN_HISTORY_WORKER_STATUS_UNDER_PROCESSING, TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED } from "../utils/constants";
 dotenv.config();
 
-export async function fetchUnprocessedIFTTTTriggerRunHistoryEvents() {
+export async function fetch_unprocessed_ifttt_trigger_run_history_events() {
     const pool = await connect_to_mysql()
     const ifttt_trigger_run_history_worker_id = Number(process.env.IFTTT_TRIGGER_RUN_HISTORY_ID);
     // select for update, to avoid duplicate processing
@@ -13,4 +13,9 @@ export async function fetchUnprocessedIFTTTTriggerRunHistoryEvents() {
         await pool!.query(`update ifttt_trigger_run_history set trigger_run_status=? where id=?;`, [TRIGGER_RUN_HISTORY_WORKER_STATUS_UNDER_PROCESSING, _row.id]);
     }    
     return select_result[0];
+}
+
+export async function update_ifttt_trigger_run_history_status(ifttt_trigger_run_history_id: number, status: number) {
+    const pool = await connect_to_mysql()
+    await pool!.query(`update ifttt_trigger_run_history set trigger_run_status=? where id=?;`, [status, ifttt_trigger_run_history_id]);
 }

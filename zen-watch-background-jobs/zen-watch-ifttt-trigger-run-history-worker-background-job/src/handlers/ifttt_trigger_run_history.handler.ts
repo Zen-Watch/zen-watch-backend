@@ -1,8 +1,8 @@
 import { create_ifttt_action_run_history_events } from "../core/ifttt_trigger_run_history.core";
-import { fetchUnprocessedIFTTTTriggerRunHistoryEvents } from "../logic/ifttt_trigger_run_history.logic";
+import { fetch_unprocessed_ifttt_trigger_run_history_events } from "../logic/ifttt_trigger_run_history.logic";
 
 export async function handleFetchUnprocessedIFTTTTriggerRunHistoryEvents() {
-    return await fetchUnprocessedIFTTTTriggerRunHistoryEvents();
+    return await fetch_unprocessed_ifttt_trigger_run_history_events();
 }
 
 // handle the processing of IFTTT trigger run history events
