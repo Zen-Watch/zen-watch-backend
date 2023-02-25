@@ -1,7 +1,6 @@
 CREATE TABLE ifttt_action_definition (
   id INT NOT NULL AUTO_INCREMENT,
   dev_id INT NOT NULL,
-  categ_id INT NOT NULL,
   is_public TINYINT(1) DEFAULT 0,
   is_trusted_source TINYINT(1) DEFAULT 0,
   is_compute_intensive TINYINT(1) DEFAULT 0,
@@ -22,6 +21,5 @@ CREATE TABLE ifttt_action_definition (
   INDEX IADAN (action_name ASC),
   INDEX IADCTS (created_ts ASC),
   INDEX IADUTS (updated_ts ASC),
-  CONSTRAINT IADD_FK FOREIGN KEY(dev_id) REFERENCES developer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  CONSTRAINT IADCID_FK FOREIGN KEY(categ_id) REFERENCES ifttt_category(id) ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT IADD_FK FOREIGN KEY(dev_id) REFERENCES developer(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );

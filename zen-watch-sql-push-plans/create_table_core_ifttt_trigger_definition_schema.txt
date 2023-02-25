@@ -1,7 +1,6 @@
 CREATE TABLE ifttt_trigger_definition (
   id INT NOT NULL AUTO_INCREMENT,
   dev_id INT NOT NULL,
-  categ_id INT NOT NULL,
   is_public TINYINT(1) DEFAULT 0,
   is_trusted_source TINYINT(1) DEFAULT 0,
   is_compute_intensive TINYINT(1) DEFAULT 0,
@@ -24,6 +23,5 @@ CREATE TABLE ifttt_trigger_definition (
   INDEX ITDTN (trigger_name ASC),
   INDEX ITDCTS (created_ts ASC),
   INDEX ITDUTS (updated_ts ASC),
-  CONSTRAINT ITDD_FK FOREIGN KEY(dev_id) REFERENCES developer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-  CONSTRAINT ITDCID_FK FOREIGN KEY(categ_id) REFERENCES ifttt_category(id) ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT ITDD_FK FOREIGN KEY(dev_id) REFERENCES developer(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );

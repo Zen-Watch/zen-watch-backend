@@ -83,7 +83,6 @@ function erc20_inbound_transfer(alchemy_web3: any, incomingContract: string, inc
  * DEBUG PRINTING {
   id: 5,
   dev_id: 1,
-  categ_id: 3,
   is_public: 1,
   is_trusted_source: 1,
   is_compute_intensive: 0,

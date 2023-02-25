@@ -2,7 +2,6 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { STATUS_OK } from '../utils/constants';
 import { authenticate_dev_email } from './admin.middlewares';
-import { create_ifttt_category } from '../handlers/ifttt_category.handler';
 import { create_ifttt_trigger_definition } from '../handlers/ifttt_trigger_definition.handler';
 import { create_ifttt_action_definition } from '../handlers/ifttt_action_definition.handler';
 import { create_ifttt_instance } from '../handlers/ifttt_instance.handler';
@@ -22,13 +21,6 @@ router.post('/test/echo', authenticate_dev_email, (req: Request, res: Response) 
 })
 
 // ------------------------------- Create APIs -----------------------------------------------
-
-// Fetch ifttt categories that matches the given criteria
-router.post('/create/category', authenticate_dev_email, (req: Request, res: Response) => {
-    const { categ_name, is_onchain } = req.body
-    create_ifttt_category(categ_name, is_onchain)
-        .then(_res => res.status(_res.status).send(_res))
-})
 
 // Fetch ifttt trigger definitions that matches the given criteria
 router.post('/create/trigger_definition', authenticate_dev_email, (req: Request, res: Response) => {

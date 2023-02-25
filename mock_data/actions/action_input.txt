@@ -76,7 +76,6 @@ new_action - ifttt_trigger_run_history_event{
 action_definition {
   id: 2,
   dev_id: 1,
-  categ_id: 6,
   is_public: 1,
   is_trusted_source: 1,
   is_compute_intensive: 0,
@@ -183,7 +182,6 @@ handle_ifttt_action_onetime_event {
 action_definition {
   id: 2,
   dev_id: 1,
-  categ_id: 6,
   is_public: 1,
   is_trusted_source: 1,
   is_compute_intensive: 0,
