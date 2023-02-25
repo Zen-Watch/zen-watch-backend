@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { DynamicFunctionLoadingError, ZenWatchHandler, ifttt_instance_event_listener_map } from '../utils/constants';
+import { DynamicFunctionLoadingError, ZenWatchTriggerHandler, ifttt_instance_event_listener_map } from '../utils/constants';
 import { fetch_ifttt_trigger_definition } from '../logic/ifttt_trigger_definition.logic';
 import dotenv from 'dotenv';
 import { get_alchemy_provider } from '../utils/util_methods';
@@ -7,7 +7,7 @@ dotenv.config();
 
 
 // load the onchain listener
-function load_dynamic_function(provider: ethers.providers.JsonRpcProvider, zenwatch: ZenWatchHandler, dynamicFunctionCode: any) {
+function load_dynamic_function(provider: ethers.providers.JsonRpcProvider, zenwatch: ZenWatchTriggerHandler, dynamicFunctionCode: any) {
     const dynamicFunction = eval(`(${dynamicFunctionCode})`);
     return (params: any) => {
         return dynamicFunction(params.targetAddress, params.contractAddress, ethers, provider, zenwatch);
@@ -22,7 +22,7 @@ function turn_off_onchain_listener(contract: ethers.Contract) {
 
 
 // process the ifttt instance based on the trigger mechanism
-export async function handle_ifttt_instance_trigger_onchain_push_mechanism(_instance: any) {
+export async function handle_ifttt_instance_onchain_evm_trigger(_instance: any) {
     if (_instance.ifttt_instance_is_on) {
         // regular flow, if already on map, skip, else add to mapp and process 
         if (ifttt_instance_event_listener_map.has(_instance.id.toString())) {
@@ -36,7 +36,7 @@ export async function handle_ifttt_instance_trigger_onchain_push_mechanism(_inst
             const provider = get_alchemy_provider(trigger_info.target_resource_name);
             try {
                 // Raising a Dynamic Function Loading Error as there is could error in user written dynamic code, which should not bring the system down
-                const zenwatch = new ZenWatchHandler(_instance, trigger_info);
+                const zenwatch = new ZenWatchTriggerHandler(_instance, trigger_info);
                 const _dynamicFunction = load_dynamic_function(provider, zenwatch, decodeURIComponent(trigger_info.trigger_code));
                 const contract = _dynamicFunction(_instance.trigger_info.params);
                 //console.log('Created contract - ', contract);

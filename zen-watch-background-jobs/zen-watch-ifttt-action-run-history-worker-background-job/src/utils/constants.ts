@@ -8,7 +8,7 @@ export const IFTTT_ACTION_RUN_HISTORY_WORKER_STATUS_FAILURE = 3;
 // target_resource_name
 export const POLYGON_MAINNET = "polygon_mainnet";
 export const ETHEREUM_MAINNET = "ethereum_mainnet";
-export const API_WEBHOOK = "api_webhook";
+export const REST_API_WEBHOOK = "rest_api_webhook";
 
 // enables advanced actions such as listening & reacting to events constantly, instead of calling an api just once
 // action listeners are living in the background and are constantly listening for events, regular listeners are fire and forget

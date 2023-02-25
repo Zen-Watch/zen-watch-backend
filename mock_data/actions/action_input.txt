@@ -80,7 +80,7 @@ action_definition {
   is_public: 1,
   is_trusted_source: 1,
   is_compute_intensive: 0,
-  target_resource_name: 'api_webhook',
+  target_resource_name: 'rest_api_webhook',
   action_name: 'GET Webhook with api key based authentication',
   action_description: 'Call webhook using GET Rest method with an api-key based authentication.',
   action_signature: 'async function getFromWebhookWithAPIKeybasedAuthentication(url, apiKey)',

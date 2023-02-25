@@ -7,10 +7,14 @@ export const ifttt_instance_event_listener_map = new Map<string, ethers.Contract
 // target_resource_name
 export const POLYGON_MAINNET = "polygon_mainnet";
 export const ETHEREUM_MAINNET = "ethereum_mainnet";
-export const API_WEBHOOK = "api_webhook";
 
 // Supported Evm Transaction events
 export const ONCHAIN_PUSH_TRIGGERS = [
+    POLYGON_MAINNET,
+    ETHEREUM_MAINNET,
+];
+
+export const ONCHAIN_EVM_TRIGGERS = [
     POLYGON_MAINNET,
     ETHEREUM_MAINNET,
 ];
@@ -21,8 +25,8 @@ export const IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNDER_PROCESSING = 1;
 export const IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_SUCCESS = 2;
 export const IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_FAILURE = 3;
 
-// create a class ZenWatchHandler
-export class ZenWatchHandler {
+// create a class ZenWatchTriggerHandler
+export class ZenWatchTriggerHandler {
 
     payload: any;
     instance: any;
