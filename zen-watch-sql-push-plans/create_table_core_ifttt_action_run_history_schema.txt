@@ -9,7 +9,6 @@ CREATE TABLE ifttt_action_run_history (
   action_target_resource_name VARCHAR(500) NOT NULL,
   action_run_status INT NOT NULL,
   action_run_info JSON NOT NULL,
-  action_run_input JSON,
   action_run_output JSON,
   created_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
