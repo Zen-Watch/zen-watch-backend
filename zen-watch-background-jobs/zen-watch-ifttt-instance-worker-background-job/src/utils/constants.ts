@@ -25,25 +25,41 @@ export const IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNDER_PROCESSING = 1;
 export const IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_SUCCESS = 2;
 export const IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_FAILURE = 3;
 
-// create a class ZenWatchTriggerHandler
+// create a class ZenWatchTriggerHandler 
 export class ZenWatchTriggerHandler {
 
-    payload: any;
-    instance: any;
-    trigger_info: any;
+    // DB record of the event
+    _event: any;
 
-    constructor(instance: any, trigger_info: any) {
-        this.instance = instance;
-        this.trigger_info = trigger_info;
+    constructor(_event: any) {
+        this._event = _event;
     }
 
     handle_trigger = (payload: any) => {
-        this.payload = payload;
-        save_ifttt_trigger_run_history_payload(this.instance, this.payload).then((res: any) => {
+        save_ifttt_trigger_run_history_payload(this._event, payload).then((res: any) => {
             console.log('Trigger run history payload saved - ', res);
         }).catch((err: any) => {
             console.error('Error saving trigger run history payload - ', err);
         });
+    }
+
+    handle_error = (error: any) => {
+        console.error('Error:', error)
+    }
+}
+
+// create a class ZenWatchActionHandler 
+export class ZenWatchActionHandler {
+
+    // DB record of the event
+    _event: any;
+
+    constructor(_event: any) {
+        this._event = _event;
+    }
+
+    handle_action = (payload: any) => {
+        
     }
 
     handle_error = (error: any) => {
