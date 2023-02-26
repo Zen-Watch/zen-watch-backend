@@ -32,7 +32,12 @@ export class ZenWatchActionHandler {
     }
 
     handle_action = (payload: any) => {
-        console.log('ZenWatchActionHandler.handle_action', payload)
+        console.log('ZenWatchActionHandler.handle_action', payload.then((result: any) => {
+            console.log('ZenWatchActionHandler.handle_action.result', result);
+            }).catch((error: any) => {
+                console.error('ZenWatchActionHandler.handle_action.error', error);
+            })
+        );
     }
 
     handle_error = (error: any) => {
