@@ -9,8 +9,8 @@ dotenv.config();
 // load the onchain listener
 function load_dynamic_function(provider: ethers.providers.JsonRpcProvider, zenwatch: ZenWatchTriggerHandler, dynamicFunctionCode: any) {
     const dynamicFunction = eval(`(${dynamicFunctionCode})`);
-    return (params: any) => {
-        return dynamicFunction(params.targetAddress, params.contractAddress, ethers, provider, zenwatch);
+    return (payload: any) => {
+        return dynamicFunction(zenwatch, payload, ethers, provider);
     };
 }
 
@@ -38,6 +38,7 @@ export async function handle_ifttt_instance_onchain_evm_trigger(_instance: any) 
                 // Raising a Dynamic Function Loading Error as there is could error in user written dynamic code, which should not bring the system down
                 const zenwatch = new ZenWatchTriggerHandler(_instance, trigger_info);
                 const _dynamicFunction = load_dynamic_function(provider, zenwatch, decodeURIComponent(trigger_info.trigger_code));
+                console.log('Created dynamic function params - ', _instance.trigger_info.params)
                 const contract = _dynamicFunction(_instance.trigger_info.params);
                 //console.log('Created contract - ', contract);
                 ifttt_instance_event_listener_map.set(_instance.id.toString(), contract as ethers.Contract);

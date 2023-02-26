@@ -37,7 +37,7 @@ export class ZenWatchTriggerHandler {
         this.trigger_info = trigger_info;
     }
 
-    handleTrigger = (payload: any) => {
+    handle_trigger = (payload: any) => {
         this.payload = payload;
         save_ifttt_trigger_run_history_payload(this.instance, this.payload).then((res: any) => {
             console.log('Trigger run history payload saved - ', res);
@@ -46,7 +46,7 @@ export class ZenWatchTriggerHandler {
         });
     }
 
-    handleError = (error: any) => {
+    handle_error = (error: any) => {
         console.error('Error:', error)
     }
 }
