@@ -19,3 +19,7 @@ export async function update_ifttt_action_run_history_status(ifttt_action_run_hi
     const pool = await connect_to_mysql()
     await pool!.query(`update ifttt_action_run_history set action_run_status=? where id=?;`, [status, ifttt_action_run_history_id]);
 }
+
+export async function save_ifttt_action_run_history_payload(event:any, payload:any) {
+
+}

@@ -1,3 +1,4 @@
+import { save_ifttt_action_run_history_payload } from "../logic/ifttt_action_run_history.logic";
 
 // create a class ZenWatchActionHandler 
 export class ZenWatchActionHandler {
@@ -10,22 +11,14 @@ export class ZenWatchActionHandler {
     }
 
     handle_action = (payload: any) => {
-        console.log('ZenWatchActionHandler.handle_action', payload);
-        // console.log('ZenWatchActionHandler.handle_action', payload.then((result: any) => {
-        //     console.log('ZenWatchActionHandler.handle_action.result', result);
-        //     }).catch((error: any) => {
-        //         console.error('ZenWatchActionHandler.handle_action.error', error);
-        //     })
-        // );
+        save_ifttt_action_run_history_payload(this._event, payload).then((res: any) => {
+            console.log('Action run history payload saved - ', res);
+        }).catch((err: any) => {
+            console.error('Error saving action run history payload - ', err);
+        });
     }
 
     handle_error = (error: any) => {
         console.error('Error:', error);
-        // console.error('Error:', error.then((result: any) => {
-        //     console.log('ZenWatchActionHandler.handle_error.result', result);
-        //     }).catch((error: any) => {
-        //         console.error('ZenWatchActionHandler.handle_error.error', error);
-        //     })
-        // );
     }
 }
