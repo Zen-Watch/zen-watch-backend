@@ -47,7 +47,6 @@ async function echo_bot_by_zen_watch(zenwatch, payload) {
 }
 
 
-
 function caller_echo_bot_by_zen_watch() {
 
 }
