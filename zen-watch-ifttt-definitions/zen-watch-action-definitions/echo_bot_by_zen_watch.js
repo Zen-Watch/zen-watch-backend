@@ -9,17 +9,20 @@
       'x-api-key': payload.params.api_key,
     },
     body: JSON.stringify({
-      email: payload.email,
+      email: payload.params.email,
       from: payload.from,
       to: payload.to,
       value: payload.value,
     }),
   });
 
+  const resp_json = await response.json();
   if (!response.ok) {
-    zenwatch.handle_error('Failed to post to webhook: ' + response.status + ' ' + response.statusText);
+    zenwatch.handle_error(resp_json);
   }
-  zenwatch.handle_action(response.json());
+  else {
+    zenwatch.handle_action(resp_json);
+  }
 }`
 
 // Actual function definition that's tested in Replit or IDE
