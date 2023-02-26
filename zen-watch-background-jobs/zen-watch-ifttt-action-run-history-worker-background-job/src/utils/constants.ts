@@ -20,3 +20,30 @@ export const ACTION_LISTENERS = [
     WEB3_ACTION_LISTENER,
     WEB2_ACTION_LISTENER,
 ];
+
+// create a class ZenWatchActionHandler 
+export class ZenWatchActionHandler {
+
+    // DB record of the event
+    _event: any;
+
+    constructor(_event: any) {
+        this._event = _event;
+    }
+
+    handle_action = (payload: any) => {
+        console.log('ZenWatchActionHandler.handle_action', payload)
+    }
+
+    handle_error = (error: any) => {
+        console.error('Error:', error)
+    }
+}
+
+// Custom Error class
+export class DynamicFunctionLoadingError extends Error {
+    constructor(message: any) {
+        super(message);
+        this.name = 'DynamicFunctionLoadingError';
+    }
+}

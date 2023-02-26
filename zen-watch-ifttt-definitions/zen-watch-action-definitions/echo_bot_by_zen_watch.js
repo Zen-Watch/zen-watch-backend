@@ -9,6 +9,7 @@
       'x-api-key': payload.params.api_key,
     },
     body: JSON.stringify({
+      email: payload.email,
       from: payload.from,
       to: payload.to,
       value: payload.value,

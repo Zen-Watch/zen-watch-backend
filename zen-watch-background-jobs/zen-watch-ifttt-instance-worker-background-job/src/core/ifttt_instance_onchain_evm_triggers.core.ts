@@ -32,19 +32,19 @@ export async function handle_ifttt_instance_onchain_evm_trigger(_instance: any) 
         else {
             // New instance, add to map and process
             console.log('Turning on IFTTT instance with push mechanism - ', _instance.id.toString());
-            const trigger_info = await fetch_ifttt_trigger_definition(_instance.trigger_info.trigger_id);
-            const provider = get_alchemy_provider(trigger_info.target_resource_name);
+            const trigger_definition = await fetch_ifttt_trigger_definition(_instance.trigger_info.trigger_id);
+            const provider = get_alchemy_provider(trigger_definition.target_resource_name);
             try {
                 // Raising a Dynamic Function Loading Error as there is could error in user written dynamic code, which should not bring the system down
                 const zenwatch = new ZenWatchTriggerHandler(_instance);
-                const _dynamicFunction = load_dynamic_function(provider, zenwatch, decodeURIComponent(trigger_info.trigger_code));
+                const _dynamicFunction = load_dynamic_function(provider, zenwatch, decodeURIComponent(trigger_definition.trigger_code));
                 //console.log('Created dynamic function params - ', _instance.trigger_info.params)
                 const contract = _dynamicFunction(_instance.trigger_info.params);
                 //console.log('Created contract - ', contract);
                 ifttt_instance_event_listener_map.set(_instance.id.toString(), contract as ethers.Contract);
             } catch (e) {
-                console.log('DynamicFunctionLoadingError in loading dynamic function in handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism - ', _instance.id.toString(), e);
-                throw new DynamicFunctionLoadingError(`DynamicFunctionLoadingError in loading dynamic function in handleIFTTTInstanceTriggerBasedOnOnchainPushMechanism - ${_instance.id.toString()} - ${e}`);
+                console.log('DynamicFunctionLoadingError in loading dynamic function in handle_ifttt_instance_onchain_evm_trigger - ', _instance.id.toString(), e);
+                throw new DynamicFunctionLoadingError(`DynamicFunctionLoadingError in loading dynamic function in handle_ifttt_instance_onchain_evm_trigger - ${_instance.id.toString()} - ${e}`);
             }
         }
     } else {
