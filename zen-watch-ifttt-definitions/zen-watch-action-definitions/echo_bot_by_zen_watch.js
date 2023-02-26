@@ -12,10 +12,9 @@
   });
 
   if (!response.ok) {
-    throw new Error('Failed to post to webhook: ' + response.status + ' ' + response.statusText);
+    zenwatch.handle_error('Failed to post to webhook: ' + response.status + ' ' + response.statusText);
   }
-
-  return response.json();
+  zenwatch.handle_action(response.json());
 }`
 
 // Actual function definition that's tested in Replit or IDE
