@@ -2,13 +2,17 @@
 // String version with zenwatch handler
 
 `async function echo_bot_by_zen_watch(zenwatch, payload) {
-  const response = await fetch(payload.url, {
+  const response = await fetch(payload.params.url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': payload.api_key,
+      'x-api-key': payload.params.api_key,
     },
-    body: JSON.stringify(payload.body),
+    body: JSON.stringify({
+      from: payload.from,
+      to: payload.to,
+      value: payload.value,
+    }),
   });
 
   if (!response.ok) {
@@ -19,13 +23,17 @@
 
 // Actual function definition that's tested in Replit or IDE
 async function echo_bot_by_zen_watch(zenwatch, payload) {
-  const response = await fetch(payload.url, {
+  const response = await fetch(payload.params.url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': payload.api_key,
+      'x-api-key': payload.params.api_key,
     },
-    body: JSON.stringify(payload.body),
+    body: JSON.stringify({
+      from: payload.from,
+      to: payload.to,
+      value: payload.value,
+    }),
   });
 
   if (!response.ok) {
