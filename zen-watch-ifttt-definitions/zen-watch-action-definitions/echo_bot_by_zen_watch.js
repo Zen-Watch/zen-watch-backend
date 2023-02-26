@@ -2,26 +2,31 @@
 // String version with zenwatch handler
 
 `async function echo_bot_by_zen_watch(zenwatch, payload) {
-  const response = await fetch(payload.params.url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': payload.params.api_key,
-    },
-    body: JSON.stringify({
-      email: payload.params.email,
-      from: payload.from,
-      to: payload.to,
-      value: payload.value,
-    }),
-  });
-
-  const resp_json = await response.json();
-  if (!response.ok) {
-    zenwatch.handle_error(resp_json);
+  try {
+    const response = await fetch(payload.params.url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': payload.params.api_key,
+      },
+      body: JSON.stringify({
+        email: payload.params.email,
+        from: payload.from,
+        to: payload.to,
+        value: payload.value,
+      }),
+    });
+  
+    const resp_json = await response.json();
+    if (!response.ok) {
+      zenwatch.handle_error(resp_json);
+    }
+    else {
+      zenwatch.handle_action(resp_json);
+    }
   }
-  else {
-    zenwatch.handle_action(resp_json);
+  catch (err) {
+    zenwatch.handle_fatal_error(err);
   }
 }`
 

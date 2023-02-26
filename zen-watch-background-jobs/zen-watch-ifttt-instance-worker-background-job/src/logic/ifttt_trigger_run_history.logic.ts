@@ -1,12 +1,23 @@
 import { connect_to_mysql } from "../db/connection_pool";
-import { IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED } from "../utils/constants";
 import { get_random_shard_number } from "../utils/util_methods";
 import dotenv from 'dotenv';
 dotenv.config();
 
-export async function save_ifttt_trigger_run_history_payload(instance:any, payload:any) {
+export async function create_ifttt_trigger_run_history_event(instance: any, status: number, payload: any,) {
     console.log('Saving trigger run history payload saved - ');
     const pool = await connect_to_mysql()
+
+    let trigger_run_output: string = "";
+    if (typeof payload === "string") {
+        trigger_run_output = payload
+    } else if (typeof payload === "object") {
+        try {
+            trigger_run_output = JSON.stringify(payload)
+        }
+        catch (e) {
+            trigger_run_output = `Unsupported payload type in trigger callback. Debug to learn more.`
+        }
+    }
 
     const ifttt_trigger_run_history_worker_shard_id = get_random_shard_number(Number(process.env.IFTTT_TRIGGER_RUN_HISTORY_WORKER_SHARDS));
     const dev_id = instance.dev_id;
@@ -15,9 +26,8 @@ export async function save_ifttt_trigger_run_history_payload(instance:any, paylo
     const is_trigger_push_mechanism = instance.is_trigger_push_mechanism;
     const trigger_target_resource_name = instance.trigger_target_resource_name;
     const ifttt_instance_id = instance.id;
-    const trigger_run_status = IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED;
+    const trigger_run_status = status;
     const trigger_run_info = JSON.stringify(instance.trigger_info)
-    const trigger_run_output = JSON.stringify(payload)
 
     // insert into ifttt_trigger_run_history
     const result: any = await pool!.query(
@@ -32,7 +42,7 @@ export async function save_ifttt_trigger_run_history_payload(instance:any, paylo
             trigger_run_status,
             trigger_run_info,
             trigger_run_output
-        ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`, 
+        ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
         [
             ifttt_trigger_run_history_worker_shard_id,
             dev_id,
