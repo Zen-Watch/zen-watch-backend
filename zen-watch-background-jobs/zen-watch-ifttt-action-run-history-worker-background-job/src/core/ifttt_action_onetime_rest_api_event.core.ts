@@ -1,5 +1,6 @@
 import { fetch_ifttt_action_definition_by_id } from "../logic/ifttt_action_definition.logic";
-import { DynamicFunctionLoadingError, ZenWatchActionHandler } from "../utils/constants";
+import { DynamicFunctionLoadingError } from "../utils/constants";
+import { ZenWatchActionHandler } from "../utils/zen_watch_action_handler";
 
 
 // load the onchain listener

@@ -1,8 +1,9 @@
 import { ethers } from 'ethers';
-import { DynamicFunctionLoadingError, ZenWatchTriggerHandler, ifttt_instance_event_listener_map } from '../utils/constants';
+import { DynamicFunctionLoadingError, ifttt_instance_event_listener_map } from '../utils/constants';
 import { fetch_ifttt_trigger_definition } from '../logic/ifttt_trigger_definition.logic';
 import dotenv from 'dotenv';
 import { get_alchemy_provider } from '../utils/util_methods';
+import { ZenWatchTriggerHandler } from '../utils/zen_watch_trigger_handler';
 dotenv.config();
 
 
