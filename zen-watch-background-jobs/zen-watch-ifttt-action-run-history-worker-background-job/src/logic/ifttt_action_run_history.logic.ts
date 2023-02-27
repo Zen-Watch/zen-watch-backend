@@ -23,16 +23,24 @@ export async function update_ifttt_action_run_history_status(ifttt_action_run_hi
 export async function update_ifttt_action_run_history_status_and_payload(event: any, status: number, payload:any, ) {
     console.log('Saving action run history payload saved - ');
     const pool = await connect_to_mysql()
+
     let action_run_output: string = "";
-    if (typeof payload === "string") {
-        action_run_output = payload
-    } else if (typeof payload === "object") {
+    try {
         try {
+            // If it's an object, it will convert
             action_run_output = JSON.stringify(payload)
+            console.log('payload is object - ', action_run_output);
         }
         catch (e) {
-            action_run_output = `Unsupported payload type in action callback. Debug to learn more.`
+            // If its a type that has a to_string, it will converted here
+            console.log('payload conversion error in JSON.stringify, trying .toString - ', e);
+            action_run_output = payload.toString();
         }
     }
+    catch (e) {
+        console.log('payload conversion error with toString as well - ', e);
+        action_run_output = `Unsupported payload type in action callback. Debug to learn more.`;    
+    }
+
     await pool!.query(`update ifttt_action_run_history set action_run_status=?, action_run_output=? where id=?;`, [status, action_run_output, event.id]);
 }

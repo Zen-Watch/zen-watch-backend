@@ -12,7 +12,7 @@ export class ZenWatchTriggerHandler {
     }
 
     handle_trigger = (payload: any) => {
-        create_ifttt_trigger_run_history_event(this._event, payload, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED).then((res: any) => {
+        create_ifttt_trigger_run_history_event(this._event, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED, payload).then((res: any) => {
             console.log('Trigger run history payload saved with success - ', res);
         }).catch((err: any) => {
             console.error('Error saving trigger run history payload with success - ', err);
@@ -21,7 +21,7 @@ export class ZenWatchTriggerHandler {
 
     handle_error = (error: any) => {
         console.error('ZenWatchTriggerHandler.handle_error Error:', error);
-        create_ifttt_trigger_run_history_event(this._event, error, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED).then((res: any) => {
+        create_ifttt_trigger_run_history_event(this._event, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_UNPROCESSED, error).then((res: any) => {
             console.log('Trigger run history payload saved with error - ', res);
         }).catch((err: any) => {
             console.error('Error saving trigger run history payload with error - ', err);
@@ -30,7 +30,7 @@ export class ZenWatchTriggerHandler {
 
     handle_fatal_error = (error: any) => {
         console.error('ZenWatchTriggerHandler.handle_fatal_error Fatal Error:', error);
-        create_ifttt_trigger_run_history_event(this._event, error, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_FATAL_ERROR).then((res: any) => {
+        create_ifttt_trigger_run_history_event(this._event, IFTTT_TRIGGER_RUN_HISTORY_WORKER_STATUS_FATAL_ERROR, error).then((res: any) => {
             console.log('Trigger run history payload saved with fatal error - ', res);
         }).catch((err: any) => {
             console.error('Error saving trigger run history payload with fatal error - ', err);

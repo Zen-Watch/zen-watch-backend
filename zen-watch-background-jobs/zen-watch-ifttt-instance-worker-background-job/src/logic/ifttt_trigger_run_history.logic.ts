@@ -3,20 +3,28 @@ import { get_random_shard_number } from "../utils/util_methods";
 import dotenv from 'dotenv';
 dotenv.config();
 
-export async function create_ifttt_trigger_run_history_event(instance: any, status: number, payload: any,) {
+export async function create_ifttt_trigger_run_history_event(instance: any, status: number, payload: any) {
     console.log('Saving trigger run history payload saved - ');
     const pool = await connect_to_mysql()
 
+    console.log('Saving trigger run history payload saved - instance: ', instance)
+
     let trigger_run_output: string = "";
-    if (typeof payload === "string") {
-        trigger_run_output = payload
-    } else if (typeof payload === "object") {
+    try {
         try {
+            // If it's an object, it will convert
             trigger_run_output = JSON.stringify(payload)
+            console.log('payload is object - ', trigger_run_output);
         }
         catch (e) {
-            trigger_run_output = `Unsupported payload type in trigger callback. Debug to learn more.`
+            // If its a type that has a to_string, it will converted here
+            console.log('payload conversion error in JSON.stringify, trying .toString - ', e);
+            trigger_run_output = payload.toString();
         }
+    }
+    catch (e) {
+        console.log('payload conversion error with toString as well - ', e);
+        trigger_run_output = `Unsupported payload type in trigger callback. Debug to learn more.`;    
     }
 
     const ifttt_trigger_run_history_worker_shard_id = get_random_shard_number(Number(process.env.IFTTT_TRIGGER_RUN_HISTORY_WORKER_SHARDS));
@@ -28,6 +36,8 @@ export async function create_ifttt_trigger_run_history_event(instance: any, stat
     const ifttt_instance_id = instance.id;
     const trigger_run_status = status;
     const trigger_run_info = JSON.stringify(instance.trigger_info)
+
+    console.log('Saving trigger run history payload saved - trigger_run_output: ', trigger_run_output)
 
     // insert into ifttt_trigger_run_history
     const result: any = await pool!.query(
