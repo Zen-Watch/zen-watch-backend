@@ -25,9 +25,10 @@ function turn_off_onchain_listener(contract: ethers.Contract) {
 // process the ifttt instance based on the trigger mechanism
 export async function handle_ifttt_instance_onchain_evm_trigger(_instance: any) {
     if (_instance.ifttt_instance_is_on) {
+        console.log(`ifttt_instance_event_listener_map - ${ifttt_instance_event_listener_map.size}`);
         // regular flow, if already on map, skip, else add to mapp and process 
         if (ifttt_instance_event_listener_map.has(_instance.id.toString())) {
-            //console.log('Skip IFTTT instance with push mechanism already processed - ', _instance.id.toString());
+            console.log('Skip IFTTT instance with push mechanism already processed - ', _instance.id.toString());
             return
         }
         else {
