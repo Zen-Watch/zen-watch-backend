@@ -20,10 +20,11 @@ MYSQL_HOST='127.0.0.1'
 MYSQL_USER='your-local-mysql-user'
 MYSQL_PASSWORD='your-local-mysql-password'
 MYSQL_DATABASE='zen_watch'
-SERVER_PORT=1337
+SERVER_PORT=1338
 ALCHEMY_API_KEY='get-your-alchemy-api-key'
 CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
 ALLOWED_DEV_API_KEY='zen-watch-api-key'
+IFTTT_INSTANCE_WORKER_SHARDS=1
 ```
 
 ### Local Testing in Postman

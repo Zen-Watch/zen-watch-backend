@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "event-trigger-run-history-worker-background-job",
+            "script": "npm",
+            "args" : "start"
+        }
+    ]
+}

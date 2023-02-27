@@ -41,7 +41,12 @@ app.use(authenticate_zen_watch_api_key);
 // warm up the mysql connection pool
 connect_to_mysql();
 
+// Core admin & visualization routes
 const adminRouter = require('./routes/admin')
 app.use('/admin', adminRouter)
+
+// IFTTT routes
+const iftttRouter = require('./routes/ifttt')
+app.use('/ifttt', iftttRouter)
 
 app.listen(process.env.SERVER_PORT, () => console.log('Server Started!!'))

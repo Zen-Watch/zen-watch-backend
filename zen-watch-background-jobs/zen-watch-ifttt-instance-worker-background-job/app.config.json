@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "event-ifttt-instance-worker-background-job",
+            "script": "npm",
+            "args" : "start"
+        }
+    ]
+}

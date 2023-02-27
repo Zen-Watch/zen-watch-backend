@@ -1,0 +1,212 @@
+new_action - ifttt_trigger_run_history_event{
+    id: 6,
+    ifttt_trigger_run_history_worker_shard_id: 0,
+    dev_id: 1,
+    is_trigger_trusted_source: 1,
+    is_trigger_compute_intensive: 0,
+    is_trigger_push_mechanism: 1,
+    trigger_target_resource_name: 'polygon_mainnet',
+    ifttt_instance_id: 4,
+    trigger_run_status: 0,
+    trigger_run_info: {
+      params: {
+        targetAddress: '0xbAaD23Aa7c387BD66BA0656F63527e5b54548bEe',
+        contractAddress: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063'
+      },
+      trigger_id: 4
+    },
+    trigger_run_output: {
+      to: '0xbAaD23Aa7c387BD66BA0656F63527e5b54548bEe',
+      data: {
+        args: [Array],
+        data: '0x000000000000000000000000000000000000000000000000042a6bbfea12fb94',
+        event: 'Transfer',
+        topics: [Array],
+        address: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+        removed: false,
+        logIndex: 254,
+        blockHash: '0x5242dfae725cdebb274ac2d077abcba46fa3f669ce839d7ee50f1f094b4b1ae5',
+        blockNumber: 39667148,
+        eventSignature: 'Transfer(address,address,uint256)',
+        transactionHash: '0xe539c4c730a3b49441323856574d1152b42509f3aa3e39a326855cf5c3919064',
+        transactionIndex: 61
+      },
+      from: '0xeE52f6E8F8F075Bb6119958c1ACeB16C788e57d6',
+      value: '300170797183.59746'
+    },
+    created_ts: 2023-02-24T19:36:59.000Z,
+    updated_ts: 2023-02-24T23:49:00.000Z
+  }
+
+  --
+
+  merged - action_info {
+  params: {
+    url: 'http://localhost:1338/ifttt/healthz',
+    apiKey: '92960b61-59de-4663-a3e8-420e25cc94d5'
+  },
+  action_id: 2,
+  to: '0xbAaD23Aa7c387BD66BA0656F63527e5b54548bEe',
+  data: {
+    args: [
+      '0xeE52f6E8F8F075Bb6119958c1ACeB16C788e57d6',
+      '0xbAaD23Aa7c387BD66BA0656F63527e5b54548bEe',
+      [Object]
+    ],
+    data: '0x000000000000000000000000000000000000000000000000042a6bbfea12fb94',
+    event: 'Transfer',
+    topics: [
+      '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
+      '0x000000000000000000000000ee52f6e8f8f075bb6119958c1aceb16c788e57d6',
+      '0x000000000000000000000000baad23aa7c387bd66ba0656f63527e5b54548bee'
+    ],
+    address: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+    removed: false,
+    logIndex: 254,
+    blockHash: '0x5242dfae725cdebb274ac2d077abcba46fa3f669ce839d7ee50f1f094b4b1ae5',
+    blockNumber: 39667148,
+    eventSignature: 'Transfer(address,address,uint256)',
+    transactionHash: '0xe539c4c730a3b49441323856574d1152b42509f3aa3e39a326855cf5c3919064',
+    transactionIndex: 61
+  },
+  from: '0xeE52f6E8F8F075Bb6119958c1ACeB16C788e57d6',
+  value: '300170797183.59746'
+}
+---
+action_definition {
+  id: 2,
+  dev_id: 1,
+  is_public: 1,
+  is_trusted_source: 1,
+  is_compute_intensive: 0,
+  target_resource_name: 'rest_api_webhook',
+  action_name: 'GET Webhook with api key based authentication',
+  action_description: 'Call webhook using GET Rest method with an api-key based authentication.',
+  action_signature: 'async function getFromWebhookWithAPIKeybasedAuthentication(url, apiKey)',
+  action_code: 'async function getFromWebhookWithAPIKeybasedAuthentication(url, apiKey) {\r\n' +
+    '  const response = await fetch(url, {\r\n' +
+    "    method: 'GET',\r\n" +
+    '    headers: {\r\n' +
+    "      'Content-Type': 'application/json',\r\n" +
+    "      'x-api-key': apiKey,\r\n" +
+    '    },\r\n' +
+    '  });\r\n' +
+    '\r\n' +
+    '  if (!response.ok) {\r\n' +
+    '    throw new Error(`Failed to get from webhook: ${response.status} ${response.statusText}`);\r\n' +
+    '  }\r\n' +
+    '\r\n' +
+    '  return response.json();\r\n' +
+    '}\r\n' +
+    'return getFromWebhookWithAPIKeybasedAuthentication;',
+  action_expected_output: '{\r\n   status: 200,\r\n   message: "Call back success"\r\n}',
+  action_expected_output_description: 'Returns a 200 response on success, else returns status non 200 and the error message',
+  created_ts: 2023-02-24T18:58:42.000Z,
+  updated_ts: 2023-02-24T18:58:42.000Z
+}
+---
+new_action {
+  ifttt_action_run_history_worker_shard_id: 0,
+  dev_id: 1,
+  ifttt_instance_id: 4,
+  ifttt_trigger_run_history_id: 7,
+  is_action_trusted_source: 1,
+  is_action_compute_intensive: 0,
+  action_target_resource_name: 'api_webhook',
+  action_run_status: 0,
+  action_run_info: {
+    params: {
+      url: 'http://localhost:1338/ifttt/healthz',
+      apiKey: '92960b61-59de-4663-a3e8-420e25cc94d5'
+    },
+    action_id: 2,
+    to: '0xbAaD23Aa7c387BD66BA0656F63527e5b54548bEe',
+    data: {
+      args: [Array],
+      data: '0x000000000000000000000000000000000000000000000000042a6bbfea12fb94',
+      event: 'Transfer',
+      topics: [Array],
+      address: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+      removed: false,
+      logIndex: 176,
+      blockHash: '0xc009846b24023e53e68bf5f8a9f6e0cd8221087535f3dbea053bec6764c7a480',
+      blockNumber: 39667239,
+      eventSignature: 'Transfer(address,address,uint256)',
+      transactionHash: '0xe9f67acd057bd25a70aa0bf94647963d7c8cc113d0610cd114e74fa63e01526f',
+      transactionIndex: 44
+    },
+    from: '0xeE52f6E8F8F075Bb6119958c1ACeB16C788e57d6',
+    value: '300170797183.59746'
+  }
+}
+----
+handle_ifttt_action_onetime_event {
+  id: 12,
+  ifttt_action_run_history_worker_shard_id: 0,
+  dev_id: 1,
+  ifttt_instance_id: 4,
+  ifttt_trigger_run_history_id: 6,
+  is_action_trusted_source: 1,
+  is_action_compute_intensive: 0,
+  action_target_resource_name: 'api_webhook',
+  action_run_status: 0,
+  action_run_info: {
+    to: '0xbAaD23Aa7c387BD66BA0656F63527e5b54548bEe',
+    data: {
+      args: [Array],
+      data: '0x000000000000000000000000000000000000000000000000042a6bbfea12fb94',
+      event: 'Transfer',
+      topics: [Array],
+      address: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+      removed: false,
+      logIndex: 254,
+      blockHash: '0x5242dfae725cdebb274ac2d077abcba46fa3f669ce839d7ee50f1f094b4b1ae5',
+      blockNumber: 39667148,
+      eventSignature: 'Transfer(address,address,uint256)',
+      transactionHash: '0xe539c4c730a3b49441323856574d1152b42509f3aa3e39a326855cf5c3919064',
+      transactionIndex: 61
+    },
+    from: '0xeE52f6E8F8F075Bb6119958c1ACeB16C788e57d6',
+    value: '300170797183.59746',
+    params: {
+      url: 'http://localhost:1338/ifttt/healthz',
+      apiKey: '92960b61-59de-4663-a3e8-420e25cc94d5'
+    },
+    action_id: 2
+  },
+  action_run_output: null,
+  created_ts: 2023-02-25T13:02:21.000Z,
+  updated_ts: 2023-02-25T13:02:21.000Z
+}
+------
+action_definition {
+  id: 2,
+  dev_id: 1,
+  is_public: 1,
+  is_trusted_source: 1,
+  is_compute_intensive: 0,
+  target_resource_name: 'api_webhook',
+  action_name: 'GET Webhook with api key based authentication',
+  action_description: 'Call webhook using GET Rest method with an api-key based authentication.',
+  action_signature: 'async function getFromWebhookWithAPIKeybasedAuthentication(url, apiKey)',
+  action_code: 'async function getFromWebhookWithAPIKeybasedAuthentication(url, apiKey) {\r\n' +
+    '  const response = await fetch(url, {\r\n' +
+    "    method: 'GET',\r\n" +
+    '    headers: {\r\n' +
+    "      'Content-Type': 'application/json',\r\n" +
+    "      'x-api-key': apiKey,\r\n" +
+    '    },\r\n' +
+    '  });\r\n' +
+    '\r\n' +
+    '  if (!response.ok) {\r\n' +
+    '    throw new Error(`Failed to get from webhook: ${response.status} ${response.statusText}`);\r\n' +
+    '  }\r\n' +
+    '\r\n' +
+    '  return response.json();\r\n' +
+    '}\r\n' +
+    'return getFromWebhookWithAPIKeybasedAuthentication;',
+  action_expected_output: '{\r\n   status: 200,\r\n   message: "Call back success"\r\n}',
+  action_expected_output_description: 'Returns a 200 response on success, else returns status non 200 and the error message',
+  created_ts: 2023-02-24T18:58:42.000Z,
+  updated_ts: 2023-02-24T18:58:42.000Z
+}
