@@ -29,7 +29,6 @@ export async function update_ifttt_action_run_history_status_and_payload(event: 
         try {
             // If it's an object, it will convert
             action_run_output = JSON.stringify(payload)
-            console.log('payload is object - ', action_run_output);
         }
         catch (e) {
             // If its a type that has a to_string, it will converted here

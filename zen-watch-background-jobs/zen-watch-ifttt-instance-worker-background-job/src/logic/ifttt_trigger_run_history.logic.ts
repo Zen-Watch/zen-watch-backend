@@ -14,7 +14,7 @@ export async function create_ifttt_trigger_run_history_event(instance: any, stat
         try {
             // If it's an object, it will convert
             trigger_run_output = JSON.stringify(payload)
-            console.log('payload is object - ', trigger_run_output);
+            console.log('payload is object - ');
         }
         catch (e) {
             // If its a type that has a to_string, it will converted here
