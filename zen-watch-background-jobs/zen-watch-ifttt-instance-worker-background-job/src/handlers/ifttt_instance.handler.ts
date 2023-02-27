@@ -16,7 +16,7 @@ export async function handle_process_ifttt_instance(ifttt_instances: any) {
         }
     } catch (e) {
         if (e instanceof DynamicFunctionLoadingError) {
-            console.error('DynamicFunctionLoadingError caught, logged and moved on', e.message);
+            console.error('DynamicFunctionLoadingError caught, logged and moved on in ifttt_instance_handler.handle_process_ifttt_instance', e.message);
         } else {
             // All other errors are surfaced to the caller
             throw e;
