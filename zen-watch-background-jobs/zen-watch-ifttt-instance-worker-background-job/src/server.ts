@@ -36,7 +36,7 @@ function run_task() {
         console.log('Run_task next loop for IFTTT instance worker background job finished at -', dayjs().format());
         console.log('------------------------------------');
         // Repeat every three minute, always
-        setTimeout(run_task, 3000);
+        setTimeout(run_task, 10000);
     }
 }
 
