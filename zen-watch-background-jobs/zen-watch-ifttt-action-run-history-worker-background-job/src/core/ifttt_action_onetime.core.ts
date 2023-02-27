@@ -3,7 +3,7 @@ import { DynamicFunctionLoadingError, REST_API_WEBHOOK } from "../utils/constant
 import { handle_ifttt_action_onetime_rest_api_event } from "./ifttt_action_onetime_rest_api_event.core";
 
 export async function handle_ifttt_action_onetime_event(ifttt_action_run_history_event: any) {
-    console.log("handle_ifttt_action_onetime_event", ifttt_action_run_history_event);
+    console.log("handle_ifttt_action_onetime_event -");
     switch(ifttt_action_run_history_event.action_target_resource_name.toLowerCase()) {
         case REST_API_WEBHOOK:
             try {

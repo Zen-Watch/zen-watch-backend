@@ -12,16 +12,15 @@ function load_dynamic_function(zenwatch: ZenWatchActionHandler, dynamicFunctionC
 }
 
 export async function handle_ifttt_action_onetime_rest_api_event(ifttt_action_run_history_event: any) {
-    console.log("handle_ifttt_action_onetime_rest_api_event", ifttt_action_run_history_event);
+    console.log("handle_ifttt_action_onetime_rest_api_event -");
     const action_definition = await fetch_ifttt_action_definition_by_id(ifttt_action_run_history_event.action_run_info.action_id);
-    console.log("action_definition", action_definition);
     try {
         // Raising a Dynamic Function Loading Error as there is could error in user written dynamic code, which should not bring the system down
         const zenwatch = new ZenWatchActionHandler(ifttt_action_run_history_event);
         const _dynamicFunction = load_dynamic_function(zenwatch, decodeURIComponent(action_definition.action_code));
-        console.log('Created dynamic function params - ', ifttt_action_run_history_event.action_run_info);
+        console.log('Created dynamic function params - ');
         _dynamicFunction(ifttt_action_run_history_event.action_run_info).then((result: any) => {
-            console.log('Result of dynamic function - ', result);
+            console.log('Result of dynamic function - ');
         }).catch((e: any) => {
             console.log('Error in dynamic function - ', e);
         });
