@@ -1,0 +1,2 @@
+#### TODO
+1. At thsi time you can't delete IFTTT instances, to enable that we need to keep a separate deleted_instances, and query that at the beginning of the run and remove from hashmap, before proceeding to update the hashmap
