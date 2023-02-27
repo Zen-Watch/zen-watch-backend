@@ -7,8 +7,6 @@ export async function create_ifttt_trigger_run_history_event(instance: any, stat
     console.log('Saving trigger run history payload saved - ');
     const pool = await connect_to_mysql()
 
-    console.log('Saving trigger run history payload saved - instance: ', instance)
-
     let trigger_run_output: string = "";
     try {
         try {
@@ -36,8 +34,6 @@ export async function create_ifttt_trigger_run_history_event(instance: any, stat
     const ifttt_instance_id = instance.id;
     const trigger_run_status = status;
     const trigger_run_info = JSON.stringify(instance.trigger_info)
-
-    console.log('Saving trigger run history payload saved - trigger_run_output: ', trigger_run_output)
 
     // insert into ifttt_trigger_run_history
     const result: any = await pool!.query(
