@@ -69,3 +69,13 @@ export async function create_ifttt_trigger_definition_logic(payload: any) {
     throw e;
   }
 }
+
+export async function fetch_trigger_definition_details_logic(id: number) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(`select * from ifttt_trigger_definition where id = ?;`, [id]);
+    return result[0][0];
+  } catch (e) {
+    throw e;
+  }
+}

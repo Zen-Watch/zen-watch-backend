@@ -1,4 +1,4 @@
-import { create_ifttt_action_definition_logic } from "../logic/ifttt_action_definition.logic";
+import { create_ifttt_action_definition_logic, fetch_action_definition_details_logic } from "../logic/ifttt_action_definition.logic";
 import { STATUS_NOT_FOUND, STATUS_OK } from "../utils/constants";
 import dotenv from 'dotenv';
 import { get_developer_by_email_from_cache } from "../cache/developer.cache";
@@ -13,6 +13,15 @@ export async function create_ifttt_action_definition(payload: any) {
         return { status: STATUS_OK, message: 'Action definition created' }
     } catch(error) {
         return { status: STATUS_NOT_FOUND, message: 'Error during action definition creation. Please contact support@zen.watch' }
+    }
+}
+
+export async function fetch_action_definition_details(ids: number[]) {
+    try {
+        const row = await fetch_action_definition_details_logic(ids);
+        return { status: STATUS_OK, message: row }
+    } catch(error) {
+        return { status: STATUS_NOT_FOUND, message: 'Error during action definition details fetch. Please contact support@zen.watch'}   
     }
 }
     

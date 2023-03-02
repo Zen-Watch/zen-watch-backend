@@ -66,3 +66,13 @@ export async function create_ifttt_action_definition_logic(payload: any) {
     throw e;
   }
 }
+
+export async function fetch_action_definition_details_logic(ids: number[]) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(`select * from ifttt_action_definition where id in (?);`, [ids]);
+    return result[0];
+  } catch (e) {
+    throw e;
+  }
+}
