@@ -90,10 +90,10 @@ export async function fetch_unique_ifttt_target_resource_names_for_public_trigge
   }
 }
 
-export async function fetch_ifttt_public_trigger_definitions_logic(target_resource_name: string) {
+export async function fetch_ifttt_public_approved_trigger_definitions_logic(target_resource_name: string) {
   try {
     const pool = await connect_to_mysql();
-    const result: any = await pool!.query(`select * from ifttt_trigger_definition where is_public = 1 and target_resource_name = ?;`, [target_resource_name]);
+    const result: any = await pool!.query(`select * from ifttt_trigger_definition where is_public = 1 and is_approved = 1 and target_resource_name = ?;`, [target_resource_name]);
     return result[0];
   } catch (e) {
     throw e;

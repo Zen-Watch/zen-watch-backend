@@ -2,8 +2,8 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { STATUS_OK } from '../utils/constants';
 import { authenticate_dev_email } from './admin.middlewares';
-import { create_ifttt_trigger_definition, fetch_ifttt_public_trigger_definitions, fetch_trigger_definition_details, fetch_unique_ifttt_target_resource_names_for_public_triggers } from '../handlers/ifttt_trigger_definition.handler';
-import { create_ifttt_action_definition, fetch_action_definition_details, fetch_ifttt_public_action_definitions, fetch_unique_ifttt_target_resource_names_for_public_actions } from '../handlers/ifttt_action_definition.handler';
+import { create_ifttt_trigger_definition, fetch_ifttt_public_approved_trigger_definitions, fetch_trigger_definition_details, fetch_unique_ifttt_target_resource_names_for_public_triggers } from '../handlers/ifttt_trigger_definition.handler';
+import { create_ifttt_action_definition, fetch_action_definition_details, fetch_ifttt_public_approved_action_definitions, fetch_unique_ifttt_target_resource_names_for_public_actions } from '../handlers/ifttt_action_definition.handler';
 import { create_ifttt_instance, fetch_ifttt_instances, update_ifttt_instance_status } from '../handlers/ifttt_instance.handler';
 import { fetch_ifttt_trigger_run_history } from '../handlers/ifttt_trigger_run_history.handler';
 import { fetch_ifttt_action_run_history } from '../handlers/ifttt_action_run_history.handler';
@@ -86,16 +86,16 @@ router.post('/fetch/unique/public/action/target_resource_names', authenticate_de
 })
 
 // Fetch ifttt trigger definitions that matches the given criteria
-router.post('/fetch/public/trigger_definitions', authenticate_dev_email, (req: Request, res: Response) => {
+router.post('/fetch/public/approved/trigger_definitions', authenticate_dev_email, (req: Request, res: Response) => {
     const { email, target_resource_name } = req.body
-    fetch_ifttt_public_trigger_definitions(target_resource_name)
+    fetch_ifttt_public_approved_trigger_definitions(target_resource_name)
     .then(_res => res.status(_res.status).send(_res))
 })
 
 // Fetch ifttt action definitions that matches the given criteria
-router.post('/fetch/public/action_definitions', authenticate_dev_email, (req: Request, res: Response) => {
+router.post('/fetch/public/approved/action_definitions', authenticate_dev_email, (req: Request, res: Response) => {
     const { email, target_resource_name } = req.body
-    fetch_ifttt_public_action_definitions(target_resource_name)
+    fetch_ifttt_public_approved_action_definitions(target_resource_name)
     .then(_res => res.status(_res.status).send(_res))
 })
 
