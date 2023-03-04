@@ -1,4 +1,4 @@
-import { create_ifttt_action_definition_logic, fetch_action_definition_details_logic, fetch_ifttt_public_approved_action_definitions_logic, fetch_submitted_ifttt_action_definitions_logic, fetch_unique_ifttt_target_resource_names_for_public_actions_logic } from "../logic/ifttt_action_definition.logic";
+import { create_ifttt_action_definition_logic, fetch_action_definition_details_logic, fetch_ifttt_public_approved_action_definitions_logic, fetch_submitted_ifttt_action_definitions_logic, fetch_unique_ifttt_target_resource_names_for_public_actions_logic, update_ifttt_action_definition_approval_status_logic, update_ifttt_action_definition_code_info_logic } from "../logic/ifttt_action_definition.logic";
 import { STATUS_NOT_FOUND, STATUS_OK } from "../utils/constants";
 import dotenv from 'dotenv';
 import { get_developer_by_email_from_cache } from "../cache/developer.cache";
@@ -52,4 +52,44 @@ export async function fetch_submitted_ifttt_action_definitions(email: string) {
         return { status: STATUS_NOT_FOUND, message: 'Error during action definitions fetch. Please contact support@zen.watch' }
     }
 }
+
+export async function update_ifttt_action_definition_approval_status(id: number, is_approved: boolean) {
+    try {
+        const row_updated = await update_ifttt_action_definition_approval_status_logic(id, is_approved);
+        console.log('row_updated', row_updated);
+        return { status: STATUS_OK, message: 'IFTTT action definition approval status updated' }
+    } catch(error) {
+        return { status: STATUS_NOT_FOUND, message: 'Error during action definition approval status update. Please contact support@zen.watch', error }
+    }
+}
+
+export async function update_ifttt_action_definition_code_info(
+    id: number,
+    action_signature: string, 
+    action_signature_description: string,
+    action_code_description: string,
+    action_expected_input: string,
+    action_expected_input_description: string,
+    action_expected_output: string,
+    action_expected_output_description: string
+) {
+    try {
+        const row_updated = await update_ifttt_action_definition_code_info_logic(
+            id,
+            action_signature, 
+            action_signature_description,
+            action_code_description,
+            action_expected_input,
+            action_expected_input_description,
+            action_expected_output,
+            action_expected_output_description
+        );
+        console.log('row_updated', row_updated);
+        return { status: STATUS_OK, message: 'IFTTT action definition code info updated' }
+    } catch(error) {
+        return { status: STATUS_NOT_FOUND, message: 'Error during action definition code info update. Please contact support@zen.watch', error }
+    }
+}
+
+
 

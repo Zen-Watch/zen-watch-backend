@@ -23,7 +23,7 @@ export async function update_ifttt_instance_status(email: string, instance_id: n
     try {
         const dev = await get_developer_by_email_from_cache(email);
         const row_updated = await update_ifttt_instance_status_logic(dev.id, instance_id, new_instance_status);
-        console.log('row_created', row_updated);
+        console.log('row_updated', row_updated);
         return { status: STATUS_OK, message: 'IFTTT instance status updated' }
     } catch(error) {
         return { status: STATUS_NOT_FOUND, message: 'Error during ifttt instance status update. Please contact support@zen.watch', error }

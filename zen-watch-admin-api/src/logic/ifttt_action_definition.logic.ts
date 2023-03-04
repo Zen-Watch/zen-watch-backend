@@ -106,3 +106,53 @@ export async function fetch_submitted_ifttt_action_definitions_logic(dev_id: num
     throw e;
   }
 }
+
+export async function update_ifttt_action_definition_approval_status_logic(id: number, is_approved: boolean) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(`update ifttt_action_definition set is_approved = ? where id = ?;`, [is_approved, id]);
+    return result[0];
+  } catch (e) {
+    throw e;
+  }
+}
+
+export async function update_ifttt_action_definition_code_info_logic(
+  id: number,
+  action_signature: string,
+  action_signature_description: string,
+  action_code_description: string,
+  action_expected_input: string,
+  action_expected_input_description: string,
+  action_expected_output: string,
+  action_expected_output_description: string
+) {
+  try {
+    const pool = await connect_to_mysql();
+    // write query to update ifttt_action_definition using the payload and myswl connection pool for the given id and input fields
+    const result: any = await pool!.query(
+      `update ifttt_action_definition set
+      action_signature = ?,
+      action_signature_description = ?,
+      action_code_description = ?,
+      action_expected_input = ?,
+      action_expected_input_description = ?,
+      action_expected_output = ?,
+      action_expected_output_description = ?
+      where id = ?;`,
+      [
+        action_signature,
+        action_signature_description,
+        action_code_description,
+        action_expected_input,
+        action_expected_input_description,
+        action_expected_output,
+        action_expected_output_description,
+        id
+      ]
+    );
+    return result[0];
+  } catch (e) {
+    throw e;
+  }
+}

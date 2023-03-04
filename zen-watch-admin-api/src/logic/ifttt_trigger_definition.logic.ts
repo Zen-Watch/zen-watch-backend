@@ -45,25 +45,25 @@ export async function create_ifttt_trigger_definition_logic(payload: any) {
       trigger_expected_output_description
     ) 
     values (?, ? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?);`,
-    [
-      dev_id,
-      is_public,
-      is_approved,
-      is_trusted_source,
-      is_compute_intensive,
-      is_push_mechanism,
-      target_resource_name,
-      trigger_name,
-      trigger_description,
-      trigger_signature,
-      trigger_signature_description,
-      trigger_code,
-      trigger_code_description,
-      trigger_expected_input,
-      trigger_expected_input_description,
-      trigger_expected_output,
-      trigger_expected_output_description
-    ]);
+      [
+        dev_id,
+        is_public,
+        is_approved,
+        is_trusted_source,
+        is_compute_intensive,
+        is_push_mechanism,
+        target_resource_name,
+        trigger_name,
+        trigger_description,
+        trigger_signature,
+        trigger_signature_description,
+        trigger_code,
+        trigger_code_description,
+        trigger_expected_input,
+        trigger_expected_input_description,
+        trigger_expected_output,
+        trigger_expected_output_description
+      ]);
     return result[0];
   } catch (e) {
     throw e;
@@ -104,6 +104,56 @@ export async function fetch_submitted_ifttt_trigger_definitions_logic(dev_id: nu
   try {
     const pool = await connect_to_mysql();
     const result: any = await pool!.query(`select * from ifttt_trigger_definition where dev_id = ?;`, [dev_id]);
+    return result[0];
+  } catch (e) {
+    throw e;
+  }
+}
+
+export async function update_ifttt_trigger_definition_approval_status_logic(id: number, is_approved: boolean) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(`update ifttt_trigger_definition set is_approved = ? where id = ?;`, [is_approved, id]);
+    return result[0];
+  } catch (e) {
+    throw e;
+  }
+}
+
+export async function update_ifttt_trigger_definition_code_info_logic(
+  id: number,
+  trigger_signature: string,
+  trigger_signature_description: string,
+  trigger_code_description: string,
+  trigger_expected_input: string,
+  trigger_expected_input_description: string,
+  trigger_expected_output: string,
+  trigger_expected_output_description: string
+) {
+  try {
+    const pool = await connect_to_mysql();
+    // write query to update ifttt_trigger_definition using the payload and myswl connection pool for the given id and input fields
+    const result: any = await pool!.query(
+      `update ifttt_trigger_definition set
+      trigger_signature = ?,
+      trigger_signature_description = ?,
+      trigger_code_description = ?,
+      trigger_expected_input = ?,
+      trigger_expected_input_description = ?,
+      trigger_expected_output = ?,
+      trigger_expected_output_description = ?
+      where id = ?;`,
+      [
+        trigger_signature,
+        trigger_signature_description,
+        trigger_code_description,
+        trigger_expected_input,
+        trigger_expected_input_description,
+        trigger_expected_output,
+        trigger_expected_output_description,
+        id
+      ]
+    );
     return result[0];
   } catch (e) {
     throw e;

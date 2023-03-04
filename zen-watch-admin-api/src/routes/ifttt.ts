@@ -2,8 +2,8 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { STATUS_OK } from '../utils/constants';
 import { authenticate_dev_email } from './admin.middlewares';
-import { create_ifttt_trigger_definition, fetch_ifttt_public_approved_trigger_definitions, fetch_submitted_ifttt_trigger_definitions, fetch_trigger_definition_details, fetch_unique_ifttt_target_resource_names_for_public_triggers } from '../handlers/ifttt_trigger_definition.handler';
-import { create_ifttt_action_definition, fetch_action_definition_details, fetch_ifttt_public_approved_action_definitions, fetch_submitted_ifttt_action_definitions, fetch_unique_ifttt_target_resource_names_for_public_actions } from '../handlers/ifttt_action_definition.handler';
+import { create_ifttt_trigger_definition, fetch_ifttt_public_approved_trigger_definitions, fetch_submitted_ifttt_trigger_definitions, fetch_trigger_definition_details, fetch_unique_ifttt_target_resource_names_for_public_triggers, update_ifttt_trigger_definition_approval_status, update_ifttt_trigger_definition_code_info } from '../handlers/ifttt_trigger_definition.handler';
+import { create_ifttt_action_definition, fetch_action_definition_details, fetch_ifttt_public_approved_action_definitions, fetch_submitted_ifttt_action_definitions, fetch_unique_ifttt_target_resource_names_for_public_actions, update_ifttt_action_definition_approval_status, update_ifttt_action_definition_code_info } from '../handlers/ifttt_action_definition.handler';
 import { create_ifttt_instance, fetch_ifttt_instances, update_ifttt_instance_status } from '../handlers/ifttt_instance.handler';
 import { fetch_ifttt_trigger_run_history } from '../handlers/ifttt_trigger_run_history.handler';
 import { fetch_ifttt_action_run_history } from '../handlers/ifttt_action_run_history.handler';
@@ -27,29 +27,22 @@ router.post('/test/echo', authenticate_dev_email, (req: Request, res: Response) 
 
 // ------------------------------- Create APIs -----------------------------------------------
 
-// Fetch ifttt trigger definitions that matches the given criteria
+// Create ifttt trigger definition
 router.post('/create/trigger_definition', authenticate_dev_email, (req: Request, res: Response) => {
     create_ifttt_trigger_definition(req.body)
         .then(_res => res.status(_res.status).send(_res))
 })
 
-// Fetch ifttt action definitions that matches the given criteria
+// Create ifttt action definition
 router.post('/create/action_definition', authenticate_dev_email, (req: Request, res: Response) => {
     create_ifttt_action_definition(req.body)
         .then(_res => res.status(_res.status).send(_res))
 })
 
-// Fetch ifttt definitions that matches the given criteria
+// Create ifttt instance
 router.post('/create/ifttt_instance', authenticate_dev_email, (req: Request, res: Response) => {
     create_ifttt_instance(req.body)
         .then(_res => res.status(_res.status).send(_res))
-})
-
-// Update ifttt definitions that matches the given criteria to enable/disable the trigger instance
-router.post('/update/ifttt_instance/status', authenticate_dev_email, (req: Request, res: Response) => {
-    const {email, instance_id, new_instance_status} = req.body
-    update_ifttt_instance_status(email, instance_id, new_instance_status)
-    .then(_res => res.status(_res.status).send(_res))
 })
 
 // Create ifttt trigger target resource name
@@ -65,6 +58,80 @@ router.post('/create/action_target_resource_name', authenticate_dev_email, (req:
     create_ifttt_action_target_resource_name(target_resource_name, is_onchain)
         .then(_res => res.status(_res.status).send(_res))
 })
+
+// ------------------------------- Update APIs -----------------------------------------------
+
+// Update ifttt definitions that matches the given criteria to enable/disable the trigger instance
+router.post('/update/ifttt_instance/status', authenticate_dev_email, (req: Request, res: Response) => {
+    const {email, instance_id, new_instance_status} = req.body
+    update_ifttt_instance_status(email, instance_id, new_instance_status)
+    .then(_res => res.status(_res.status).send(_res))
+})
+
+// Update approval status for ifttt trigger definition for a given id
+router.post('/update/trigger_definition/approval_status', authenticate_dev_email, (req: Request, res: Response) => {
+    const {id, is_approved} = req.body
+    update_ifttt_trigger_definition_approval_status(id, is_approved)
+    .then(_res => res.status(_res.status).send(_res))
+})
+
+// Update approval ifttt action definition for a given id
+router.post('/update/action_definition/approval_status', authenticate_dev_email, (req: Request, res: Response) => {
+    const {id, is_approved} = req.body
+    update_ifttt_action_definition_approval_status(id, is_approved)
+    .then(_res => res.status(_res.status).send(_res))
+})
+
+// Update info about code for ifttt trigger definition for a given id
+router.post('/update/trigger_definition/code_info', authenticate_dev_email, (req: Request, res: Response) => {
+    const {
+        id,
+        trigger_signature, 
+        trigger_signature_description,
+        trigger_code_description,
+        trigger_expected_input,
+        trigger_expected_input_description,
+        trigger_expected_output,
+        trigger_expected_output_description
+    } = req.body
+    update_ifttt_trigger_definition_code_info(
+        id,
+        trigger_signature, 
+        trigger_signature_description,
+        trigger_code_description,
+        trigger_expected_input,
+        trigger_expected_input_description,
+        trigger_expected_output,
+        trigger_expected_output_description
+    )
+    .then(_res => res.status(_res.status).send(_res))
+})
+
+// Update info about code for ifttt action definition for a given id
+router.post('/update/action_definition/code_info', authenticate_dev_email, (req: Request, res: Response) => {
+    const {
+        id,
+        action_signature, 
+        action_signature_description,
+        action_code_description,
+        action_expected_input,
+        action_expected_input_description,
+        action_expected_output,
+        action_expected_output_description
+    } = req.body
+    update_ifttt_action_definition_code_info(
+        id,
+        action_signature, 
+        action_signature_description,
+        action_code_description,
+        action_expected_input,
+        action_expected_input_description,
+        action_expected_output,
+        action_expected_output_description
+    )
+    .then(_res => res.status(_res.status).send(_res))
+})
+
 
 // ------------------------------- Read APIs -----------------------------------------------
 
