@@ -7,6 +7,8 @@ import { create_ifttt_action_definition, fetch_action_definition_details, fetch_
 import { create_ifttt_instance, fetch_ifttt_instances, update_ifttt_instance_status } from '../handlers/ifttt_instance.handler';
 import { fetch_ifttt_trigger_run_history } from '../handlers/ifttt_trigger_run_history.handler';
 import { fetch_ifttt_action_run_history } from '../handlers/ifttt_action_run_history.handler';
+import { create_ifttt_trigger_target_resource_name, fetch_all_trigger_target_resource_name } from '../handlers/ifttt_trigger_target_resource_name.handler';
+import { create_ifttt_action_target_resource_name, fetch_all_action_target_resource_name } from '../handlers/ifttt_action_target_resource_name.handler';
 dotenv.config();
 
 const router = express.Router()
@@ -48,6 +50,20 @@ router.post('/update/ifttt_instance/status', authenticate_dev_email, (req: Reque
     const {email, instance_id, new_instance_status} = req.body
     update_ifttt_instance_status(email, instance_id, new_instance_status)
     .then(_res => res.status(_res.status).send(_res))
+})
+
+// Create ifttt trigger target resource name
+router.post('/create/trigger_target_resource_name', authenticate_dev_email, (req: Request, res: Response) => {
+    const {target_resource_name, is_onchain} = req.body
+    create_ifttt_trigger_target_resource_name(target_resource_name, is_onchain)
+        .then(_res => res.status(_res.status).send(_res))
+})
+
+// Create ifttt action target resource name
+router.post('/create/action_target_resource_name', authenticate_dev_email, (req: Request, res: Response) => {
+    const {target_resource_name, is_onchain} = req.body
+    create_ifttt_action_target_resource_name(target_resource_name, is_onchain)
+        .then(_res => res.status(_res.status).send(_res))
 })
 
 // ------------------------------- Read APIs -----------------------------------------------
@@ -113,6 +129,17 @@ router.post('/fetch/ifttt_action_run_history', authenticate_dev_email, (req: Req
     .then(_res => res.status(_res.status).send(_res))
 })
 
+// Fetch ifttt trigger target resource names that matches the given criteria
+router.post('/fetch/trigger_target_resource_name', authenticate_dev_email, (req: Request, res: Response) => {
+    fetch_all_trigger_target_resource_name()
+    .then(_res => res.status(_res.status).send(_res))
+})
+
+// Fetch ifttt action target resource names that matches the given criteria
+router.post('/fetch/action_target_resource_name', authenticate_dev_email, (req: Request, res: Response) => {
+    fetch_all_action_target_resource_name()
+    .then(_res => res.status(_res.status).send(_res))
+})
 
 
 module.exports = router
