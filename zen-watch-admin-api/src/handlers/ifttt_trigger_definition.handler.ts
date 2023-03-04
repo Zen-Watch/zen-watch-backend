@@ -1,4 +1,4 @@
-import { create_ifttt_trigger_definition_logic, fetch_ifttt_public_approved_trigger_definitions_logic, fetch_trigger_definition_details_logic, fetch_unique_ifttt_target_resource_names_for_public_triggers_logic } from "../logic/ifttt_trigger_definition.logic";
+import { create_ifttt_trigger_definition_logic, fetch_ifttt_public_approved_trigger_definitions_logic, fetch_submitted_ifttt_trigger_definitions_logic, fetch_trigger_definition_details_logic, fetch_unique_ifttt_target_resource_names_for_public_triggers_logic } from "../logic/ifttt_trigger_definition.logic";
 import { STATUS_NOT_FOUND, STATUS_OK } from "../utils/constants";
 import dotenv from 'dotenv';
 import { get_developer_by_email_from_cache } from "../cache/developer.cache";
@@ -37,6 +37,16 @@ export async function fetch_unique_ifttt_target_resource_names_for_public_trigge
 export async function fetch_ifttt_public_approved_trigger_definitions(target_resource_name: string) {
     try {
         const rows = await fetch_ifttt_public_approved_trigger_definitions_logic(target_resource_name);
+        return { status: STATUS_OK, message: rows }
+    } catch (error) {
+        return { status: STATUS_NOT_FOUND, message: 'Error during trigger definitions fetch. Please contact support@zen.watch' }
+    }
+}
+
+export async function fetch_submitted_ifttt_trigger_definitions(email: string) {
+    try {
+        const dev = await get_developer_by_email_from_cache(email);
+        const rows = await fetch_submitted_ifttt_trigger_definitions_logic(dev.id);
         return { status: STATUS_OK, message: rows }
     } catch (error) {
         return { status: STATUS_NOT_FOUND, message: 'Error during trigger definitions fetch. Please contact support@zen.watch' }

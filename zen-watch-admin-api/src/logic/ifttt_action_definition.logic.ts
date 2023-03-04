@@ -96,3 +96,13 @@ export async function fetch_ifttt_public_approved_action_definitions_logic(targe
     throw e;
   }
 }
+
+export async function fetch_submitted_ifttt_action_definitions_logic(dev_id: number) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(`select * from ifttt_action_definition where dev_id = ?;`, [dev_id]);
+    return result[0];
+  } catch (e) {
+    throw e;
+  }
+}
