@@ -90,10 +90,11 @@ export async function fetch_unique_ifttt_target_resource_names_for_public_trigge
   }
 }
 
-export async function fetch_ifttt_public_approved_trigger_definitions_logic(target_resource_name: string) {
+export async function fetch_ifttt_public_approved_trigger_definitions_logic(target_resource_name: string, dev_id: number) {
   try {
     const pool = await connect_to_mysql();
-    const result: any = await pool!.query(`select * from ifttt_trigger_definition where is_public = 1 and is_approved = 1 and target_resource_name = ?;`, [target_resource_name]);
+    // update the query to fetch either public or private triggers based on the dev_id, all of whicih are approved
+    const result: any = await pool!.query(`select * from ifttt_trigger_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and target_resource_name = ?;`, [dev_id, target_resource_name]);
     return result[0];
   } catch (e) {
     throw e;

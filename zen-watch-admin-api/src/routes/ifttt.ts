@@ -171,14 +171,14 @@ router.post('/fetch/unique/public/action/target_resource_names', authenticate_de
 // Fetch ifttt trigger definitions that matches the given criteria
 router.post('/fetch/public/approved/trigger_definitions', authenticate_dev_email, (req: Request, res: Response) => {
     const { email, target_resource_name } = req.body
-    fetch_ifttt_public_approved_trigger_definitions(target_resource_name)
+    fetch_ifttt_public_approved_trigger_definitions(target_resource_name, email)
     .then(_res => res.status(_res.status).send(_res))
 })
 
 // Fetch ifttt action definitions that matches the given criteria
 router.post('/fetch/public/approved/action_definitions', authenticate_dev_email, (req: Request, res: Response) => {
     const { email, target_resource_name } = req.body
-    fetch_ifttt_public_approved_action_definitions(target_resource_name)
+    fetch_ifttt_public_approved_action_definitions(target_resource_name, email)
     .then(_res => res.status(_res.status).send(_res))
 })
 
