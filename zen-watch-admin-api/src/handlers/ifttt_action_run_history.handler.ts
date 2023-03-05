@@ -8,6 +8,6 @@ export async function fetch_ifttt_action_run_history(email: string) {
         const rows = await fetch_ifttt_action_run_history_logic(dev.id);
         return { status: STATUS_OK, message: rows }
     } catch (error) {
-        return { status: STATUS_NOT_FOUND, message: 'Error during action run history fetch. Please contact support@zen.watch' }
+        return { status: STATUS_NOT_FOUND, message: 'Error during action run history fetch. Please contact support@zen.watch', error }
     }
 }
