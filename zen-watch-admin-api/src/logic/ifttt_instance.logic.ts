@@ -24,3 +24,23 @@ export async function create_ifttt_instance_logic(payload: any) {
     throw e;
   }
 }
+
+export async function update_ifttt_instance_status_logic(dev_id: number, instance_id: number, new_instance_status: number) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(`update ifttt_instance set ifttt_instance_is_on = ? where dev_id = ? and id = ?;`, [new_instance_status, dev_id, instance_id]);
+    return result[0];
+  } catch (e) {
+    throw e;
+  }
+}
+
+export async function get_ifttt_instances_by_dev_id(dev_id: number) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(`select * from ifttt_instance where dev_id = ?;`, [dev_id]);
+    return result[0];
+  } catch (e) {
+    throw e;
+  }
+}

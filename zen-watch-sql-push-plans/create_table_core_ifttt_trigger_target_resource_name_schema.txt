@@ -1,0 +1,12 @@
+CREATE TABLE ifttt_trigger_target_resource_name (
+    id INT NOT NULL AUTO_INCREMENT,
+    target_resource_name VARCHAR(500) NOT NULL,
+    is_onchain TINYINT(1) DEFAULT 0,
+    created_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY(id),
+    INDEX IFTTRN_TRN (target_resource_name ASC),
+    INDEX IFTTRN_IOC (is_onchain),
+    INDEX IFTTRN_CTS (created_ts ASC),
+    INDEX IFTTRN_UTS (updated_ts ASC)
+);
