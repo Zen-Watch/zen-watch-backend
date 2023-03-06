@@ -18,7 +18,7 @@ export async function fetch_ifttt_trigger_run_history_logic(dev_id: number) {
             from ifttt_trigger_run_history 
             inner join ifttt_trigger_definition 
             on 
-                ifttt_trigger_run_history.trigger_run_info->"$.trigger_id" = ifttt_trigger_definition.id 
+                JSON_EXTRACT(ifttt_trigger_run_history.trigger_run_info, '$.trigger_id') = ifttt_trigger_definition.id
             inner join ifttt_instance 
             on 
                 ifttt_trigger_run_history.ifttt_instance_id = ifttt_instance.id 
