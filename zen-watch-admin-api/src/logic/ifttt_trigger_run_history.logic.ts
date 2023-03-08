@@ -10,6 +10,7 @@ export async function fetch_ifttt_trigger_run_history_logic(dev_id: number) {
                 ifttt_trigger_run_history.id, 
                 ifttt_trigger_run_history.dev_id, 
                 ifttt_trigger_run_history.trigger_run_status,
+                ifttt_trigger_run_history.trigger_run_output,
                 ifttt_trigger_run_history.created_ts, 
                 ifttt_trigger_run_history.updated_ts, 
                 ifttt_trigger_definition.trigger_name as ifttt_trigger_name, 
