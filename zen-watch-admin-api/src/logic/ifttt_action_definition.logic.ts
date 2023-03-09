@@ -70,7 +70,22 @@ export async function create_ifttt_action_definition_logic(payload: any) {
 export async function fetch_action_definition_details_logic(ids: number[]) {
   try {
     const pool = await connect_to_mysql();
-    const result: any = await pool!.query(`select * from ifttt_action_definition where id in (?);`, [ids]);
+    const result: any = await pool!.query(
+      `select 
+        id, 
+        dev_id, 
+        is_public, 
+        is_approved, 
+        target_resource_name, 
+        action_name, 
+        action_description, 
+        action_expected_input, 
+        action_expected_input_description, 
+        action_expected_output, 
+        action_expected_output_description 
+      from ifttt_action_definition where id in (?);`, 
+      [ids]
+    );
     return result[0];
   } catch (e) {
     throw e;
@@ -90,8 +105,23 @@ export async function fetch_unique_ifttt_target_resource_names_for_public_action
 export async function fetch_ifttt_public_approved_action_definitions_logic(target_resource_name: string, dev_id: number) {
   try {
     const pool = await connect_to_mysql();
-    // update the query to fetch either public or private triggers based on the dev_id, all of whicih are approved
-    const result: any = await pool!.query(`select * from ifttt_action_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and target_resource_name = ?;`, [dev_id, target_resource_name]);
+    // update the query to fetch either public or private actions based on the dev_id, all of whicih are approved
+    const result: any = await pool!.query(
+      `select 
+        id, 
+        dev_id, 
+        is_public, 
+        is_approved, 
+        target_resource_name, 
+        action_name, 
+        action_description, 
+        action_expected_input, 
+        action_expected_input_description, 
+        action_expected_output, 
+        action_expected_output_description
+      from ifttt_action_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and target_resource_name = ?;`, 
+      [dev_id, target_resource_name]
+    );
     return result[0];
   } catch (e) {
     throw e;

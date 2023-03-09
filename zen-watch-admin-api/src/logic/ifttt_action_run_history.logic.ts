@@ -10,6 +10,7 @@ export async function fetch_ifttt_action_run_history_logic(dev_id: number) {
                 ifttt_action_run_history.id, 
                 ifttt_action_run_history.dev_id, 
                 ifttt_action_run_history.action_run_status,
+                ifttt_action_run_history.action_run_info,
                 ifttt_action_run_history.action_run_output,
                 ifttt_action_run_history.created_ts, 
                 ifttt_action_run_history.updated_ts, 
