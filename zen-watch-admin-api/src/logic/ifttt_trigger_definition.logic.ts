@@ -79,13 +79,18 @@ export async function fetch_trigger_definition_details_logic(id: number) {
         dev_id, 
         is_public, 
         is_approved, 
+        is_trusted_source,
+        is_compute_intensive,
+        is_push_mechanism,
         target_resource_name, 
         trigger_name, 
         trigger_description, 
         trigger_expected_input, 
         trigger_expected_input_description, 
         trigger_expected_output, 
-        trigger_expected_output_description
+        trigger_expected_output_description,
+        created_ts,
+        updated_ts
       from ifttt_trigger_definition where id = ?;`, 
       [id]
     );
@@ -111,17 +116,22 @@ export async function fetch_ifttt_public_approved_trigger_definitions_logic(targ
     // update the query to fetch either public or private triggers based on the dev_id, all of whicih are approved
     const result: any = await pool!.query(
       `select 
-        id,
+        id, 
         dev_id, 
         is_public, 
         is_approved, 
+        is_trusted_source,
+        is_compute_intensive,
+        is_push_mechanism,
         target_resource_name, 
         trigger_name, 
         trigger_description, 
         trigger_expected_input, 
         trigger_expected_input_description, 
         trigger_expected_output, 
-        trigger_expected_output_description 
+        trigger_expected_output_description,
+        created_ts,
+        updated_ts
       from ifttt_trigger_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and target_resource_name = ?;`, 
       [dev_id, target_resource_name]
     );

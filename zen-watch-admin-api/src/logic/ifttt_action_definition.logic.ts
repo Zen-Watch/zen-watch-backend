@@ -76,13 +76,17 @@ export async function fetch_action_definition_details_logic(ids: number[]) {
         dev_id, 
         is_public, 
         is_approved, 
+        is_trusted_source,
+        is_compute_intensive,
         target_resource_name, 
         action_name, 
         action_description, 
         action_expected_input, 
         action_expected_input_description, 
         action_expected_output, 
-        action_expected_output_description 
+        action_expected_output_description,
+        created_ts,
+        updated_ts 
       from ifttt_action_definition where id in (?);`, 
       [ids]
     );
@@ -112,13 +116,17 @@ export async function fetch_ifttt_public_approved_action_definitions_logic(targe
         dev_id, 
         is_public, 
         is_approved, 
+        is_trusted_source,
+        is_compute_intensive,
         target_resource_name, 
         action_name, 
         action_description, 
         action_expected_input, 
         action_expected_input_description, 
         action_expected_output, 
-        action_expected_output_description
+        action_expected_output_description,
+        created_ts,
+        updated_ts
       from ifttt_action_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and target_resource_name = ?;`, 
       [dev_id, target_resource_name]
     );
