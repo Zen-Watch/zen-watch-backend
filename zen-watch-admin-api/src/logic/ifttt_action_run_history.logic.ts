@@ -25,7 +25,8 @@ export async function fetch_ifttt_action_run_history_logic(dev_id: number) {
             on 
                 ifttt_action_run_history.ifttt_instance_id = ifttt_instance.id 
             where 
-                ifttt_action_run_history.dev_id = ?;`, 
+                ifttt_action_run_history.dev_id = ?
+            order by ifttt_action_run_history.updated_ts desc;`,
             [dev_id]
         );
         return result[0];
