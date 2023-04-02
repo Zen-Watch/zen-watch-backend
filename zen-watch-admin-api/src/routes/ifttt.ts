@@ -17,14 +17,6 @@ router.get('/healthz', (req, res) => {
     res.status(STATUS_OK).send('hello world, ifttt!!');
 })
 
-// ------------------------------- Echo Bot API for IFTTT testing ----------------------------
-
-// Echo Bot API for IFTTT testing, echos back the request body
-router.post('/test/echo', authenticate_dev_email, (req: Request, res: Response) => {
-    res.status(STATUS_OK).send(req.body);
-    //res.status(500).send({status: 500, message: 'test error'});
-})
-
 // ------------------------------- Create APIs -----------------------------------------------
 
 // Create ifttt trigger definition
