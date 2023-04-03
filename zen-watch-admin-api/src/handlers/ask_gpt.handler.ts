@@ -24,7 +24,7 @@ async function ask_openai(prompt: string) {
             model: OPENAI_CHATGPT_MODEL,
             messages: [{ role: "user", content: prompt }],
         }, {
-            timeout: 120000 // 120 seconds or 2 minutes timeout
+            timeout: 120000 // 120 seconds or 2 minutes timeout at max
         });
         return { status: response.status, message: response?.data?.choices[0]?.message?.content };
     } catch (error: any) {
