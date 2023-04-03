@@ -25,6 +25,7 @@ ALCHEMY_API_KEY='get-your-alchemy-api-key'
 CRYPTOCOMPARE_API_KEY='get-your-cryptocompare-api-key'
 ALLOWED_DEV_API_KEY='zen-watch-api-key'
 IFTTT_INSTANCE_WORKER_SHARDS=1
+OPENAI_API_KEY="your-api-key"
 ```
 
 ### Local Testing in Postman

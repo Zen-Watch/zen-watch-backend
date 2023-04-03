@@ -9,6 +9,7 @@ import { fetch_ifttt_trigger_run_history } from '../handlers/ifttt_trigger_run_h
 import { fetch_ifttt_action_run_history } from '../handlers/ifttt_action_run_history.handler';
 import { create_ifttt_trigger_target_resource_name, fetch_all_trigger_target_resource_name } from '../handlers/ifttt_trigger_target_resource_name.handler';
 import { create_ifttt_action_target_resource_name, fetch_all_action_target_resource_name } from '../handlers/ifttt_action_target_resource_name.handler';
+import { ask_gpt } from '../handlers/ask_gpt.handler';
 dotenv.config();
 
 const router = express.Router()
@@ -214,5 +215,13 @@ router.post('/fetch/submissions/action_definitions', authenticate_dev_email, (re
     .then(_res => res.status(_res.status).send(_res))
 })
 
+// ------------------------------- ChatGPT APIs -----------------------------------------------
+
+// Ask GPT to generate a response
+router.post('/ask/gpt', authenticate_dev_email, (req: Request, res: Response) => {
+    const { prompt } = req.body
+    ask_gpt(prompt)
+    .then(_res => res.status(_res.status).send(_res))
+})
 
 module.exports = router
