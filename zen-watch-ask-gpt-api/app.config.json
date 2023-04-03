@@ -1,9 +1,0 @@
-{
-    "apps": [
-        {
-            "name": "admin-ask-gpt-api-server",
-            "script": "npm",
-            "args" : "start"
-        }
-    ]
-}
