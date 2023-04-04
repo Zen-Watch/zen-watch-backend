@@ -142,6 +142,8 @@ export async function fetch_ifttt_public_approved_action_definition_code_logic(a
     const result: any = await pool!.query(
       `select 
         id, 
+        action_signature,
+        action_signature_description,
         action_code, 
         action_code_description, 
         created_ts,

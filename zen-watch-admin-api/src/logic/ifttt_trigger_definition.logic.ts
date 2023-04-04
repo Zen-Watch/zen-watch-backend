@@ -147,6 +147,8 @@ export async function fetch_ifttt_public_approved_trigger_definition_code_logic(
     const result: any = await pool!.query(
       `select 
         id, 
+        trigger_signature,
+        trigger_signature_description,
         trigger_code, 
         trigger_code_description, 
         created_ts,
