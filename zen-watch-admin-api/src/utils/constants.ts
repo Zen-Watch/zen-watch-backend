@@ -39,4 +39,7 @@ export const INR = "INR";
 export const INVALID_API_KEY = 'Invalid API Key';
 export const INVALID_DEVELOPER_EMAIL = 'Invalid Developer Email';
 
+// OpenAI ChatGPT model
+export const OPENAI_CHATGPT_MODEL = 'gpt-3.5-turbo';
+
 

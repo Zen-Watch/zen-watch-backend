@@ -91,7 +91,7 @@ export async function fetch_trigger_definition_details_logic(id: number) {
         trigger_expected_output_description,
         created_ts,
         updated_ts
-      from ifttt_trigger_definition where id = ?;`, 
+      from ifttt_trigger_definition where id = ?;`,
       [id]
     );
     return result[0][0];
@@ -132,10 +132,31 @@ export async function fetch_ifttt_public_approved_trigger_definitions_logic(targ
         trigger_expected_output_description,
         created_ts,
         updated_ts
-      from ifttt_trigger_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and target_resource_name = ?;`, 
+      from ifttt_trigger_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and target_resource_name = ?;`,
       [dev_id, target_resource_name]
     );
     return result[0];
+  } catch (e) {
+    throw e;
+  }
+}
+
+export async function fetch_ifttt_public_approved_trigger_definition_code_logic(trigger_id: number, dev_id: number) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(
+      `select 
+        id, 
+        trigger_signature,
+        trigger_signature_description,
+        trigger_code, 
+        trigger_code_description, 
+        created_ts,
+        updated_ts
+      from ifttt_trigger_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and id = ?;`,
+      [dev_id, trigger_id]
+    );
+    return result[0][0];
   } catch (e) {
     throw e;
   }
