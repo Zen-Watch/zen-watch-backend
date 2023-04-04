@@ -136,6 +136,25 @@ export async function fetch_ifttt_public_approved_action_definitions_logic(targe
   }
 }
 
+export async function fetch_ifttt_public_approved_action_definition_code_logic(action_id: number, dev_id: number) {
+  try {
+    const pool = await connect_to_mysql();
+    const result: any = await pool!.query(
+      `select 
+        id, 
+        action_code, 
+        action_code_description, 
+        created_ts,
+        updated_ts
+      from ifttt_action_definition where (is_public = 1 or dev_id = ?) and is_approved = 1 and id = ?;`,
+      [dev_id, action_id]
+    );
+    return result[0][0];
+  } catch (e) {
+    throw e;
+  }
+}
+
 export async function fetch_submitted_ifttt_action_definitions_logic(dev_id: number) {
   try {
     const pool = await connect_to_mysql();
