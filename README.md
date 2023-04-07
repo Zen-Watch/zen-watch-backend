@@ -22,3 +22,8 @@ Not setting to processing state now, as we want the subsequent task to pick up t
 ```
 export PS1="marco@zen.watch$"
 ```
+
+## Trace Network Calls
+```
+dig A zen.watch +trace
+```
