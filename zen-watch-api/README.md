@@ -45,7 +45,7 @@ Installs the dependencies for the the app with node command.
 ``` npm start ```
 Starts the app with node command.
 
-``` num run dev ```
+``` npm run dev ```
 Starts the app with nodemon command, for live reload during development.
 
 ### Start the processes with PM2 in production
