@@ -15,13 +15,3 @@ Backend code for Zen Watch, an open-source IFTTT for web3.
 ## MySQL Note
 
 Not setting to processing state now, as we want the subsequent task to pick up the unfinished task and right now, each shard is acted by one dedicated worker, which might be true in the future as well. Check out **HACK_MYSQL2_NOTES.md** to learrn more.
-
-## Change Prompt Name Temporarily
-```
-export PS1="marco@zen.watch$"
-```
-
-## Trace Network Calls
-```
-dig A zen.watch +trace
-```

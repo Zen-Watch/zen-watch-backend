@@ -191,5 +191,15 @@ gpg --verify mysql-standard-8.0.32-linux-i686.tar.gz.asc
 #### API Testing
 https://resttesttest.com/
 
+## Change Prompt Name Temporarily
+```
+export PS1="marco@zen.watch$"
+```
+
+## Trace Network Calls
+```
+dig A zen.watch +trace
+```
+
 
 
