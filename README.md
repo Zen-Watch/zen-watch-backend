@@ -4,7 +4,8 @@ Backend infrastructure for Zen Watch, an open-source IFTTT for web3.
 ### Architecture for the project
 Below diagram showcases the various components of the project. Each of the components can be independently horizontally scaled.
 
-![zen-watch-ifttt-architecture](https://github.com/sgdheeban/zen-watch-backend/assets/2181361/d96b6d4e-3009-45f6-93fa-cd8b27d9978a)
+<img width="1253" alt="zen-watch-ifttt-architecture" src="https://github.com/Zen-Watch/zen-watch-backend/assets/2181361/ab61ca59-0fca-4a08-be4a-8a8fa8a39598">
+
 
 **NOTE:** The event system in the repository is deprecated, a replacement SDK is currently in progress. The push plans for the core data structures are under the SQL push plan folder. This repository uses MySQL as the data store, you can run the push plans to recreate the data structures in your local development environment.
 
