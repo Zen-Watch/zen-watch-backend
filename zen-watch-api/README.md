@@ -80,6 +80,6 @@ kill -9 <PID>
 ```
 * Add your local dynamic ip to digital ocean trusted source, if your ip changed
 * Connect over terminal with public ip from your local, and private ip from admin/api servers
-mysql -u doadmin -h mysql-server-1-do-user-13444801-0.b.db.ondigitalocean.com -P 25060 -D zen_watch -p
+mysql -u doadmin -h mysql-server-xyz -P 25060 -D zen_watch -p
 * You can add the details to sqlace as well, no ca-cert required
 ```
