@@ -1,6 +1,8 @@
 # Zen Watch API
 Backend REST api server for Zen Watch which fetches data from the databases.
 
+Note: This repository contains an outdated Event System, and a new version is currently being build.
+
 ## Generate API keys
 Use the following site to genrate an api key for new sign ups - https://www.uuidgenerator.net/
 
