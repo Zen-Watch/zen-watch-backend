@@ -1,7 +1,7 @@
 # zen-watch-backend
-Backend code for Zen Watch, an [event based analytics system](https://www.youtube.com/watch?v=hMWyE3HBwW4) for web3.
+Backend code for Zen Watch, an open-source IFTTT for web3.
 
-Build the best in class IFTTT system for web3! That's focus & execution!
+Build the best in class IFTTT system for web3!
 
 ### Coding Stype
 - Use underscore for names and all lowcaps, instead of camel_case. Ex, `camel_case` instead of `CamelCase`.
