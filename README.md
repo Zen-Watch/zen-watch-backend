@@ -1,5 +1,5 @@
 # Zen.Watch IFTTT Node
-Backend code for Zen Watch, an open-source IFTTT for web3.
+Backend infrastructure for Zen Watch, an open-source IFTTT for web3.
 
 ### Architecture for the project
 Below diagram showcases the various components of the project. Each of the components can be independently horizontally scaled.
