@@ -1,6 +1,10 @@
 # zen-watch-backend
 Backend code for Zen Watch, an open-source IFTTT for web3.
 
+### Architecture for the project
+Below diagram showcases the various components of the project.
+![zen-watch-ifttt-architecture](https://github.com/sgdheeban/zen-watch-backend/assets/2181361/d96b6d4e-3009-45f6-93fa-cd8b27d9978a)
+
 ### Coding Stype
 - Use underscore for names and all lowcaps, instead of camel_case. Ex, `camel_case` instead of `CamelCase`.
 
